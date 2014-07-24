@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>IPAddressControl</id>
+    <version>1.2.4446.28646</version>
+    <title>IPAddressControl Lib</title>
+    <authors>hermano.cabral</authors>
+    <owners>hermano.cabral</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://code.google.com/p/ipaddresscontrollib</projectUrl>
+    <iconUrl>https://code.google.com/p/ipaddresscontrollib/logo?cct=1270019777</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Why didn't Microsoft include an IP address control in the stock toolbox for Visual Studio .NET? I needed something similar to the MFC CIPAddressCtrl class in a C# application recently, and was forced to roll my own. I tried to mimic the behavior of CIPAddressCtrl using C#, and hopefully I've succeeded.
+
+IPAddressControl is a ContainerControl that aggregates four specialized TextBox controls of type FieldCtrl and three specialized Controls of type DotCtrl.</description>
+    <summary>A C# IP Address Control</summary>
+    <copyright>Michael Chapman</copyright>
+    <language>en-US</language>
+    <tags>C# IPAddress Control</tags>
+  </metadata>
+</package>
