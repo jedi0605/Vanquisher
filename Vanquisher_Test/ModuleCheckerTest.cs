@@ -71,40 +71,24 @@ namespace Vanquisher_Test
         [TestMethod()]
         public void CheckHyperVModuleTest()
         {
-            Dictionary<string, string> result;
+            Dictionary<int, string> result;
             result = ModuleChecker.GetInstallModule();
             Assert.IsTrue(result.Count > 0);
         }
 
         /// <summary>
-        ///CheckModuleInstall 的測試
+        ///CheckModuleInstall 的測試 before testing, should install
         ///</summary>
         [TestMethod()]
         public void CheckModuleInstallTest()
         {
-            int[] moduleId = { 6 }; // TODO: 初始化為適當值
-            bool expected = true; // TODO: 初始化為適當值
-            bool actual;
-            int noneInstall = 0;
+            WindownsFeature[] checkModule = { WindownsFeature.WindowsPowerShell, WindownsFeature.Error };
+            Dictionary<string, bool> actual;
 
-            actual = ModuleChecker.CheckModuleInstall(moduleId, out noneInstall);
-            Assert.AreEqual(0, noneInstall);
-            Assert.AreEqual(expected, actual);
+            actual = ModuleChecker.CheckModuleInstall(checkModule);
+            Assert.IsTrue(actual[checkModule[0].ToString()]);
+            Assert.IsFalse(actual[checkModule[1].ToString()]);
         }
 
-        /// <summary>
-        ///CheckModuleInstall 的測試
-        ///</summary>
-        [TestMethod()]
-        public void CheckModuleNotInstallTest()
-        {
-            int[] moduleId = { 9999, 99999 }; // TODO: 初始化為適當值
-            bool expected = false; // TODO: 初始化為適當值
-            bool actual;
-            int noneInstall = 0;
-            actual = ModuleChecker.CheckModuleInstall(moduleId, out noneInstall);
-            Assert.AreEqual(9999, noneInstall);
-            Assert.AreEqual(expected, actual);
-        }
     }
 }
