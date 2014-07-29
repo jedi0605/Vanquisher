@@ -14,6 +14,7 @@ namespace VanquisherAPI
 {
     public class PSInvoker
     {
+
         private Runspace runspace;
         private PSCredential psCredential = null;
         public PSInvoker()
