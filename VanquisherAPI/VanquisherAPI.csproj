@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net40\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -47,6 +50,8 @@
   <ItemGroup>
     <Compile Include="APIResponse.cs" />
     <Compile Include="CheckServiceEnable.cs" />
+    <Compile Include="Enum.cs" />
+    <Compile Include="ISCSiAPI.cs" />
     <Compile Include="ModuleChecker.cs" />
     <Compile Include="NetworkCheker.cs" />
     <Compile Include="PowershellScript.cs" />
@@ -55,6 +60,12 @@
     <Compile Include="SetISCSI.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

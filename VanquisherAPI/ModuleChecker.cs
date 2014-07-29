@@ -3,34 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Management;
+using NLog;
 
 namespace VanquisherAPI
 {
     public class ModuleChecker
     {
         /// <summary>
-        /// iSCSI module 6, 435.
+        /// iSCSI need install module 6 , 435
+        /// Hyper-V 20
+        /// Cluster ??
         /// </summary>
         /// <param name="moduleId"></param>
         /// <returns></returns>
-        public static bool CheckModuleInstall(int[] moduleId, out int noneInstall)
+        static Logger logger = LogManager.GetCurrentClassLogger();
+
+        public static Dictionary<string, bool> CheckModuleInstall(WindownsFeature[] featureName)
         {
-            Dictionary<string, string> installedModul = GetInstallModule();
-            noneInstall = 0;
-            foreach (int item in moduleId)
+            Dictionary<int, string> installedModul = GetInstallModule();
+            Dictionary<string, bool> installResult = new Dictionary<string, bool>();
+
+            //init result
+            foreach (WindownsFeature item in featureName)
             {
-                if (!installedModul.ContainsKey(item.ToString()))
+                bool moduleInstalled = false;
+                if (installedModul.ContainsKey((int)item))
                 {
-                    noneInstall = item;
-                    return false;
+                    moduleInstalled = true;                    
                 }
+                installResult.Add(item.ToString(), moduleInstalled);
             }
-            return true;
+            return installResult;
         }
 
-        public static Dictionary<string, string> GetInstallModule()
+        /// <summary>
+        /// get installed module
+        /// </summary>
+        /// <returns></returns>
+        public static Dictionary<int, string> GetInstallModule()
         {
-            Dictionary<string, string> moduleIDName = new Dictionary<string, string>();
+            Dictionary<int, string> moduleIDName = new Dictionary<int, string>();
             ManagementClass objMC = new ManagementClass("Win32_ServerFeature");
 
             ManagementObjectCollection objMOC = objMC.GetInstances();
@@ -38,8 +50,9 @@ namespace VanquisherAPI
             {
                 string featureID = objMO.Properties["ID"].Value.ToString();
                 string featureName = (string)objMO.Properties["Name"].Value;
-                moduleIDName.Add(featureID, featureName);
+                moduleIDName.Add(int.Parse(featureID), featureName);
                 Console.WriteLine(featureID + " :" + featureName);
+                logger.Debug(featureID + " :" + featureName);
             }
             return moduleIDName;
         }

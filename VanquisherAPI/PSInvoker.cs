@@ -70,6 +70,14 @@ namespace VanquisherAPI
             try
             {
                 Collection<PSObject> o = p.Invoke();
+                Console.WriteLine(p.Error.ToString());
+
+                if (p.Error.Count > 0)
+                {
+                    ICollection<ErrorRecord> erCollection= new ErrorRecord[p.Error.Count];
+                    erCollection.Concat(p.Error.ReadToEnd());
+                    throw new psInvokerException(erCollection);
+                }
                 return o;
             }
             catch (Exception ex)
@@ -85,10 +93,17 @@ namespace VanquisherAPI
     }
     public class psInvokerException : Exception
     {
-        public psInvokerException()
-            : base()
+        public ICollection<ErrorRecord> errorRecords { get; private set; }
+
+        public psInvokerException(ICollection<ErrorRecord> errorRecords,string exMessage)
+            : base(exMessage)
         {
+            this.errorRecords = errorRecords;
         }
-        public psInvokerException(string message) : base(message) { }
+
+        public psInvokerException(ICollection<ErrorRecord> message) : base() 
+        {
+            this.errorRecords = errorRecords;
+        }
     }
 }
