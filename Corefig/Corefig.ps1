@@ -347,15 +347,15 @@ $btnComputer.UseVisualStyleBackColor = $true
 $btnComputer.Cursor = [System.Windows.Forms.Cursors]::Arrow
 $btnComputer.add_Click({Computer($btnComputer)})
 #~~< btnLicence >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$btnLicence = New-Object System.Windows.Forms.Button
-$btnLicence.FlatStyle = [System.Windows.Forms.FlatStyle]::System
-$btnLicence.Location = New-Object System.Drawing.Point(72, 301)
-$btnLicence.Size = New-Object System.Drawing.Size(152, 23)
-$btnLicence.TabIndex = 2
-$btnLicence.Text = $CoreStrings.LicenseSettingsDotted
-$btnLicence.UseVisualStyleBackColor = $true
-$btnLicence.Cursor = [System.Windows.Forms.Cursors]::Arrow
-$btnLicence.add_Click({Licencing($btnLicence)})
+#$btnLicence = New-Object System.Windows.Forms.Button
+#$btnLicence.FlatStyle = [System.Windows.Forms.FlatStyle]::System
+#$btnLicence.Location = New-Object System.Drawing.Point(72, 301)
+#$btnLicence.Size = New-Object System.Drawing.Size(152, 23)
+#$btnLicence.TabIndex = 2
+#$btnLicence.Text = $CoreStrings.LicenseSettingsDotted
+#$btnLicence.UseVisualStyleBackColor = $true
+#$btnLicence.Cursor = [System.Windows.Forms.Cursors]::Arrow
+#$btnLicence.add_Click({Licencing($btnLicence)})
 #~~< pboxHyperVDisabled >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $pboxHyperVDisabled = New-Object System.Windows.Forms.PictureBox
 $pboxHyperVDisabled.Location = New-Object System.Drawing.Point(331, 125)
@@ -717,64 +717,15 @@ $lblControl1.Size = New-Object System.Drawing.Size(171, 16)
 $lblControl1.TabIndex = 1
 $lblControl1.Text = $CoreStrings.ControlPanel
 #~~< pboxLicence >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$pboxLicence = New-Object System.Windows.Forms.PictureBox
-$pboxLicence.Location = New-Object System.Drawing.Point(15, 242)
-$pboxLicence.Size = New-Object System.Drawing.Size(39, 47)
-$pboxLicence.TabIndex = 0
-$pboxLicence.TabStop = $false
-$pboxLicence.Text = ""
-$pboxLicence.BackColor = [System.Drawing.Color]::Gainsboro
+#$pboxLicence = New-Object System.Windows.Forms.PictureBox
+#$pboxLicence.Location = New-Object System.Drawing.Point(15, 242)
+#$pboxLicence.Size = New-Object System.Drawing.Size(39, 47)
+#$pboxLicence.TabIndex = 0
+#$pboxLicence.TabStop = $false
+#$pboxLicence.Text = ""
+#$pboxLicence.BackColor = [System.Drawing.Color]::Gainsboro
 #region $pboxLicence.Image = ([System.Drawing.Image](...)
-$pboxLicence.Image = ([System.Drawing.Image]([System.Drawing.Image]::FromStream((New-Object System.IO.MemoryStream(($$ = [System.Convert]::FromBase64String(
-"iVBORw0KGgoAAAANSUhEUgAAACcAAAAmCAIAAADInRXHAAAAAXNSR0IArs4c6QAAAARnQU1BAACx"+
-                                 "jwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlz"+
-                                 "AAAOwQAADsEBuJFr7QAACktJREFUWEe91wdUU+ceAPDna21raZ/FWtvXVltHLa2j9ahVUYuCgChY"+
-                                 "qwIuVBAosgRZVtDKUKYg20iYAcKQHQghgSQQSMggjJCQQRiBgGFkQAIJId8jheeq9emrp/f8T07u"+
-                                 "zf/7/853v3FvFnG53H/8/cec+mfHQ0bUcJu7iOHWT3blEO+8IPNVf/rHcxsIGNARprtswEk+4jQl"+
-                                 "dp186DJAs2xFubxq9T/Lf47a35Y4wnKcFLn3d9nVVx1pQBweYDvNTAbyqSfwpV6vBX5WFTDhI0yn"+
-                                 "iSF3Ot46LtAg9LptWsLV2tyzY3w3+ah7Q4FFXVXmX4efVUXt12T8i8wG6zv++yJCblQhsfwePrW+"+
-                                 "mFNrreDZ0MtMS7J+e82qkJk3Tj0rIp/IjvoxPNgXhyfPkfPBRjtLcEadDwyykz1eszraFiluOELP"+
-                                 "N4z5zbKktPwROfeFU+cxXrmTAduWFuf8ApVBr28hVbVT0e00PJ1CfKnZNNrsM4o0QCcZJN8NmieF"+
-                                 "XZX9HVk8YjijyHCodCsne0Nlgj6tLu6P5dqpGCo2nVafTSPktjbmthGLmwnoBiyagEf/MfmpcRU1"+
-                                 "ug8Vb8ElbX1w7zyrMUhI9xRSbUfptmNES17hd/y8jT3w9WzYmk74zlbUzSdrEXHFmKJwJrlgbAgn"+
-                                 "E+ZJeu9Ke++MCTJ72BV4VGYpPIFGJT2Z/5Q6iLXrg6/rKtzEazomGfCYFvmqBr3VvMvyptNdWd+y"+
-                                 "s1ax0j7rSPmsM+UjfPKm5lrofCESvgQJ9+d1PphWFM+MOKoE+zQPt2rEG9Uj+qphz7GOaHzaxZzY"+
-                                 "p2bDY3W4M45XuouT8akArS8X3dRMRgGBL2BeAnQ7Xr5pWeAK4l0dfIQO5ta79ORlJMgqclXQvIor"+
-                                 "vslrjVNJIqfomxTM5WrZ10B9AKgtNBPbZtk/zGCPiHP0q/1WwROvPerugiqkewjbjrFL9Tog73NL"+
-                                 "Nkq5rhq+N6DZqhutlVgzbvb3cB/ddLc3C66+2wTZPET5lVvvRUFHzlWhYWHtdcEKabKcskGcv3i2"+
-                                 "b8eU3J1Y61OUfI5be1bZbiwr/loU9QHP5410Jz0kEjEP/64izUcYFv1dntiE1fiwRXURy9mFB6dJ"+
-                                 "Z6drzcbKdgoKvumDr25NXUtMNeDU+UwON4HZsV76HTIqTKviUkV9mTNCR2m5rhK3baLXuiz99C/H"+
-                                 "9B2P7sy+fXoA5yerMGYHv8cNWFziuvzurYWtTav21BwYppq0V1sUBX5RcmM5JnQtH24gQR0UVRkP"+
-                                 "VJr1VlsLiF5SLnRWSgbgIQAijZLW03yZjArRqg1wiQg23bp3ovgLTce5QcqpALvNNpbmsGwYCZHY"+
-                                 "Vx8zgb3MjlvPjF6DC/42wMkYha5d6OsIzVFMOzqIM+uscmhH+PbjrkrpweNtkWPsVNlgpULcplJx"+
-                                 "wWw/0HQB0ABAtUZV2kNxmlfpjTmS7rAp/HcTxZtnSQ4SghvU3yj2xnl2I6y72n+w4bacGsKDGXJT"+
-                                 "dlCitvic3JRyP2VBHWu2VXXaKdqdFIOFakWrWoFTT5FU03S1uhVoKMqJGslgmnI8EagzAIABANeo"+
-                                 "snoo55tR2tnURiqSsIOVRKOpahMl+sQM2UOA8WtJOcyE7OUVXpB2pMjot3kPfurJN6bEf+f58xcx"+
-                                 "UVH/7Wv9aWWzlYKmVQHA/156LtIBgGrUcWySZ2nyqV66F5hNACB5LjSquB6KJfn3JUtuLBfzU2eZ"+
-                                 "rurGM+rGQ2q2o0aYNNUSICF4KrogSm7CMPYip9B8GGlKiF3raLIiJkL7nNaOq6ju5DTOQk6wkfdB"+
-                                 "wCwcaEKB5rb2E4SrlWHIAhd/pyM0nBvQxAAQDTTRGlX4WM81VssDMhFHJaGlvRUztCvKRtPp5h+m"+
-                                 "O8xn+B6zvTdmekKmmP4ijCUPvrevxFBas7vyxuenDL5MSr6/oA6jjytqDkxgLSf58UAFA6rb2lCG"+
-                                 "gtlI+WR4Cczhuv1uQpH1zLT2ClBFaNQZsnESnUYgNlQNsrDi5nhplZUCtWm85JOh3LWjiF0SzAEx"+
-                                 "0lCYv6M7/fu+nO0SxI/8tK0R1p+eOrQHgcIsqELUTxKEvhhtLuPdAfJUIAvUxmQwmAkTdAekR5iH"+
-                                 "X1xfn3VwShoI5mA5ZELW2UKtr0Xmckj5AkwwP8dSnLN7BrZy4t4H/dHLehP/PZjxzTBs83DmhtGC"+
-                                 "7bIKQ2HG3gfO68/tWel15fLj9SpAHh4p2TKCNJJyQoAkCYwFgNEAIL4BJoP62z1ybu1Jv/I1G2Wl"+
-                                 "lt4EE/Fy6RzZgKnM6cSl88qusDKNh/K3KXM+V8e/MxWnK83dIykxliP2K6qN5agDkyizQZhJ5ZUN"+
-                                 "rvs/PvmTYXll9WO1F2EqLNAbqtgl43kDcQQY8gNCPzB0dc5W9HhTYabo8C0jVFsgjZqa4M31EoXI"+
-                                 "asfcY8DtO6A7R6s2zNR+rMp/ix+2CO2zBBVryqz0HMHbDlYfombsqovcmOOy5rLJp5Zmu+5BFvbt"+
-                                 "hTvMrzDqyV7VV/a9jO8GRm+BXi9t9HmDAV9Nn9cg8igDunOC5jitEFAp9cjyDCYO2pZ5hhj3LS9/"+
-                                 "LSv1w7Zbb1ICFt2/+E8bk3dtjur5/7I9wn19qONy7+PvOR/SvWD2lcOFE7Ac+KNNeEHtLtnNTvuw"+
-                                 "u2ijtNsPPAwDHDdtcN0Bz0PT5TJJOCWtO6ZkuLe2khFFKSxcaleBe3PC/r6ybR3pH4We0LHXX+ps"+
-                                 "tOzk/s+tThyKjAqPCfP2cz3qbn/Qzf6or+elxOR7uHrCk+SCyir+sS3pbQ5cT8oLAUPRgOkEWJdA"+
-                                 "l4s2WM6aLufZbi82u6O2Oo+FTWbn2zKydow37VM2rS//dbHV7tUODk4xsXfvp6Q1NlGeqf5np9r1"+
-                                 "yibGNyatastYJ+Hd1QiTZzsuzoWaYadsOzdJsZbQLnBYNDymiFsPYeacpSfrCQo/G6nQZSa9EWm1"+
-                                 "5MJxs3IU9iWxR2kLT7pmVFhDxj5+07Vhsp+g8kB36T5Gvj4Bur0OatZOwxDQ+TxsPAtuQ0/SY0M/"+
-                                 "IVz/sOjCe7EW79jvWeHv40Ekkf9PVbu31aUiYe5F8cezwkxSb5snhVhDIl1IhGpibR6nLrYz+3hL"+
-                                 "4lcP4R93xOjc+nmZo/Fml+NGng6n4Xm5r0oujOujZk2EGkRpdmkxvKKiDIXBNTU0kTC57JpIdt7p"+
-                                 "FshKYfFSRdk7dQFv2pmuuXbVF1FZRSQ+9Tb08vzz/+fMt6dgYGxkKC/fkpG6uhOqy4IsoUe9lWKv"+
-                                 "42i5Oxf+1Ep4ee/xLvHcNmQUlFXm35n2MydtTX/u+9VBSxOcPwo6v8rTasN1n0sEQuOrSs+u1+er"+
-                                 "hb8yUg7TIr8cy9MZgC4OsFrqcMYwNPhaCiSxpgb1V8hnx/XJWuQ0O178OlGWzkzFG+SgRaf2rwwM"+
-                                 "DiM10/6i9z/ucEO8NSfkXyPQt3uTlsSdXGRluhVRjX4t5Iv6mhftGmGhe9/qE8iZdbb7Vjg72rwu"+
-                                 "8kUqDoO8ecXZ5YyVr6vTbwFXq6qq/g71NRp/LPUfSYR4DzQt1xoAAAAASUVORK5CYII=")),0,$$.Length)))))
+
 #endregion
 #~~< lblComputer1 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $lblComputer1 = New-Object System.Windows.Forms.Label
@@ -784,19 +735,19 @@ $lblComputer1.Size = New-Object System.Drawing.Size(171, 16)
 $lblComputer1.TabIndex = 1
 $lblComputer1.Text = $CoreStrings.ComputerSettings
 #~~< lblLicence2 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$lblLicence2 = New-Object System.Windows.Forms.Label
-$lblLicence2.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
-$lblLicence2.Location = New-Object System.Drawing.Point(70, 258)
-$lblLicence2.Size = New-Object System.Drawing.Size(263, 31)
-$lblLicence2.TabIndex = 1
-$lblLicence2.Text = $CoreStrings.LicenseDescription
+#$lblLicence2 = New-Object System.Windows.Forms.Label
+#$lblLicence2.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
+#$lblLicence2.Location = New-Object System.Drawing.Point(70, 258)
+#$lblLicence2.Size = New-Object System.Drawing.Size(263, 31)
+#$lblLicence2.TabIndex = 1
+#$lblLicence2.Text = $CoreStrings.LicenseDescription
 #~~< lblLicence1 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$lblLicence1 = New-Object System.Windows.Forms.Label
-$lblLicence1.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
-$lblLicence1.Location = New-Object System.Drawing.Point(72, 242)
-$lblLicence1.Size = New-Object System.Drawing.Size(171, 16)
-$lblLicence1.TabIndex = 1
-$lblLicence1.Text = $CoreStrings.LicenseSettings
+#$lblLicence1 = New-Object System.Windows.Forms.Label
+#$lblLicence1.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
+#$lblLicence1.Location = New-Object System.Drawing.Point(72, 242)
+#$lblLicence1.Size = New-Object System.Drawing.Size(171, 16)
+#$lblLicence1.TabIndex = 1
+#$lblLicence1.Text = $CoreStrings.LicenseSettings
 $panelMenu.Controls.Add($btnHyperV)
 $panelMenu.Controls.Add($btnNetwork)
 $panelMenu.Controls.Add($btnControlPanel)

@@ -311,14 +311,14 @@ $btnDCPromo.UseVisualStyleBackColor = $true
 $btnDCPromo.Enabled = $false
 $btnDCPromo.add_Click({BtnDCPromoClick($btnDCPromo)})
 #~~< Button1 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$Button1 = New-Object System.Windows.Forms.Button
-$Button1.FlatStyle = [System.Windows.Forms.FlatStyle]::System
-$Button1.Location = New-Object System.Drawing.Point(69, 307)
-$Button1.Size = New-Object System.Drawing.Size(159, 23)
-$Button1.TabIndex = 17
-$Button1.Text = $TextStrings.ServicesButton
-$Button1.UseVisualStyleBackColor = $true
-$Button1.add_Click({BtnServicesClick($Button1)})
+#$Button1 = New-Object System.Windows.Forms.Button
+#$Button1.FlatStyle = [System.Windows.Forms.FlatStyle]::System
+#$Button1.Location = New-Object System.Drawing.Point(69, 307)
+#$Button1.Size = New-Object System.Drawing.Size(159, 23)
+#$Button1.TabIndex = 17
+#$Button1.Text = $TextStrings.ServicesButton
+#$Button1.UseVisualStyleBackColor = $true
+#$Button1.add_Click({BtnServicesClick($Button1)})
 #~~< btnRoles >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $btnRoles = New-Object System.Windows.Forms.Button
 $btnRoles.FlatStyle = [System.Windows.Forms.FlatStyle]::System
@@ -344,13 +344,13 @@ $lblDomain2.Location = New-Object System.Drawing.Point(376, 40)
 $lblDomain2.Size = New-Object System.Drawing.Size(248, 31)
 $lblDomain2.TabIndex = 13
 $lblDomain2.Text = $TextStrings.DCPDescription
-#~~< Label2 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$Label2 = New-Object System.Windows.Forms.Label
-$Label2.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
-$Label2.Location = New-Object System.Drawing.Point(69, 261)
-$Label2.Size = New-Object System.Drawing.Size(236, 31)
-$Label2.TabIndex = 14
-$Label2.Text = $TextStrings.ServicesDescription
+#~~<Service Label2 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#$Label2 = New-Object System.Windows.Forms.Label
+#$Label2.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
+#$Label2.Location = New-Object System.Drawing.Point(69, 261)
+#$Label2.Size = New-Object System.Drawing.Size(236, 31)
+#$Label2.TabIndex = 14
+#$Label2.Text = $TextStrings.ServicesDescription
 #~~< lblRole2 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $lblRole2 = New-Object System.Windows.Forms.Label
 $lblRole2.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
@@ -365,13 +365,13 @@ $lblcomputer2.Location = New-Object System.Drawing.Point(69, 38)
 $lblcomputer2.Size = New-Object System.Drawing.Size(242, 31)
 $lblcomputer2.TabIndex = 15
 $lblcomputer2.Text = $TextStrings.NameDomainDescription
-#~~< Label1 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$Label1 = New-Object System.Windows.Forms.Label
-$Label1.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
-$Label1.Location = New-Object System.Drawing.Point(69, 245)
-$Label1.Size = New-Object System.Drawing.Size(171, 16)
-$Label1.TabIndex = 11
-$Label1.Text = $TextStrings.ServicesTitle
+#~~<Service Label1 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#$Label1 = New-Object System.Windows.Forms.Label
+#$Label1.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
+#$Label1.Location = New-Object System.Drawing.Point(69, 245)
+#$Label1.Size = New-Object System.Drawing.Size(171, 16)
+#$Label1.TabIndex = 11
+#$Label1.Text = $TextStrings.ServicesTitle
 #~~< lblDomain1 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $lblDomain1 = New-Object System.Windows.Forms.Label
 $lblDomain1.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
@@ -386,71 +386,15 @@ $lblRole1.Location = New-Object System.Drawing.Point(69, 130)
 $lblRole1.Size = New-Object System.Drawing.Size(171, 16)
 $lblRole1.TabIndex = 11
 $lblRole1.Text = $TextStrings.RolesTitle
-#~~< PictureBox1 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$PictureBox1 = New-Object System.Windows.Forms.PictureBox
-$PictureBox1.Location = New-Object System.Drawing.Point(22, 245)
-$PictureBox1.Size = New-Object System.Drawing.Size(41, 45)
-$PictureBox1.TabIndex = 7
-$PictureBox1.TabStop = $false
-$PictureBox1.Text = ""
+#~~<Service PictureBox1 >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#$PictureBox1 = New-Object System.Windows.Forms.PictureBox
+#$PictureBox1.Location = New-Object System.Drawing.Point(22, 245)
+#$PictureBox1.Size = New-Object System.Drawing.Size(41, 45)
+#$PictureBox1.TabIndex = 7
+#$PictureBox1.TabStop = $false
+#$PictureBox1.Text = ""
 #region$PictureBox1.Image = ([System.Drawing.Image](...)
-$PictureBox1.Image = ([System.Drawing.Image]([System.Drawing.Image]::FromStream((New-Object System.IO.MemoryStream(($$ = [System.Convert]::FromBase64String(
-"iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACx"+
-                                 "jwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlz"+
-                                 "AAAOwQAADsEBuJFr7QAAC6lJREFUWEe9mHlQlHeax3FqtvaPTXZrM7F2p7Z2a1NbtX9s1WxNVSZO"+
-                                 "UpMd3UQnceOBcXSNGRMNagwOCcQr0ajxxlsEg6iAiCiC3Ec3TXM0fdI0dzfdTXMjAsophyLHZ59u"+
-                                 "IqUmSGdnMlQ9RVf1y/N+3uf5/r7P8zLL5XLh8wN//vr5F3z6Bwd9nK56n5/8ZJbPiy+84LNr62c+"+
-                                 "UZcu/sBMXlzuBnxWNLS2U1JVw4EjRz3XOVz16MttqEpc5JbUkVfaRL6xjKXLlk/laWzvxlBmfWbe"+
-                                 "me776HufZ13YOzBEV+8A+rIasnLUKNUabqZmoDZXoSiuJ7+shcLKNgotdg4EH/cA2Zs7aO7ux9rS"+
-                                 "TYWzkZTMnD8JdFrAMmcz1ro2srVWMous5OlLUWgMlDqbqJGbF1Tcpqi6A53tLoaaTszONgpKbdjq"+
-                                 "m3HcGcXSMkF56wMMlU5OhV34f0NOC5iq0nAlQ4vC4CDH5G5nIwXlLWgq26Vqk2C6mi6Mzj6KXYOU"+
-                                 "NDzA0vyQitYRym6B8FPZCddVBhYtW/HnB8zTmYnNKPSA5UkrCyra0FR1oLXeRW/vweDo5XKykqT8"+
-                                 "cixNDyltGafcDdY+CVZ9F6ruPORYRAzPP/+3fx7AHI2RNIXak6zOfThq73haqanuRGvr8oAZnf0U"+
-                                 "1w1irh8SLdoxyTVuMCksVd+C2bqhpg/s/eNoS6tISM305Cyw2MjIL/5BsFMtdrYJQFWDCN9BfnEZ"+
-                                 "jlt9FEm1tNJGvVTLWHtPwIYoaZRWSpjq7mFwSotd3ZS23sd6dwJbzySY4x44h6D2Prjuj2KqrqHE"+
-                                 "2UBTTz/aChsnQsK9hvQAOpraKW/qkmq1f1stdxt7BaxPwAa+BRuRqg2SW2xHqSuV35XkW2rEZmrk"+
-                                 "cxVKYyVFdjkgg2MCBXUPoWEMGickxsZpHBmhEanqwCAp2ZNd8iY8gEqzlULbHdFXFzoBM0gbjSL8"+
-                                 "4vr7UrER0deYHIxWFNpiCsudxGUWcDQ8hj1HQzkcGkl4fBaZJitFtnoyisxYpVJNAtYkQG6oBol6"+
-                                 "iToJl0SeVHFT0BfeA0YnpBN6JQWNiMdUN4xZTmRJ0+ik8NsmBK6ZXDHjGzlaVq3dwKxZs55IvnjZ"+
-                                 "73l93nxORieSW1VHSqEJa2+/B+xpuIK6Jj4K3OkVnGfKPSrzsdALXM4oEv8aF01NYBHhF7eCynpH"+
-                                 "7EbF5bRc/nvB2zMmDruSREZZLeeTc7BLW90Vc0ethHX4AZu2750xx+OtnwKsdInROkR7zZAvfcmV"+
-                                 "/qjFbMMSlSQWlTD/7UVsDtw2Y3JzdT1RmYVcUluI1BRjEbAyiWoJ28NRYlOyZ8zxvYAGWzM5Yh8q"+
-                                 "N5hUr0BsQ1HXQ0yOhlORcT8o6etz5xNvdrI3Nh2jHBCDwLnDJJFqsLApYIvX+XysLZ0k5usodDSi"+
-                                 "uwOF4mU6sQu92EWytCpFTqiff6DXCR89fVKJkzNZxeR293ngjBJ6N+TgMOnmStK1JV7l9Eky16Pt"+
-                                 "nkAj5qrrdQMOE6nQou7oJUZOZKzGzCuv/darZI+35qa+mjhLI2lSgLgyGyFZBegnJjyQblidgB67"+
-                                 "cGXGvD4JJgfGAXkyMVbzA9B29BB+NQmlO7HeQrx43iuv/teMiZ72NGVlHamOdrJu93BDFo3kolL0"+
-                                 "D8c8gO7QDN/3KqdPaJKKTFcT5sH7HjGb5CmNYqbu38my0yWaKln5h4+8SvY4pK72FoqGTtR9Q5hG"+
-                                 "xzCPPJyEG59A0dHFN3k6r3L6BO3cz7rNW9mw7WsSaxumntCdTNXSRrKpmhMRM7fi6QpaWu6irm/H"+
-                                 "IFXTimkXjYt8ZLIEJ2Z5BfadhfWbqymEqrRTYnYDah+MkCIWc11j4WcvzvY6sVPkYW7owNjeS56M"+
-                                 "PdUgKPsl+sYJOHjG6zxPGHWq2kBIZpG0dlIjj6xB5XCJ8bqISc/1KrG9UeZ68x0sDbfI7xkhXVwh"+
-                                 "VXbDZLGuONkkNm3f7VWeJyvY3k/XwAOaxiZP2RMh+lGay8myNpMmxhsZmzDtDVo6u6kUOIO9Ecud"+
-                                 "ARLE8K/LAI5zQqwdrljHSddbyVHnew3pmSTJeptsIfc9VXsE9/hn3fAwKoFU2VvROVtkx6tGYyqf"+
-                                 "uolNqlZ7u0s26zZMAldxu49rjgkuV0FUOVwshQtmiBCnjjCOE5tlJCkrVxbhRrJMTqIz9NMCewCD"+
-                                 "w2M5nJDq0d+j1j4C1EnLNSLugqFRdC23Pdoqst9CVdGIqrye3PIGcisa0FkbsDXeoqhxiIsy385L"+
-                                 "sm90EFY0wdnCcULyxzidO8LJnEE27DxOTJISs/yNqaoetcnGruOXvhdyahZv3HmQ69UOzos5bw29"+
-                                 "RHJzG/kjInDxyGwx8HSZMsmipfTWUTLt7cTLZhydpiZG5m6ysYZs+yCR5jEPzJm8UU6qHnBcMcix"+
-                                 "rHsEnMzGb9cFvoyq5ONDNwjaE8x5WdHyZEW7lqnl3LUc1m+ffK19OqYAj4RcYPFqP+b+bhFz5y9k"+
-                                 "9adfEmNtJVVm8s0WiHdrSXQUI1M/UgzzQskER9MdnFB0ckaqc8oNlD1AcEYvh1PvcvDmbfYntuL3"+
-                                 "dRzB8sA3c0zsOBTG7hMRRCWpSVQauCbbU3RSvjykkZ1n4tkdmjg94NPkfv6fs/+qgmu1EyLuSS25"+
-                                 "dRQuIg2VKp1Q9PLxlq/YE5HFkbQuD9C++Gb2xNXx1RUnO6OtbD1vZvMXh0jOMRKfrSdJNpzU/DJu"+
-                                 "qswCXCyLr54Mea1VVtySJcLF4agsgg5Hc+hyATvDUj2w07522jvvobg1OqWnMM0EIXljAjbkqdLB"+
-                                 "5A4ilHVE5Lay64qDL6Or2X6xnK0RJXx+zsBnZ7UEnNHwQVCwzNxEEqWCaYXlKA02SmyiX30FaXnF"+
-                                 "FFU2Yajro6RFNviGHrKNdkpdtzlyOYN//8Wc6QGTjVapVBtnC6R9OfcFoJL//fQoH319jS1SmV0x"+
-                                 "dnZcqpQqlRAUpufD3XEs23SIdz7cwYZDqWw8lM76g2n4rt/LNmltlk7eYUpdVNS2cuSbq6zauIXV"+
-                                 "/l8QeCCMDIMd291RHH0TVIuZl96TDqUUsnz9F9MDBsub19I/fILfvutsDTfyxtL3mDf/LRa/uxLf"+
-                                 "NRvZfCqPgNP5+B9XsSroNAt9l7NwyTI+8NvIG7/fwPJPz/K79wJ4a+kKLsi8zy62USWz+eTF6/zy"+
-                                 "1blPaC04OgNdQy9ld8cpvjOGum2QLy8ms2jtlukB3f1/Z8m7LF/9IQuWrOCXL8+ZSnoq6hprdsfi"+
-                                 "tz+JdXsTWOn/FQsX+059v3ajP2/5rmTBwkVkqQrIkJey8rYeatu6pXJbv3MQQq7nklbairphmMy6"+
-                                 "AT45HMnCNYH84z//27MBHz84X+3dP5X4RnoOvh9tkQoFMn/FZhatWsvfPPfcEzd+cfZshoZHsNga"+
-                                 "qJKZXD8wTkvXIO9/sv07gLklDjLL26WtpUQbmvHdtIef/vSvnn1IZnpn/WDdehZJWxfLv91efuXX"+
-                                 "/OtLL33nxmppa60cNmf/KK6eUZq6H3L2Shrvrgt64toMUx03i9s4l1PPkQQzC1Z/hs+3b47P/Pfb"+
-                                 "TJAzfX/uRgGKig6UVd1klXWiKO8kq6SV03G5HItK41KaljS9gxRjEyEZtRyIr2LdvqvMX7l56gF+"+
-                                 "VMCDkUo2fX2R97eF8MdjCQTHlxGSZiMyt46oHBvRyirOZ1ZxIM7C7ssWsaligs4VsfSTI7zh++Gf"+
-                                 "1uKZquf+/rU3l/CqxC/mzOO9z0+yYksYgWcVbAtX8/H+GLaHqwgMUfDH0wo2BKcTcLaQHZFVLAkI"+
-                                 "5TfvrPnxAR9/iIUrN4pP7mONzOSPj6bgfzQZv4OJLAs8x5tr9/Garz+/XbWDdzaf5TdL1vPC7J//"+
-                                 "ZQHdsM/93d+zO0JJwCkF/idVzHt/J796+wPmLFjBz/7hn/jV3EX8+q3VzP75v/xlNPh9Mli36zxL"+
-                                 "A0JYHHCOOf+zdsbF9Uc9JN8H+J+vvsk833W8vtSPl/7j5RkB/w/wfmsrfLEf+gAAAABJRU5ErkJg"+
-                                 "gg==")),0,$$.Length)))))
+
 #endregion
 #~~< pboxDomain >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $pboxDomain = New-Object System.Windows.Forms.PictureBox

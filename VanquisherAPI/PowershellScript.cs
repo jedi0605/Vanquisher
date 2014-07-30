@@ -28,6 +28,7 @@ namespace VanquisherAPI
         }
 
         public static string GetPartition = "Get-Partition";
-        
+
+        public static string Corefig = ".\\Corefig.ps1";
     }
 }

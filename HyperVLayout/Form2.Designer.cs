@@ -33,7 +33,7 @@ namespace HyperVLayout
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CheckAllConfig = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.ModuleListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,15 +57,15 @@ namespace HyperVLayout
             this.textBox1.TabIndex = 4;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // button1
+            // CheckAllConfig
             // 
-            this.button1.Location = new System.Drawing.Point(383, 427);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Check Config";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CheckAllConfig.Location = new System.Drawing.Point(383, 427);
+            this.CheckAllConfig.Name = "CheckAllConfig";
+            this.CheckAllConfig.Size = new System.Drawing.Size(113, 23);
+            this.CheckAllConfig.TabIndex = 6;
+            this.CheckAllConfig.Text = "Check Config";
+            this.CheckAllConfig.UseVisualStyleBackColor = true;
+            this.CheckAllConfig.Click += new System.EventHandler(this.CheckAllConfig_Click);
             // 
             // label8
             // 
@@ -110,7 +110,7 @@ namespace HyperVLayout
             this.ClientSize = new System.Drawing.Size(537, 481);
             this.Controls.Add(this.ModuleListView);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CheckAllConfig);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Name = "Form2";
@@ -125,7 +125,7 @@ namespace HyperVLayout
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CheckAllConfig;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListView ModuleListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;

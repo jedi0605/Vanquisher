@@ -55,6 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
+            this.corefigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -77,15 +78,16 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initializeHyerVHostToolStripMenuItem});
+            this.initializeHyerVHostToolStripMenuItem,
+            this.corefigToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(43, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
             this.toolStripMenuItem1.Text = "Tools";
             // 
             // initializeHyerVHostToolStripMenuItem
             // 
             this.initializeHyerVHostToolStripMenuItem.Name = "initializeHyerVHostToolStripMenuItem";
-            this.initializeHyerVHostToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.initializeHyerVHostToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.initializeHyerVHostToolStripMenuItem.Text = "Initialize HyerV host";
             this.initializeHyerVHostToolStripMenuItem.Click += new System.EventHandler(this.initializeHyerVHostToolStripMenuItem_Click);
             // 
@@ -94,13 +96,13 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // label1
@@ -321,6 +323,13 @@
             this.button8.Text = "button1";
             this.button8.UseVisualStyleBackColor = true;
             // 
+            // corefigToolStripMenuItem
+            // 
+            this.corefigToolStripMenuItem.Name = "corefigToolStripMenuItem";
+            this.corefigToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.corefigToolStripMenuItem.Text = "Corefig";
+            this.corefigToolStripMenuItem.Click += new System.EventHandler(this.corefigToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -377,6 +386,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ToolStripMenuItem corefigToolStripMenuItem;
     }
 }
 

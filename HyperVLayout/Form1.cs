@@ -8,6 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
+using NLog.Internal;
+using System.Configuration;
+using VanquisherAPI;
+using System.Collections.ObjectModel;
+using System.Management.Automation;
+
 
 namespace HyperVLayout
 {
@@ -15,6 +21,8 @@ namespace HyperVLayout
     {
         public static Dictionary<CheckModule, bool> initNMoudleStatus = new Dictionary<CheckModule, bool>();
         public static Form2 form;
+        private string CorefigPath = string.Empty;
+        
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +30,13 @@ namespace HyperVLayout
             // Object test = JsonConvert.DeserializeObject(LoadConfig);
             initNMoudleStatus = (Dictionary<CheckModule, bool>)JsonConvert.DeserializeObject(LoadConfig, typeof(Dictionary<CheckModule, bool>));
             form = new Form2(initNMoudleStatus);
+            GetThreadPartyPath();
+        }
+
+        private void GetThreadPartyPath()
+        {
+            Configuration appconfig = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            this.CorefigPath = appconfig.AppSettings.Settings["CorefigPath"].Value;
         }
 
         private void initializeHyerVHostToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,6 +79,12 @@ namespace HyperVLayout
             string configToJson = JsonConvert.SerializeObject(initNMoudleStatus);
 
             File.AppendAllText(@".\ModuleStatus.txt", configToJson);
+        }
+
+        private void corefigToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PSInvoker invoker = new PSInvoker();
+            Collection<PSObject> result = invoker.invokeCommand("localhost", this.CorefigPath+PowershellScript.Corefig, false);
         }
     }
 }

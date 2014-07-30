@@ -96,7 +96,7 @@ namespace HyperVLayout
             //((ListView)sender).SelectedItems[0].Text
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CheckAllConfig_Click(object sender, EventArgs e)
         {
             // NetworkChecker();
             // RDPChecker();
