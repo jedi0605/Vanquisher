@@ -48,7 +48,6 @@ namespace VanquisherAPI
                 throw ex;
             }
         }
-
         /// <summary>
         /// Invoke-command
         /// </summary>
@@ -56,7 +55,42 @@ namespace VanquisherAPI
         /// <param name="script">Script to run</param>
         /// <param name="SSP">Use CredSSP Authentication(帶Credential到目標電腦執行,false則以powershell user執行)</param>
         /// <returns></returns>
-        public Collection<PSObject> invokeCommand(string serverName, string script, bool SSP)
+        public Collection<PSObject> ExecuteCommand(string script)
+        {
+            Pipeline p = runspace.CreatePipeline();
+            p.Commands.AddScript(script);
+            try
+            {
+                Collection<PSObject> o = p.Invoke();
+                Console.WriteLine(p.Error.ToString());
+
+                if (p.Error.Count > 0)
+                {
+                    ICollection<ErrorRecord> erCollection = new ErrorRecord[p.Error.Count];
+                    ICollection<object> temp = p.Error.ReadToEnd();
+                    erCollection.Concat(temp);
+                    throw new psInvokerException(erCollection);
+                }
+                return o;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                p.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Invoke-command
+        /// </summary>
+        /// <param name="serverName">Computer name</param>
+        /// <param name="script">Script to run</param>
+        /// <param name="SSP">Use CredSSP Authentication(帶Credential到目標電腦執行,false則以powershell user執行)</param>
+        /// <returns></returns> 
+        public Collection<PSObject> InvokeCommand(string serverName, string script, bool SSP)
         {
             Pipeline p = runspace.CreatePipeline();
             Command command = new Command("invoke-command");
@@ -75,7 +109,8 @@ namespace VanquisherAPI
                 if (p.Error.Count > 0)
                 {
                     ICollection<ErrorRecord> erCollection= new ErrorRecord[p.Error.Count];
-                    erCollection.Concat(p.Error.ReadToEnd());
+                    ICollection<object> temp = p.Error.ReadToEnd();
+                    erCollection.Concat(temp);
                     throw new psInvokerException(erCollection);
                 }
                 return o;
@@ -90,6 +125,20 @@ namespace VanquisherAPI
             }
         }
 
+        public Collection<PSObject> InvokeCommandThread(string serverName, string script, bool SSP)
+        {
+            Pipeline p = runspace.CreatePipeline();
+            Command command = new Command("invoke-command");
+            command.Parameters.Add("computername", serverName);
+            command.Parameters.Add("scriptblock", ScriptBlock.Create(script));
+            if (psCredential != null)
+                command.Parameters.Add("credential", psCredential);
+            if (SSP)
+                command.Parameters.Add("Authentication", "credssp");
+            p.Commands.Add(command);
+            Collection<PSObject> o = p.Invoke();
+            return o;
+        }
     }
     public class psInvokerException : Exception
     {

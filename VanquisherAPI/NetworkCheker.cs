@@ -63,7 +63,7 @@ namespace VanquisherAPI
             foreach (NetworkInterface item in networkAdapter)
             {
                 IPAddress gatewayAddress = item.GetIPProperties().GatewayAddresses.FirstOrDefault() == null ? null : item.GetIPProperties().GatewayAddresses.FirstOrDefault().Address;
-                IPAddress ipAddress = item.GetIPProperties().UnicastAddresses[1].Address;
+                IPAddress ipAddress = item.GetIPProperties().UnicastAddresses[0].Address;
                 Console.WriteLine("gatewayAddress : " + gatewayAddress + ". ip address : " + ipAddress);
                 adapterInfo.Add(new NetworkAdapter { gateway = gatewayAddress, ipaddress = ipAddress, isUseful = false, adapterName = item.Name });
             }

@@ -1,6 +1,6 @@
 ﻿namespace HyperVLayout
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.initializeHyerVHostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.corefigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
-            this.corefigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -81,28 +81,35 @@
             this.initializeHyerVHostToolStripMenuItem,
             this.corefigToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(43, 20);
             this.toolStripMenuItem1.Text = "Tools";
             // 
             // initializeHyerVHostToolStripMenuItem
             // 
             this.initializeHyerVHostToolStripMenuItem.Name = "initializeHyerVHostToolStripMenuItem";
-            this.initializeHyerVHostToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.initializeHyerVHostToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.initializeHyerVHostToolStripMenuItem.Text = "Initialize HyerV host";
             this.initializeHyerVHostToolStripMenuItem.Click += new System.EventHandler(this.initializeHyerVHostToolStripMenuItem_Click);
+            // 
+            // corefigToolStripMenuItem
+            // 
+            this.corefigToolStripMenuItem.Name = "corefigToolStripMenuItem";
+            this.corefigToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.corefigToolStripMenuItem.Text = "Corefig";
+            this.corefigToolStripMenuItem.Click += new System.EventHandler(this.corefigToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // label1
@@ -323,17 +330,12 @@
             this.button8.Text = "button1";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // corefigToolStripMenuItem
-            // 
-            this.corefigToolStripMenuItem.Name = "corefigToolStripMenuItem";
-            this.corefigToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.corefigToolStripMenuItem.Text = "Corefig";
-            this.corefigToolStripMenuItem.Click += new System.EventHandler(this.corefigToolStripMenuItem_Click);
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(598, 441);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -342,7 +344,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -12,9 +12,9 @@ namespace VanquisherAPI
         public static bool CheckRDPServiceIsEnable()
         {
             PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> result = invoker.invokeCommand("localhost", PowershellScript.CheckRDPfDeny, false);
+            Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.CheckRDPfDeny);
             string rdpfDeny = result[0].ToString();
-            result = invoker.invokeCommand("localhost", PowershellScript.RDPAuthentication, false);
+            result = invoker.InvokeCommand("localhost", PowershellScript.RDPAuthentication, false);
             string rdpAuthentication = result[0].ToString();
 
             if (string.Equals("0", rdpfDeny) && string.Equals("0", rdpAuthentication))
@@ -30,8 +30,8 @@ namespace VanquisherAPI
         public static bool CheckWinRMServiceIsEnable()
         {
             PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> serviceResult = invoker.invokeCommand("localhost", PowershellScript.GetWinRMStatus, false);
-            Collection<PSObject> isListening = invoker.invokeCommand("localhost", PowershellScript.CheckWinRMIsListening, false);
+            Collection<PSObject> serviceResult = invoker.ExecuteCommand(PowershellScript.GetWinRMStatus);
+            Collection<PSObject> isListening = invoker.ExecuteCommand(PowershellScript.CheckWinRMIsListening);
 
             if (serviceResult.Count == 0 || isListening.Count == 0)
             {

@@ -22,6 +22,13 @@ namespace HyperVLayout
             base.Dispose(disposing);
         }
 
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+            base.OnClosing(e);
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -96,7 +103,7 @@ namespace HyperVLayout
             this.ModuleListView.UseCompatibleStateImageBehavior = false;
             this.ModuleListView.View = System.Windows.Forms.View.Details;
             this.ModuleListView.VirtualListSize = 5;
-            this.ModuleListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // this.ModuleListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 

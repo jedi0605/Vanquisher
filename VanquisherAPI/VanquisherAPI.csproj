@@ -52,12 +52,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIResponse.cs" />
+    <Compile Include="CheckDomain.cs" />
     <Compile Include="CheckServiceEnable.cs" />
     <Compile Include="Enum.cs" />
     <Compile Include="ISCSiAPI.cs" />
     <Compile Include="ModuleChecker.cs" />
     <Compile Include="NetworkCheker.cs" />
     <Compile Include="PowershellScript.cs" />
+    <Compile Include="ProcessCaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSInvoker.cs" />
     <Compile Include="SetISCSI.cs" />

@@ -13,14 +13,55 @@ namespace HyperVLayout
     public partial class Form2 : Form
     {
         private Dictionary<CheckModule, bool> moudleStatus = new Dictionary<CheckModule, bool>();
-        public Form2(Dictionary<CheckModule, bool> initMoudleStatus)
+        public static iSCSIForm iscsiForm;
+        public Form2(ref Dictionary<CheckModule, bool> initMoudleStatus)
         {
             InitializeComponent();
             AddModuleListItem(initMoudleStatus);
             this.moudleStatus = initMoudleStatus;
+            this.ModuleListView.DoubleClick += new EventHandler(ModuleListView_DoubleClick);
 
             // ModuleListView.Items.
             // ModuleListView.ItemMouseHover += new ListViewItemMouseHoverEventHandler(listView1_ItemMouseHover);
+        }
+
+        void ModuleListView_DoubleClick(object sender, EventArgs e)
+        {
+            ModuleCheckerRunner((CheckModule)Enum.Parse(typeof(CheckModule), ModuleListView.SelectedItems[0].Name.ToString()));
+        }
+
+        void ModuleCheckerRunner(CheckModule moduleName)
+        {
+            switch (moduleName)
+            {
+                case CheckModule.EnableRDP:
+                    ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.RemoteDesktop);
+                    break;
+                case CheckModule.EnableWinRM:
+                    ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.WINRM);
+                    break;
+                case CheckModule.IPconfig:
+                    ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.IpSettings);
+                    break;
+                case CheckModule.HyperVFeature:
+                    ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.Roles);
+                    break;
+                case CheckModule.ClusterFeature:
+                    ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.Roles);
+                    break;
+                case CheckModule.ISCSiConnection:
+                    iscsiForm = new iSCSIForm(this.GetISCSiInfo());
+                    break;
+                case CheckModule.JoinDomain:
+                    ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.JoinDomainandRename);
+                    break;
+                //case CheckModule.CheckCluster:
+                //case CheckModule.CreateCluster:
+                //case CheckModule.JoinNodeToCluster:
+                default:
+                    MessageBox.Show("Not ready");
+                    break;
+            }
         }
 
         void AddModuleListItem(Dictionary<CheckModule, bool> initNMoudleStatus)
@@ -81,25 +122,16 @@ namespace HyperVLayout
         }
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (listView1.SelectedItems.Count > 0)
-            //{
-            //    string text = listView1.SelectedItems[0].Text;
-            //    foreach (ListViewItem selected in listView1.SelectedItems)
-            //    {
-            //        selected.Selected = false;
 
-            //    }
-            //    var a = listView1.SelectedItems;
-            //    label8.Text = text + i++;
-
-            //}
-            //((ListView)sender).SelectedItems[0].Text
         }
 
         private void CheckAllConfig_Click(object sender, EventArgs e)
         {
-            // NetworkChecker();
-            // RDPChecker();
+            NetworkChecker();
+            RDPChecker();
+            WinRMChecker();
+            IsJoinDomain();
+            CheckFeatureAreInstall();
             PaintingModuleListView();
         }
 
@@ -109,34 +141,79 @@ namespace HyperVLayout
             {
                 Color c;
                 if (item.Value == false)
-                {
                     c = ColorTranslator.FromHtml("#FF6666");
-                }
                 else
-                {
                     c = ColorTranslator.FromHtml("#00FF66");
-                }
+
                 ModuleListView.Items.Find(item.Key.ToString(), false)[0].BackColor = c;
             }
         }
 
         private void NetworkChecker()
         {
-            APIResponse networkResult = NetworkCheker.CheckNetwork();
-            if (networkResult.Result == true)
-                ModuleListView.Items[2].BackColor = Color.Green;
-            else
-                ModuleListView.Items[2].BackColor = Color.Red;
-            MessageBox.Show(networkResult.ObjectPayload.ToString());
+            ChangeStatus(CheckModule.IPconfig, NetworkCheker.CheckNetwork().Result);
         }
 
         private void RDPChecker()
         {
-            bool result = CheckServiceEnable.CheckRDPServiceIsEnable();
-            if (result == true)
-                ModuleListView.Items[0].BackColor = Color.Green;
+            ChangeStatus(CheckModule.EnableRDP, CheckServiceEnable.CheckRDPServiceIsEnable());
+        }
+
+        private void WinRMChecker()
+        {
+            ChangeStatus(CheckModule.EnableWinRM, CheckServiceEnable.CheckWinRMServiceIsEnable());
+        }
+
+        private void IsJoinDomain()
+        {
+            ChangeStatus(CheckModule.JoinDomain, CheckDomain.IsJoinDomain());
+        }
+
+        private void CheckFeatureAreInstall()
+        {
+            Dictionary<string, bool> moduleStatus = ModuleChecker.CheckModuleInstall(
+                                                    new WindownsFeature[3] { WindownsFeature.ClusterFeature, WindownsFeature.HyperV, WindownsFeature.iSCSI });
+
+            foreach (var item in moduleStatus)
+            {
+                CheckModule m = new CheckModule();
+                if (item.Key.ToString().ToUpper().Contains("CLUSTERFEATURE"))
+                {
+                    m = CheckModule.ClusterFeature;
+                }
+                else if (item.Key.ToString().ToUpper().Contains("HYPERV"))
+                {
+                    m = CheckModule.HyperVFeature;
+                }
+                else if (item.Key.ToString().ToUpper().Contains("ISCSI"))
+                {
+                    // not finish
+                    m = CheckModule.ISCSiConnection;
+                    if (item.Value)
+                    {
+                        bool iscsiConnected = ISCSiAPI.IsIscsiConneted();
+                        bool isPersistent = ISCSiAPI.IsPersistentConnetionType();
+                        
+                        // bool  = ISCSiAPI.DiskAlready();
+                    }
+                }
+                ChangeStatus(m, item.Value);
+            }
+        }
+
+        private List<ISCSiInfo> GetISCSiInfo()
+        {
+            List<ISCSiInfo> iscsiInfo = ISCSiAPI.GetVolumeInfo();
+            iscsiInfo.Add(new ISCSiInfo(1, "test", "qwe", 100));
+            return iscsiInfo;
+        }
+
+        private void ChangeStatus(CheckModule moduleName, bool status)
+        {
+            if (status)
+                this.moudleStatus[moduleName] = true;
             else
-                ModuleListView.Items[0].BackColor = Color.Red;
+                this.moudleStatus[moduleName] = false;
         }
 
     }

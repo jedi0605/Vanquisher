@@ -28,7 +28,16 @@ namespace VanquisherAPI
         }
 
         public static string GetPartition = "Get-Partition";
+        public static string GetDomain = "(gwmi WIN32_ComputerSystem).Domain";
 
-        public static string Corefig = ".\\Corefig.ps1";
+        public static string Corefig = "\\Corefig.ps1";
+        public static string Computer = "\\Computer.ps1";
+        public static string Firewallsettings = "\\Firewallsettings.ps1";
+        public static string RemoteDesktop = "\\RemoteDesktop.ps1";
+        public static string WINRM = "\\WINRM.ps1";
+        public static string IpSettings = "\\IpSettings.ps1";
+        public static string Roles = "\\Roles.ps1";
+        public static string JoinDomainandRename = "\\JoinDomainandRename.ps1";
+        
     }
 }

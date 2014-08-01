@@ -13,30 +13,32 @@ using System.Configuration;
 using VanquisherAPI;
 using System.Collections.ObjectModel;
 using System.Management.Automation;
+using System.Reflection;
+using System.Diagnostics;
 
 
 namespace HyperVLayout
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         public static Dictionary<CheckModule, bool> initNMoudleStatus = new Dictionary<CheckModule, bool>();
         public static Form2 form;
-        private string CorefigPath = string.Empty;
-        
-        public Form1()
+        public static string CorefigPath = string.Empty;
+
+        public MainForm()
         {
             InitializeComponent();
             string LoadConfig = File.ReadAllText(@".\ModuleStatus.txt");
             // Object test = JsonConvert.DeserializeObject(LoadConfig);
             initNMoudleStatus = (Dictionary<CheckModule, bool>)JsonConvert.DeserializeObject(LoadConfig, typeof(Dictionary<CheckModule, bool>));
-            form = new Form2(initNMoudleStatus);
+            form = new Form2(ref initNMoudleStatus);
             GetThreadPartyPath();
         }
 
         private void GetThreadPartyPath()
         {
             Configuration appconfig = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            this.CorefigPath = appconfig.AppSettings.Settings["CorefigPath"].Value;
+            CorefigPath = appconfig.AppSettings.Settings["CorefigPath"].Value;
         }
 
         private void initializeHyerVHostToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,8 +85,9 @@ namespace HyperVLayout
 
         private void corefigToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> result = invoker.invokeCommand("localhost", this.CorefigPath+PowershellScript.Corefig, false);
+            ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.Corefig);
         }
+
+
     }
 }

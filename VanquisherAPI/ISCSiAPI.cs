@@ -15,14 +15,14 @@ namespace VanquisherAPI
         public static bool IsIscsiConneted()
         {
             PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> result = invoker.invokeCommand("localhost", PowershellScript.IsIscsiConnected, false);
+            Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.IsIscsiConnected);
             return result.Count == 0 ? false : true;
         }
 
         public static bool IsPersistentConnetionType()
         {
             PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> result = invoker.invokeCommand("localhost", PowershellScript.GetIscsiSession, false);
+            Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.GetIscsiSession);
             if (result.Count > 0 && (bool)result[0].Properties["IsPersistent"].Value == true)
             {
                 return true;
@@ -37,7 +37,7 @@ namespace VanquisherAPI
         {
             List<ISCSiInfo> info = new List<ISCSiInfo>();
             PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> result = invoker.invokeCommand("localhost", PowershellScript.GetIscsiInfo, false);
+            Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.GetIscsiInfo);
 
             if (result.Count == 0)
             {
@@ -60,7 +60,7 @@ namespace VanquisherAPI
             PSInvoker invoker = new PSInvoker();
             try
             {
-                Collection<PSObject> result = invoker.invokeCommand("localhost", PowershellScript.InitializeDisk(diskNumber), false);
+                Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.InitializeDisk(diskNumber));
                 return result.Count == 1 ? true : false;
             }
             catch (psInvokerException ex)
@@ -85,7 +85,7 @@ namespace VanquisherAPI
 
             try
             {
-                Collection<PSObject> result = invoker.invokeCommand("localhost", PowershellScript.SetDiskOnline(diskNumber), false);
+                Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.SetDiskOnline(diskNumber));
                 return true;
             }
             catch (Exception ex)
