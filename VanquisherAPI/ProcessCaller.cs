@@ -11,7 +11,7 @@ namespace VanquisherAPI
         public static void ProcessToOpenPowershell(string powershellPath)
         {
             Process p = new Process();
-            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.UseShellExecute = true;
             p.StartInfo.CreateNoWindow = true;
             p.StartInfo.FileName = "Powershell.exe";
             p.StartInfo.Arguments = powershellPath;

@@ -80,7 +80,6 @@ namespace Vanquisher_Test
         [TestMethod()]
         public void CheckNetworkTest()
         {
-            bool expected = true; // TODO: 初始化為適當值
             APIResponse actual;
             actual = NetworkCheker.CheckNetwork();
             Assert.AreEqual(false, actual.Result);

@@ -29,7 +29,9 @@ namespace HyperVLayout
 
         void ModuleListView_DoubleClick(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             ModuleCheckerRunner((CheckModule)Enum.Parse(typeof(CheckModule), ModuleListView.SelectedItems[0].Name.ToString()));
+            UseWaitCursor = false;
         }
 
         void ModuleCheckerRunner(CheckModule moduleName)
@@ -52,7 +54,9 @@ namespace HyperVLayout
                     ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.Roles);
                     break;
                 case CheckModule.ISCSiConnection:
-                   
+                    // GetISCSiInfo();
+                    iscsiForm = new iSCSIForm(GetISCSiInfo());
+                    iscsiForm.Show();
                     // iscsiForm = new iSCSIForm(this.GetISCSiInfo());
                     break;
                 case CheckModule.JoinDomain:
@@ -130,12 +134,14 @@ namespace HyperVLayout
 
         private void CheckAllConfig_Click(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             NetworkChecker();
             RDPChecker();
             WinRMChecker();
             IsJoinDomain();
             CheckFeatureAreInstall();
             PaintingModuleListView();
+            UseWaitCursor = false;
         }
 
         private void PaintingModuleListView()
@@ -214,10 +220,10 @@ namespace HyperVLayout
             catch (Exception ex)
             {
                 logger.Error(ex.ToString());
-                MessageBox.Show("ISCSI connection not ready.");
+                MessageBox.Show("ISCSI connection not ready. You shoud set iSCSI connection first (Open iSCSI UI).");
             }
 
-            iscsiInfo.Add(new ISCSiInfo(1, "test", "qwe", 100));
+            // iscsiInfo.Add(new ISCSiInfo(1, "test", "qwe", 100));
             return iscsiInfo;
         }
 

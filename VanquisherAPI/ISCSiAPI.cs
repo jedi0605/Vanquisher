@@ -48,9 +48,9 @@ namespace VanquisherAPI
             {
                 int nubmer = int.Parse(item.Properties["Number"].Value.ToString());
                 string friendlyName = Convert.ToString(item.Properties["FriendlyName"].Value);
-                string operationalStatus = Convert.ToString(item.Properties["OperationalStatus"].Value);
+                bool isOffline = bool.Parse(item.Properties["Isoffline"].Value.ToString());
                 double partitionSize = double.Parse(item.Properties["Size"].Value.ToString()) / Math.Pow(1024, 3);
-                info.Add(new ISCSiInfo(nubmer, friendlyName, operationalStatus, partitionSize));
+                info.Add(new ISCSiInfo(nubmer, friendlyName, isOffline, partitionSize));
             }
             return info;
         }
@@ -100,7 +100,7 @@ namespace VanquisherAPI
             List<ISCSiInfo> info = GetVolumeInfo();
             foreach (ISCSiInfo item in info)
             {
-                if (item.OperationalStatus != "1")
+                if (item.IsOffline)
                 {
                     return false;
                 }
@@ -114,13 +114,13 @@ namespace VanquisherAPI
     {
         public int Number = 0;
         public string FriendlyName = string.Empty;
-        public string OperationalStatus = string.Empty;
+        public bool IsOffline = true;
         public double PartitionSizeInGb = 0;
-        public ISCSiInfo(int number, string friendlyName, string operationalStatus, double partitionSize)
+        public ISCSiInfo(int number, string friendlyName, bool isOffline, double partitionSize)
         {
             this.Number = number;
             this.FriendlyName = friendlyName;
-            this.OperationalStatus = operationalStatus;
+            this.IsOffline = isOffline;
             this.PartitionSizeInGb = partitionSize;
         }
     };
