@@ -38,6 +38,6 @@ namespace VanquisherAPI
         public static string IpSettings = "\\IpSettings.ps1";
         public static string Roles = "\\Roles.ps1";
         public static string JoinDomainandRename = "\\JoinDomainandRename.ps1";
-        
+        public static string IscsiUI = "iSCSIcpl.exe";
     }
 }

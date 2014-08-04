@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using VanquisherAPI;
+using NLog;
 
 namespace HyperVLayout
 {
     public partial class Form2 : Form
     {
+        static Logger logger = LogManager.GetCurrentClassLogger();
         private Dictionary<CheckModule, bool> moudleStatus = new Dictionary<CheckModule, bool>();
         public static iSCSIForm iscsiForm;
         public Form2(ref Dictionary<CheckModule, bool> initMoudleStatus)
@@ -50,7 +52,8 @@ namespace HyperVLayout
                     ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.Roles);
                     break;
                 case CheckModule.ISCSiConnection:
-                    iscsiForm = new iSCSIForm(this.GetISCSiInfo());
+                   
+                    // iscsiForm = new iSCSIForm(this.GetISCSiInfo());
                     break;
                 case CheckModule.JoinDomain:
                     ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.JoinDomainandRename);
@@ -193,7 +196,7 @@ namespace HyperVLayout
                     {
                         bool iscsiConnected = ISCSiAPI.IsIscsiConneted();
                         bool isPersistent = ISCSiAPI.IsPersistentConnetionType();
-                        
+
                         // bool  = ISCSiAPI.DiskAlready();
                     }
                 }
@@ -203,7 +206,17 @@ namespace HyperVLayout
 
         private List<ISCSiInfo> GetISCSiInfo()
         {
-            List<ISCSiInfo> iscsiInfo = ISCSiAPI.GetVolumeInfo();
+            List<ISCSiInfo> iscsiInfo = new List<ISCSiInfo>();
+            try
+            {
+                iscsiInfo = ISCSiAPI.GetVolumeInfo();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.ToString());
+                MessageBox.Show("ISCSI connection not ready.");
+            }
+
             iscsiInfo.Add(new ISCSiInfo(1, "test", "qwe", 100));
             return iscsiInfo;
         }
@@ -214,6 +227,11 @@ namespace HyperVLayout
                 this.moudleStatus[moduleName] = true;
             else
                 this.moudleStatus[moduleName] = false;
+        }
+
+        private void RunIscsiUI_Click(object sender, EventArgs e)
+        {
+            ProcessCaller.ProcessToOpenPowershell(PowershellScript.IscsiUI);
         }
 
     }
