@@ -134,7 +134,7 @@ namespace Vanquisher_Test
         {
             bool expected = false; // TODO: 初始化為適當值
             bool actual;
-            actual = ISCSiAPI.DiskAlready();
+            actual = ISCSiAPI.DisksAlready();
             Assert.AreEqual(expected, actual);
         }
     }

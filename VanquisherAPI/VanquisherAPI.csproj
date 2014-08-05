@@ -62,7 +62,6 @@
     <Compile Include="ProcessCaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSInvoker.cs" />
-    <Compile Include="SetISCSI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">

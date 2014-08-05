@@ -56,6 +56,7 @@
             this.InitDiskBtn.TabIndex = 1;
             this.InitDiskBtn.Text = "Initialize Disk";
             this.InitDiskBtn.UseVisualStyleBackColor = true;
+            this.InitDiskBtn.Click += new System.EventHandler(this.InitDiskBtn_Click);
             // 
             // SetDiskOnlineBtn
             // 

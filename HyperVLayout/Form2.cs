@@ -140,6 +140,7 @@ namespace HyperVLayout
             WinRMChecker();
             IsJoinDomain();
             CheckFeatureAreInstall();
+            ISCSiStatus();
             PaintingModuleListView();
             UseWaitCursor = false;
         }
@@ -208,6 +209,28 @@ namespace HyperVLayout
                 }
                 ChangeStatus(m, item.Value);
             }
+        }
+
+        private void ISCSiStatus()
+        {
+            bool isPer = ISCSiAPI.IsPersistentConnetionType();
+            bool isConnected = ISCSiAPI.IsIscsiConneted();
+            bool isDiskAlready = ISCSiAPI.DisksAlready();
+            if (!isPer)
+            {
+                MessageBox.Show("ISCSi not persistent.");
+            }
+
+            if (!isConnected)
+            {
+                MessageBox.Show("ISCSi not connected.");
+            }
+
+            if (!isDiskAlready)
+            {
+                MessageBox.Show("ISCSi not online.");
+            }
+            ChangeStatus(CheckModule.ISCSiConnection, isPer && isConnected && isDiskAlready);
         }
 
         private List<ISCSiInfo> GetISCSiInfo()

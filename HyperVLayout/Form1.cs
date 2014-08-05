@@ -88,6 +88,11 @@ namespace HyperVLayout
             ProcessCaller.ProcessToOpenPowershell(MainForm.CorefigPath + PowershellScript.Corefig);
         }
 
+        private void OpenCorefigbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

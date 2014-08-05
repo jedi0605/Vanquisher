@@ -39,6 +39,39 @@ namespace HyperVLayout
             //this.ISCSiCheckedListBox.ItemsAdd(new ListItem());
         }
 
+       
+
+        private void RefleshVolumeInfo(bool reflesh)
+        {
+            if (reflesh)
+            {
+                this.iSCSiInfo = ISCSiAPI.GetVolumeInfo();
+            }
+            string textInfo = ISCSiCheckedListBox.SelectedItem.ToString();
+            // MessageBox.Show(ISCSiCheckedListBox.SelectedItem.ToString());
+            ISCSiInfo info = this.iSCSiInfo.Find(x => textInfo.Contains(x.FriendlyName) && textInfo.Contains(x.Number.ToString()));
+            ISCSiStatusText.Text = info.IsOffline == true ? Constants.offline : Constants.online;
+            PartitionSizeText.Text = info.PartitionSizeInGb + "GB.";
+        }
+
+        private void InitDiskBtn_Click(object sender, EventArgs e)
+        {
+            CheckedListBox.CheckedItemCollection selecets = ISCSiCheckedListBox.CheckedItems;
+            foreach (string item in selecets)
+            {
+                ISCSiInfo info = this.iSCSiInfo.Find(x => item.Contains(x.FriendlyName) && item.Contains(x.Number.ToString()));
+                bool result = ISCSiAPI.InitializeDisk(info.Number);
+                if (!result)
+                {
+                    MessageBox.Show("Initialize disk fail.");
+                }
+                else
+                {
+                    MessageBox.Show("Initialize disk Success.");
+                }
+            }
+        }
+
         private void SetDiskOnline_Click(object sender, EventArgs e)
         {
             CheckedListBox.CheckedItemCollection selecets = ISCSiCheckedListBox.CheckedItems;
@@ -60,19 +93,6 @@ namespace HyperVLayout
             {
                 RefleshVolumeInfo(true);
             }
-        }
-
-        private void RefleshVolumeInfo(bool reflesh)
-        {
-            if (reflesh)
-            {
-                this.iSCSiInfo = ISCSiAPI.GetVolumeInfo();
-            }
-            string textInfo = ISCSiCheckedListBox.SelectedItem.ToString();
-            // MessageBox.Show(ISCSiCheckedListBox.SelectedItem.ToString());
-            ISCSiInfo info = this.iSCSiInfo.Find(x => textInfo.Contains(x.FriendlyName) && textInfo.Contains(x.Number.ToString()));
-            ISCSiStatusText.Text = info.IsOffline == true ? Constants.offline : Constants.online;
-            PartitionSizeText.Text = info.PartitionSizeInGb + "GB.";
         }
     }
 }

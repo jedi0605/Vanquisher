@@ -19,6 +19,10 @@ namespace VanquisherAPI
             return result.Count == 0 ? false : true;
         }
 
+        /// <summary>
+        /// one iscsi fit  QQ.
+        /// </summary>
+        /// <returns></returns>
         public static bool IsPersistentConnetionType()
         {
             PSInvoker invoker = new PSInvoker();
@@ -95,7 +99,7 @@ namespace VanquisherAPI
             }
         }
 
-        public static bool DiskAlready()
+        public static bool DisksAlready()
         {
             List<ISCSiInfo> info = GetVolumeInfo();
             foreach (ISCSiInfo item in info)
