@@ -1,0 +1,117 @@
+! style here:
+style.name: osn_blue
+style.author: oldskull
+style.date: Wed @ 26 Nov 03
+style.credits: 
+style.comments: 
+
+! toolbar here:
+toolbar: raised bevel1 gradient vertical 
+toolbar.color: #D7D7CF
+toolbar.colorTo: #4D474B
+toolbar.textColor: #000000
+toolbar.button: raised bevel1 gradient diagonal 
+toolbar.button.color: #D7D7CF
+toolbar.button.colorTo: #4D474B
+toolbar.button.picColor: #000000
+toolbar.button.pressed: sunken bevel1 gradient diagonal 
+toolbar.button.pressed.color: #D7D7CF
+toolbar.button.pressed.colorTo: #4D474B
+toolbar.button.pressed.picColor: #70AFF4
+toolbar.label: sunken bevel1 gradient pyramid 
+toolbar.label.color: #000000
+toolbar.label.colorTo: #70AFF4
+toolbar.label.textColor: #D1D1D1
+toolbar.windowLabel: sunken bevel1 gradient pyramid 
+toolbar.windowLabel.color: #000000
+toolbar.windowLabel.colorTo: #70AFF4
+toolbar.windowLabel.textColor: #D1D1D1
+toolbar.clock: sunken bevel1 gradient pyramid 
+toolbar.clock.color: #000000
+toolbar.clock.colorTo: #70AFF4
+toolbar.clock.textColor: #D1D1D1
+
+! menu here:
+menu.title: raised bevel1 gradient vertical 
+menu.title.color: #D7D7CF
+menu.title.colorTo: #4D474B
+menu.title.textColor: #000000
+menu.frame: flat bevel1 gradient elliptic 
+menu.frame.color: #4D474B
+menu.frame.colorTo: #D7D7CF
+menu.frame.textColor: #000000
+menu.frame.disableColor: #000000
+menu.hilite: sunken bevel1 gradient pyramid 
+menu.hilite.color: #000000
+menu.hilite.colorTo: #70AFF4
+menu.hilite.textColor: #D1D1D1
+menu.bullet: diamond
+menu.bullet.position: right
+
+! window here:
+window.title.focus: raised bevel1 gradient vertical 
+window.title.focus.color: #D7D7CF
+window.title.focus.colorTo: #4D474B
+window.title.unfocus: raised bevel1 gradient vertical 
+window.title.unfocus.color: #D7D7CF
+window.title.unfocus.colorTo: #4D474B
+window.label.focus: sunken bevel1 gradient pyramid 
+window.label.focus.color: #000000
+window.label.focus.colorTo: #70AFF4
+window.label.focus.textColor: #D1D1D1
+window.label.unfocus: ParentRelative
+window.label.unfocus.color: #000000
+window.label.unfocus.colorTo: #000000
+window.label.unfocus.textColor: #000000
+window.handle.focus: raised bevel1 gradient vertical 
+window.handle.focus.color: #D7D7CF
+window.handle.focus.colorTo: #4D474B
+window.handle.unfocus: raised bevel1 gradient vertical 
+window.handle.unfocus.color: #D7D7CF
+window.handle.unfocus.colorTo: #4D474B
+window.grip.focus: raised bevel1 gradient pyramid 
+window.grip.focus.color: #70AFF4
+window.grip.focus.colorTo: #000000
+window.grip.unfocus: raised bevel1 gradient vertical 
+window.grip.unfocus.color: #D7D7CF
+window.grip.unfocus.colorTo: #4D474B
+window.button.focus: raised bevel1 gradient diagonal 
+window.button.focus.color: #D7D7CF
+window.button.focus.colorTo: #4D474B
+window.button.focus.picColor: #000000
+window.button.unfocus: raised bevel1 gradient diagonal 
+window.button.unfocus.color: #D7D7CF
+window.button.unfocus.colorTo: #4D474B
+window.button.unfocus.picColor: #000000
+window.button.pressed: sunken bevel1 gradient diagonal 
+window.button.pressed.color: #D7D7CF
+window.button.pressed.colorTo: #4D474B
+window.button.pressed.picColor: #70AFF4
+window.frame.focusColor: #4D474B
+window.frame.unfocusColor: #4D474B
+
+! slit here:
+slit: bevel1 solid 
+slit.color: #000000
+slit.colorTo: #000000
+
+! Fonts here:
+toolbar.font: nu
+toolbar.justify: center
+menu.title.font: nu
+menu.title.justify: center
+menu.frame.font: nu
+menu.frame.justify: center
+window.font: nu
+window.justify: center
+menuFont: 
+titleFont: 
+*font: 
+
+! Misc here:
+borderColor: #3D3D3D
+bevelWidth: 1
+borderWidth: 1
+frameWidth: 1
+handleWidth: 5
+rootCommand: bsetroot -gradient diagonal -from #D7D7CF -to #4D474B

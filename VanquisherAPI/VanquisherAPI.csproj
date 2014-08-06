@@ -58,10 +58,11 @@
     <Compile Include="ISCSiAPI.cs" />
     <Compile Include="ModuleChecker.cs" />
     <Compile Include="NetworkCheker.cs" />
-    <Compile Include="PowershellScript.cs" />
+    <Compile Include="Script.cs" />
     <Compile Include="ProcessCaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSInvoker.cs" />
+    <Compile Include="Utilite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">

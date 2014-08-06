@@ -15,7 +15,7 @@ namespace VanquisherAPI
         public static bool IsIscsiConneted()
         {
             PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.IsIscsiConnected);
+            Collection<PSObject> result = invoker.ExecuteCommand(VanScript.IsIscsiConnected);
             return result.Count == 0 ? false : true;
         }
 
@@ -26,7 +26,7 @@ namespace VanquisherAPI
         public static bool IsPersistentConnetionType()
         {
             PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.GetIscsiSession);
+            Collection<PSObject> result = invoker.ExecuteCommand(VanScript.GetIscsiSession);
             if (result.Count > 0 && (bool)result[0].Properties["IsPersistent"].Value == true)
             {
                 return true;
@@ -41,7 +41,7 @@ namespace VanquisherAPI
         {
             List<ISCSiInfo> info = new List<ISCSiInfo>();
             PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.GetIscsiInfo);
+            Collection<PSObject> result = invoker.ExecuteCommand(VanScript.GetIscsiInfo);
 
             if (result.Count == 0)
             {
@@ -64,7 +64,7 @@ namespace VanquisherAPI
             PSInvoker invoker = new PSInvoker();
             try
             {
-                Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.InitializeDisk(diskNumber));
+                Collection<PSObject> result = invoker.ExecuteCommand(VanScript.InitializeDisk(diskNumber));
                 return result.Count == 1 ? true : false;
             }
             catch (psInvokerException ex)
@@ -89,7 +89,7 @@ namespace VanquisherAPI
 
             try
             {
-                Collection<PSObject> result = invoker.ExecuteCommand(PowershellScript.SetDiskOnline(diskNumber));
+                Collection<PSObject> result = invoker.ExecuteCommand(VanScript.SetDiskOnline(diskNumber));
                 return true;
             }
             catch (Exception ex)
@@ -101,15 +101,22 @@ namespace VanquisherAPI
 
         public static bool DisksAlready()
         {
-            List<ISCSiInfo> info = GetVolumeInfo();
-            foreach (ISCSiInfo item in info)
+            try
             {
-                if (item.IsOffline)
+                List<ISCSiInfo> info = GetVolumeInfo();
+                foreach (ISCSiInfo item in info)
                 {
-                    return false;
+                    if (item.IsOffline)
+                    {
+                        return false;
+                    }
                 }
+                return true;
             }
-            return true;
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
     }

@@ -57,6 +57,7 @@ namespace VanquisherAPI
         /// <returns></returns>
         public Collection<PSObject> ExecuteCommand(string script)
         {
+            
             Pipeline p = runspace.CreatePipeline();
             p.Commands.AddScript(script);
             try

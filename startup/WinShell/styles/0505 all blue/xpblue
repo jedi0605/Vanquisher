@@ -1,0 +1,116 @@
+! style here:
+style.name: xpblue
+style.author: oldskull
+style.date: Fri @ 12 Dec 03
+style.credits: 
+style.comments: 
+
+! toolbar here:
+toolbar: raised bevel1 gradient vertical 
+toolbar.color: #0056E1
+toolbar.colorTo: #2793FF
+toolbar.textColor: #D1E4FF
+toolbar.button: raised bevel1 gradient diagonal 
+toolbar.button.color: #8BACFF
+toolbar.button.colorTo: #0A3ABA
+toolbar.button.picColor: #FFFFFF
+toolbar.button.pressed: raised bevel1 gradient diagonal 
+toolbar.button.pressed.color: #E8A491
+toolbar.button.pressed.colorTo: #BB3B20
+toolbar.button.pressed.picColor: #FFFFFF
+toolbar.label: flat bevel1 gradient vertical 
+toolbar.label.color: #0056E1
+toolbar.label.colorTo: #2793FF
+toolbar.label.textColor: #FFFFFF
+toolbar.windowLabel: flat bevel1 gradient vertical 
+toolbar.windowLabel.color: #0056E1
+toolbar.windowLabel.colorTo: #2793FF
+toolbar.windowLabel.textColor: #FFFFFF
+toolbar.clock: flat bevel1 gradient vertical 
+toolbar.clock.color: #0056E1
+toolbar.clock.colorTo: #2793FF
+toolbar.clock.textColor: #FFFFFF
+
+! menu here:
+menu.title: raised bevel1 gradient vertical 
+menu.title.color: #0056E1
+menu.title.colorTo: #2793FF
+menu.title.textColor: #FFFFFF
+menu.frame: raised bevel1 gradient diagonal 
+menu.frame.color: #ECE9D8
+menu.frame.colorTo: #ECE9D8
+menu.frame.textColor: #3E3E3E
+menu.frame.disableColor: #000000
+menu.hilite: raised bevel1 gradient diagonal 
+menu.hilite.color: #F2F1ED
+menu.hilite.colorTo: #ECE9D8
+menu.hilite.textColor: #000000
+menu.bullet: diamond
+menu.bullet.position: right
+
+! window here:
+window.title.focus: raised bevel1 gradient vertical 
+window.title.focus.color: #0056E1
+window.title.focus.colorTo: #2793FF
+window.title.unfocus: raised bevel1 gradient vertical 
+window.title.unfocus.color: #7A95DC
+window.title.unfocus.colorTo: #89ACE6
+window.label.focus: flat bevel1 gradient vertical 
+window.label.focus.color: #0056E1
+window.label.focus.colorTo: #2793FF
+window.label.focus.textColor: #FFFFFF
+window.label.unfocus: flat bevel1 gradient vertical 
+window.label.unfocus.color: #7A95DC
+window.label.unfocus.colorTo: #89ACE6
+window.label.unfocus.textColor: #D1E4FF
+window.handle.focus: raised bevel1 gradient vertical 
+window.handle.focus.color: #0056E1
+window.handle.focus.colorTo: #2793FF
+window.handle.unfocus: raised bevel1 gradient vertical 
+window.handle.unfocus.color: #7A95DC
+window.handle.unfocus.colorTo: #89ACE6
+window.grip.focus: raised bevel1 gradient vertical 
+window.grip.focus.color: #0056E1
+window.grip.focus.colorTo: #2793FF
+window.grip.unfocus: raised bevel1 gradient vertical 
+window.grip.unfocus.color: #7A95DC
+window.grip.unfocus.colorTo: #89ACE6
+window.button.focus: raised bevel1 gradient diagonal 
+window.button.focus.color: #8BACFF
+window.button.focus.colorTo: #0A3ABA
+window.button.focus.picColor: #FFFFFF
+window.button.unfocus: raised bevel1 gradient diagonal 
+window.button.unfocus.color: #869EE6
+window.button.unfocus.colorTo: #4263D6
+window.button.unfocus.picColor: #D1E4FF
+window.button.pressed: raised bevel1 gradient diagonal 
+window.button.pressed.color: #E8A491
+window.button.pressed.colorTo: #BB3B20
+window.button.pressed.picColor: #FFFFFF
+window.frame.focusColor: #929292
+window.frame.unfocusColor: #929292
+
+! slit here:
+slit: bevel1 solid 
+slit.color:	#ECE9D8
+
+! Fonts here:
+toolbar.font: nu
+toolbar.justify: center
+menu.title.font: nu
+menu.title.justify: center
+menu.frame.font: nu
+menu.frame.justify: right
+window.font: nu
+window.justify: center
+
+! Misc here:
+borderColor: #074BD0
+bevelWidth: 1
+borderWidth: 1
+frameWidth: 1
+handleWidth: 5
+
+!rootCommand: bsetroot -f bliss.jpg
+rootCommand: bsetroot -solid #bcb6aa
+

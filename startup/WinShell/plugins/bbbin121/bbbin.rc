@@ -1,0 +1,7 @@
+bbbin.x: 80
+bbbin.y: 1
+bbbin.alwaysontop: true
+bbbin.snapwindow: true
+bbbin.transparency: false
+bbbin.transparency.alpha: 60
+bbbin.dockedtoslit: false

@@ -82,12 +82,12 @@ namespace Vanquisher_Test
         [TestMethod()]
         public void CheckModuleInstallTest()
         {
-            WindownsFeature[] checkModule = { WindownsFeature.WindowsPowerShell, WindownsFeature.Error };
-            Dictionary<string, bool> actual;
+            WindownsFeature[] checkModule = { WindownsFeature.ASPNET, WindownsFeature.Error };
+            Dictionary<WindownsFeature, bool> actual;
 
             actual = ModuleChecker.CheckModuleInstall(checkModule);
-            Assert.IsTrue(actual[checkModule[0].ToString()]);
-            Assert.IsFalse(actual[checkModule[1].ToString()]);
+            Assert.IsTrue(actual[WindownsFeature.ASPNET] == true);
+            Assert.IsTrue(actual[WindownsFeature.Error] == false);
         }
 
     }

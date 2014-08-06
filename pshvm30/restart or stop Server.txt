@@ -1,0 +1,14 @@
+Restart Server
+In DOS
+Shutdown /R
+
+In Powershell
+Restart-Computer -Force
+
+
+
+Poweroff Server
+In DOS
+Shutdown /p
+In Powershell
+stop-Computer -Force

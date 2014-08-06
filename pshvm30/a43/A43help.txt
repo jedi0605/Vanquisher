@@ -1,0 +1,138 @@
+ A43 File Management Utility - Version 3.90
+ Copyright 2001-2013   Bradley G. Miller,  all rights reserved.
+
+
+ Thanks for trying A43! This help is brief, assuming you know what a file 
+ manager is and how to use it. What this help will do is fill you in on the extras 
+ that A43 offers. A43 was created for my personal use but I have decided to 
+ let others have a go too.
+
+
+ CREDITS
+ -------
+ First and foremost I want to thank all those in the development community
+ that have so graciously shared with me over the years. Some components
+ used in A43 have been made available that others might learn and to
+ those I am forever grateful. I thank you and salute you.
+
+ CHANGES
+ -------
+ Please read the changes.txt file to stay current. I do not update this file.
+ Perhaps someday will have html help.
+
+ USING THE BUILT IN ZIP FEATURE
+ ------------------------------
+ You can drag-n-drop zip files for easy extraction or select the zip file you want 
+ to unzip then select unzip from the file menu or click the unzip button.
+
+ To compress files simply select the files and drag-n-drop or select the files then 
+ select zip from the file menu or click the zip button.
+
+ NOTE: If you choose to check Relative Path, only the relative path will be 
+ stored in the archive,  meaning files will have no path information saved while
+ folders will have the path information stored with any files they contain.
+ If Relative Path is not checked then the path information is stored for both
+ files and folders.
+
+ ALSO NOTE: If a folder you want to archive is empty then it will not be
+ stored. To insure it is included place a dummy file in it. For example, place a
+ zero byte text file there.
+
+ SELF-EXTRACTING ARCHIVES
+ ------------------------
+ Drag-n-drop zip files or select zip files then select Make EXE from the file
+ menu or click the EXE button. Multiple archives can be converted at one time
+ but if they are huge give  A43 time to convert them. There is no abort for this
+ operation. The converted files will remain in the same folder as the original zip
+ files.
+
+ CHANGING DATE/TIME STAMP OF FILES
+ ---------------------------------
+ Select the files you wish to alter then select Set File Date/Time from the file 
+ menu. A dialog will be presented with the current date/time ready to apply 
+ or change the date/time then click apply.
+
+ QUICK LAUNCH AREA
+ -----------------
+ Here you can create shortcuts to your favorite programs or files.
+ Click the New Shortcut button on the toolbar to start the wizard
+ or simply drag-n-drop the file and a shortcut will be created.
+
+ FM EXTRA
+ --------
+ This simply mimics the file manager to allow an extra work area. The menus
+ and toolbars are not active for this area. However, drag-n-drop and context
+ menus are implemented. Right-click an object to perform an operation.
+
+ FAVORITE BUTTONS
+ ----------------
+ Drag-n-drop a folder onto the Favorites then select which button you
+ wish to set. Now this button will take you there.
+
+ TEXT EDITOR
+ -----------
+ Use the Text Editor to edit text files and to quickly store them in a zip file.
+ Drag-n-drop a file on the editor to open it for editing.
+ To activate the popup menu press Ctrl+Alt+M while the editor is active.
+
+
+ NAVIGATE
+ --------
+ Use Ctrl+Alt+LeftArrow and Ctrl+Alt+RightArrow for the Back/Forward buttons.
+ Use Ctrl+Alt+UpArrow to go ot the parent folder.
+ NOTE: The file view must have the focus.
+ Use F7 to open/close the splitter.
+
+ FIND FILE
+ ---------
+ Enter your search criteria then click find. Double-click a file shown from
+ the search to go to the file.
+
+
+ COMMAND-LINE PARAMETERS
+ -----------------------
+ You can instruct A43 to open to a specific directory by passing the path:
+     c:\temp
+
+ You can instruct A43 to open a text file by passing the path to the file:
+     c:\temp\myfile.txt
+
+ You can instruct A43 to start with a certain file filter by passing the filter:
+     /ext=*.txt;*.ini;*.bat
+
+ You can instruct A43 to use a different ini directory by passing the path
+ you wish to use:
+     /ini=c:\temp
+
+ NOTE: The directory you pass must exist.
+
+ You can instruct A43 to use a different 'links' directory by passing the path
+ you wish to use:
+     /links=c:\temp
+
+ NOTE: The directory you pass must exist.
+
+ A43 will scan the entire command-line for your parameters. Seperate each
+ parameter with a space.
+     c:\myfolder   /ini=c:\temp 
+     c:\myfolder\myfile.txt   /ini=c:\temp 
+     /ini=c:\temp /links=c:\temp c:\myfolder c:\myfolder\myfile.txt
+
+ ------------------------------------------------------------------------
+
+ A43 is constantly evolving so your feedback is welcome, positive or not. 
+ I hope A43 works for you.
+
+ B. G. Miller
+
+ www.a43filemanager.com
+ support@a43filemanager.com
+
+ You must include A43 in the subject or your email will not make it through
+ the filters.
+ 
+ -------------------------------------------------------------------------------
+ The 7z.dll is supplied by Igor Pavlov, the author of the excellent
+ 7-Zip. 7-Zip is Copyright (C) 2011 Igor Pavlov. Many thanks
+ to him for his great lzma work. Visit 7-Zip here: http://www.7-zip.org/faq.html
+ -------------------------------------------------------------------------------

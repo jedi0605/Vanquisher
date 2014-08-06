@@ -11,6 +11,8 @@ namespace VanquisherAPI
         HyperV = 20,
         WindowsPowerShell = 412,
         ClusterFeature = 33,
+
+        ASPNET = 148,
         Error = 9999
     }
 }

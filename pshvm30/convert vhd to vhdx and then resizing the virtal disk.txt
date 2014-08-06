@@ -1,0 +1,18 @@
+to convert a .vhd file to .vhdx (VHD limited to less than 2TB and you cannot shrink it, VHDX can exceed 2TB and you can shrink it)
+Open the powershell window
+type (substitute C:\temp\ for your path)
+PS C:\> Convert-VHD –Path c:\test\test.vhd –DestinationPath c:\test\test.vhdx
+Add "-VHDType  Fixed" at the end of the above statement if you wish to make it a fixed/static drive. The allowed values are Fixed, Dynamic, and Differencing.
+
+To expand a VHD or VHDX file size (Assumes you want a disk that is less than 2TB and less than the 100GB in example, does not matter if it is static or dynamic. If you want a disk greater than 2TB it must be a VHDX file)
+Power the VM off
+PS C:\> Resize-VHD –Path c:\TEST.vhd –SizeBytes 100GB
+Power the VM on and use the disk manager to extend the disk onto the new space.
+
+Before you attempt to shrink a VHDX file you must do these steps first within the running Windows 2008 server. NOTE you cannot shrink a VHD file so you must convert it to VHDX first.
+1. Right-click on the volume in Disk Management and select Shrink Volume. (was 100GB, shooting for 70GB)
+2. Enter the amount of space to shrink and press the Shrink button. (shrink by 30GB)
+Power the VM off
+To shrink a VHDX file size (Assumes you have a disk that is greater than 70GB and has less than 70GB diskspace used, does not matter if it is static or dynamic)
+PS C:\> Resize-VHD –Path c:\TEST.vhdx –ToMinimumSize
+Power the VM on and use the disk manager to check to see if you sized it correctly

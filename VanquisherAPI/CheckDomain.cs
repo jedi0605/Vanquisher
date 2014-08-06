@@ -12,7 +12,7 @@ namespace VanquisherAPI
         public static bool IsJoinDomain()
         {
             PSInvoker invoker = new PSInvoker();
-            Collection<PSObject> result = invoker.ExecuteCommand( PowershellScript.GetDomain);
+            Collection<PSObject> result = invoker.ExecuteCommand( VanScript.GetDomain);
             string domainInfo = result[0].ToString();
             if (string.Compare(domainInfo, "WORKGROUP", true) == 0)
                 return false;

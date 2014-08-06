@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
+using System.Security;
+using System.IO;
+using System.Reflection;
 
 namespace VanquisherAPI
 {
     public class ProcessCaller
     {
-        public static void ProcessToOpenPowershell(string powershellPath)
+        public static void ProcessOpenPowershell(string powershellPath)
         {
             Process p = new Process();
-            p.StartInfo.UseShellExecute = true;
+            p.StartInfo.UseShellExecute = false;
             p.StartInfo.CreateNoWindow = true;
-            p.StartInfo.FileName = "Powershell.exe";
+            p.StartInfo.FileName = @"powershell.exe";
             p.StartInfo.Arguments = powershellPath;
+            p.StartInfo.WorkingDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            p.StartInfo.Verb = "runas";
             p.Start();
         }
     }

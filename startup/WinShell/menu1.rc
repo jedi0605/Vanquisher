@@ -1,0 +1,31 @@
+
+[begin ] (Hyper-V Core)
+	[exec] (Explorer)				{"%SystemRoot%\explorerapp.exe"}
+	[submenu] (Applications)
+		[exec] (RDP Client)			{"C:\Program Files\2X\Client\AppServerClient.exe"}
+		[exec] (Notepad)			{notepad.exe}
+		[exec] (Google Chrome)			{"$ProgramFiles$\Google\Chrome\Application\Chrome.exe"}
+		[exec] (Hyper-V Manager)		{"c:\Program Files\5nine\5nine Manager for Hyper-V\5nine.Manager.exe"}
+		[exec] (WinRar)				{"C:\Program Files\winrar\winrar.exe"}
+ 	[end]	
+	[submenu] (System)
+		[run] (Run...)
+		[exec] (Command Prompt)			{cmd.exe}
+		[exec] (PowerShell)			{"C:\windows\system32\window~1\v1.0\powershell.exe"}
+		[exec] (Text Hyper-V Core Manger)		{"c:\windows\log.txt"}
+		[exec] (Regedit)			{regedit.exe}
+		[exec] (CoreFig)			{"C:\Scripts\manage.exe"}
+		[exec] (Task Manager)			{"C:\Windows\procexp.exe"}
+		[exec] (Device Manager)			{"C:\Windows\devmanview.exe"}
+		[exec] (Network Config)			{"C:\Windows\NetworkInterfacesView.exe"}
+ 	[end]
+    [separator]	
+
+
+  	[submenu] (Shutdown Menu)
+	[exec] (Shutdown)				{"C:\Scripts\shutdown.exe"}
+	[exec] (Reboot)					{"C:\Scripts\restart.exe"}
+	[exec] (LogOff)					{"C:\Windows\System32\Logoff.exe"}
+  	[end]
+
+[end]

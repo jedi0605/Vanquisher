@@ -122,7 +122,10 @@
             this.Controls.Add(this.SetDiskOnlineBtn);
             this.Controls.Add(this.InitDiskBtn);
             this.Controls.Add(this.ISCSiCheckedListBox);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "iSCSIForm";
+            this.ShowInTaskbar = false;
             this.Text = "iSCSIForm";
             this.ResumeLayout(false);
             this.PerformLayout();

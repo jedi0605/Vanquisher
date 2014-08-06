@@ -18,10 +18,10 @@ namespace VanquisherAPI
         /// <returns></returns>
         static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static Dictionary<string, bool> CheckModuleInstall(WindownsFeature[] featureName)
+        public static Dictionary<WindownsFeature, bool> CheckModuleInstall(WindownsFeature[] featureName)
         {
             Dictionary<int, string> installedModul = GetInstallModule();
-            Dictionary<string, bool> installResult = new Dictionary<string, bool>();
+            Dictionary<WindownsFeature, bool> installResult = new Dictionary<WindownsFeature, bool>();
 
             //init result
             foreach (WindownsFeature item in featureName)
@@ -31,7 +31,7 @@ namespace VanquisherAPI
                 {
                     moduleInstalled = true;                    
                 }
-                installResult.Add(item.ToString(), moduleInstalled);
+                installResult.Add(item, moduleInstalled);
             }
             return installResult;
         }

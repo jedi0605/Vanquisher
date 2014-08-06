@@ -1,0 +1,30 @@
+Now that you have built the hypervisor server, you want to get that old physical server onto your hypervisor as a VM.  Sysinternals (wholely owned by MS now) has a tool called disk2vhd.exe (located on your server in C:\pshvm30\). 
+
+DISK2VHD works great but there are draw backs. Such as you need to have the diskspace available on the server, a networked drive or an external USB drive with enough space available for the VHD file. 
+
+Run disk2vhd.exe, follow the prompts and it crank away. It will tell you the space required to get a dynamic VHD file created of your server, sorry those are your only choices. Map a drive to the hyper-v vhost, create a folder where you want the server to reside and copy the VHD file into it.
+O
+nce that is complete, I unplugged the NIC from the pysical Server and created a new VM with the specs I wanted for the vCPUs and RAM etc, and attached the VHD to it for my new/old server. Now I started it up, logged into it, uninstalled any physical server software junk, like Dell Open Manage, Broadcomm NIC manager and MATROX video stuff and rebooted. You might have to setup the static IP address again.
+
+Now you have a new/old server on the network ready to roll and once some testing is done to make sure everything is fine, you can power off the old box and re-cycle or reuse it. 
+
+You just checked the spec's on the new VM and it a setup to be a dynamic disk and the size is 136GB and only 25 is used.
+How do you make it a fixed /static disk and 70GB which is the your standard. 
+
+Here are your steps:
+1. Power the VM Server off (hence forth to be called VM)
+2. From the server console, open the powershell window, type (substitute C:\temp\ for your path)
+PS C:\> Convert-VHD –Path c:\test\test.vhd –DestinationPath c:\test\test.vhdx -VHDType Fixed
+This will convert your VHD file to a VHDX file and make it Fixed or Static. The -VHDType options are Fixed, Dynamic and Differencing. According the technet you cannot shrink a VHD file but you can expand a VHD file. If you want to shrink it, it must be in VHDX format.
+3. Edit VM setting with your hyper-v manager and point to the new VHDX file you just created.
+4. Power the VM up and log into it as Administrator
+5. Right-click on the volume in Disk Management and select Shrink Volume. (was 136GB)
+6. Enter the amount of space to shrink and press the Shrink button. (shrink by 66GB to get 70gb)
+7. Power the VM off
+8. To shrink a VHDX file size, from the server console open the powershell window and type
+PS C:\> Resize-VHD –Path c:\test\test.vhdx –ToMinimumSize
+
+9. Power the VM on and check to make sure you got your re-sizing right.
+You are done
+
+You might want to delete the old VHD file unless you are not done with it or like to waste disk space.

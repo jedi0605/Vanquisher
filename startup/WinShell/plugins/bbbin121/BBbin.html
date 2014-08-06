@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>BBbin</title>
+<style>
+	body
+	{background-color: #333333;
+	margin-top: 5px; margin-left: 5px;
+	scrollbar-face-color: #636363;
+	scrollbar-shadow-color: #535353;
+	scrollbar-highlight-color: #737373;
+	scrollbar-3dlight-color: #737373;
+	scrollbar-darkshadow-color: #535353;
+	scrollbar-track-color: #333333;
+	scrollbar-arrow-color: #FFFFFF;}
+	<!--
+	a:hover{color:#888888;}
+	.myhover a:hover{color:#888888;}
+	-->
+	hr {height: 1px; color: #666666;}
+	table {font-family: Tahoma; font-size: 8pt; font-weight: normal; text-align: left; color: #FFFFFF;}
+	span {color: #777777;}
+	span.desc {color: #BBBBBB;}
+	span.example {color: #555555;}
+</style>
+</head>
+
+<!-- ---------- -->
+
+<body bgcolor="#333333" text="#FFFFFF" link="#AAAAAA" vlink="#AAAAAA" alink="#AAAAAA" topmargin="5" leftmargin="5">
+
+<table border="0" cellpadding="0" cellspacing="2" align="center">
+
+<!-- ---------- -->
+
+<tr><td colspan="2">
+<table cellpadding="10" cellspacing="0" width="100%" border="1" bordercolor="#666666"><tr bgcolor="#555555"><td>
+<font size="+1">BBbin <span class="desc">1.2.1</span></font>
+</td></tr></table>
+</td></tr>
+
+<tr><td valign="top">
+
+<!-- ---------- -->
+
+<table cellpadding="10" cellspacing="0" width="300" border="1" bordercolor="#555555">
+
+<tr><td bgcolor="#444444"><center><font color="#777777"><b>description</b></font></center></td></tr>
+<tr bgcolor="#333333"><td>
+BBbin is a <a href="http://desktopian.org/bb/">xoblite</a> / <a href="http://bb4win.org/">Blackbox for Windows</a> plugin that provides easy access to the recycle bin
+(also known as the trashcan, dustbin, the round archive, etc.) and all of its facilities ...that is, pretty much, just opening
+and emptying it! It does, however, perform these *seemingly* simple tasks with a lot of style! =]
+
+<p>Please note that BBbin 1.2.1 requires <a href="http://desktopian.org/bb/">xoblite</a> bb1 or<br>later / <a href="http://bb4win.org/">Blackbox for Windows</a> 0.0.91 or later.
+
+<p>Enjoy! :D
+
+<p><span><font face="Verdana"><i>Today is yesterday's tomorrow.</i></font></span>
+
+<p><a href="mailto:qwilk@NOSPAMtelia.com">qwilk</a>
+
+</td></tr>
+
+<!-- ---------- -->
+
+<tr><td bgcolor="#444444"><center><font color="#777777"><b>revision history</b></font></center></td></tr>
+<tr bgcolor="#333333"><td>
+
+BBbin 1.2.1 (2004-08-04) / <a href="mailto:qwilk@NOSPAMtelia.com">qwilk</a>
+<span>
+	<li>Fixed a bug where the configuration menu would be<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;empty if not &-loaded under bb4win/bbLean</li>
+</span>
+
+<p>BBbin 1.2 (2003-09-03) / <a href="mailto:qwilk@NOSPAMtelia.com">qwilk</a>
+<span>
+	<li>Slit compatible (beginPluginEx)</li>
+	<li>Full style parsing! =]</li>
+	<li>Bro@m list support</li>
+	<li>Multi monitor support (not tested)</li>
+	<li>IntelliMoveEx&trade; &lt;g&gt; (intelligent re-positioning of the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BBbin window at e.g. change of screen resolution or<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the x/y position is off screen at startup)</li>
+	<li>Windows 9x/ME compatible? ;)</li>
+	<li>Minor bug fixes and enhancements</li>
+</span>
+
+<p>BBbin 1.0 (2003-01-23) / <a href="mailto:qwilk@NOSPAMtelia.com">qwilk</a>
+<span>
+	<li>Original release</li>
+</span>
+
+</td></tr>
+
+<!-- ---------- -->
+
+<tr><td bgcolor="#444444"><center><font color="#777777"><b>future releases?</b></font></center></td></tr>
+<tr bgcolor="#333333"><td>
+	<li>[your wish goes here - <a href="mailto:qwilk@NOSPAMtelia.com">send me your ideas</a>! :D ]</li>
+</td></tr>
+
+<!-- ---------- -->
+
+<tr><td bgcolor="#444444"><center><font color="#777777"><b>license information</b></font></center></td></tr>
+<tr bgcolor="#333333"><td>
+<span class="desc">&copy; 2002-2004 Karl-Henrik Henriksson [qwilk]</span>
+<p><span>BBBIN IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
+THE AUTHOR DISCLAIM ALL WARRANTIES, EITHER EXPRESS OR IMPLIED,
+INCLUDING THE WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE. IN NO EVENT SHALL THE AUTHOR OR ITS
+SUPPLIERS BE LIABLE FOR ANY DAMAGES WHATSOEVER INCLUDING
+DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, LOSS OF BUSINESS
+PROFITS OR SPECIAL DAMAGES, EVEN IF THE AUTHOR OR ITS SUPPLIERS
+HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</span>
+</td></tr>
+
+</table>
+
+<!-- ---------- -->
+
+</td><td valign="top">
+
+<!-- ---------- -->
+
+<table cellpadding="10" cellspacing="0" width="500" border="1" bordercolor="#555555">
+<tr><td bgcolor="#222222">
+
+<table width="100%" bgcolor="#333333"><tr><td>
+<center><span class="desc">initial setup</span></center>
+</td></tr></table>
+
+<p><span class="desc">If you are using xoblite:</span>
+<br>To load BBbin, you simply need to select <span>Load plugin...</span> in the Configuration/Plugins menu
+<br>(this item is also available in the Slit menu), locate BBbin.dll, and click "Open". Simple, eh? :)
+
+<p><span class="desc">If you are using Blackbox for Windows:</span>
+<br>To load BBbin you need to add the relative path of the plugin (from your Blackbox directory) to the Blackbox configuration file <span>plugins.rc</span> (located in the Blackbox directory).
+For example, if you installed Blackbox into c:\Blackbox, and BBbin.dll is located in c:\Blackbox\plugins\BBbin, you should add the line...
+
+<p><span>plugins\BBbin\BBbin.dll</span>
+
+<p>...to plugins.rc.
+
+<!-- ---------- -->
+
+<p><table width="100%" bgcolor="#333333"><tr><td>
+<center><span class="desc">how to use bbbin...</span></center>
+</td></tr></table>
+
+<p>Just three things really: All configuration (except for setting the alpha transparency value, see below) is performed using the
+right-click plugin menu (it should be pretty self-explanatory what each menu item does). Second, you can doubleclick on the BBbin
+window to empty the recycle bin. Third, you can X click the window to dock to / undock from the slit.
+
+<!-- ---------- -->
+
+<p><table width="100%" bgcolor="#333333"><tr><td>
+<center><span class="desc">bbbin.rc settings</span></center>
+</td></tr></table>
+
+<p>I have included a default configuration file (bbbin.rc) in the .zip, but if a configuration file for some reason (e.g. you deleted it &lt;g&gt;)
+can not be found at startup (BBbin will first search for it in the same directory as the plugin, then in the Blackbox directory),
+BBbin will automatically create one for you in the same directory as the plugin. Normally, you do not need to edit this file manually,
+however you may want to tweak the alpha transparency value (see below) to your liking.
+
+<span class="desc">
+<p>bbbin.x: 0 &nbsp;&nbsp;&nbsp;<span>X position</span>
+<br>bbbin.y: 0 &nbsp;&nbsp;&nbsp;<span>Y position</span>
+<br>bbbin.alwaysontop: false &nbsp;&nbsp;&nbsp;<span>AlwaysOnTop?</span>
+<br>bbbin.snapwindow: true &nbsp;&nbsp;&nbsp;<span>Snap BBbin window to screen edges?</span>
+<br>bbbin.transparency: false &nbsp;&nbsp;&nbsp;<span>Enable transparency?</span>
+<br>bbbin.transparency.alpha: 60 &nbsp;&nbsp;&nbsp;<span>Alpha transparency value</span>
+<br>bbbin.dockedtoslit: false &nbsp;&nbsp;&nbsp;<span>Docked to the slit? (ie. slit mode if true, plugin mode if false)</span>
+</span>
+
+<p>Finally, you can control BBbin using the following broadcast messages (bro@ms)...
+
+<span class="desc">
+<p>@BBbin OpenRecycleBin
+<br>@BBbin EmptyRecycleBin
+<br>@BBbin ToggleDockedToSlit
+<br>@BBbin ToggleAlwaysOnTop
+<br>@BBbin ToggleSnapWindowToEdge
+<br>@BBbin ToggleTransparency
+</span>
+
+<p>...which are equivalent to the items in the BBbin plugin menu. Hmm, I guess that's it! :D
+
+<br>&nbsp;
+
+</td></tr>
+
+<!-- ---------- -->
+
+<tr><td bgcolor="#444444"><center><font color="#777777"><b>acknowledgements</b></font></center></td></tr>
+<tr bgcolor="#333333"><td>
+<span class="desc">I would like to thank Joachim Calvert (NeXTer) for his valuable support in providing me with a list of the
+different registry keys that are used by the Windows recycle bin. Thanks Joachim! :D</span>
+</td></tr>
+
+<!-- ---------- -->
+
+</table>
+
+</td></tr></table>
+
+</body>
+</html>

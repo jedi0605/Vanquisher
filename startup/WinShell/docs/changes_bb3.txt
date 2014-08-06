@@ -1,0 +1,228 @@
+
+######################################################### xoblite bb3 | RC1 | 0.5.12.31 ##########
+
+[changed Settings.cpp/h, *.cpp 12/29/2005 qwilk]
+- For fans of the original xoblite bb1 slimline rendering, it is now possible to disable the use
+  of marginWidths as well as force font sizes to <= 12 by enabling "Slimline metrics" in the xoblite
+  Configuration menu (global setting, saved as xoblite.slimline.metrics: <bool> in extensions.rc)
+- Removed the config option to disable style extensions (configuration menu item and matching
+  extensions.rc setting) as it was deemed no longer necessary given the multitude of new settings
+  and the introduction of the bb4nix 0.70 syntax
+
+[changed CommandItem.cpp 12/5/2005 qwilk]
+- Added a bsetbg command option to the mid click on menu [exec] items functionality,
+  for further information see the entry from 1/4/2005 below... :)
+
+[changed Slit.cpp 12/5/2005 qwilk]
+- Manual positioning of the slit now requires ctrl+drag (same behaviour as the toolbar/systembar)
+
+[changed Settings.cpp/h, Toolbar.cpp/h, ToolbarMenu.cpp, CommandItem.cpp 12/4/2005 qwilk]
+- Manual positioning of the toolbar using ctrl+drag is now supported
+  (saved as session.screen0.toolbar.placement: Manual x<int> y<int> in blackbox.rc)
+- It is also possible to configure if the toolbar window should snap to the screen edges when
+  in manual positioning mode (configurable from the toolbar menu, item visible only when in
+  manual positioning mode, setting saved as xoblite.toolbar.snapToEdges: <bool> in extensions.rc)
+
+[changed Settings.cpp/h, Systembar.cpp/h, SystembarMenu.cpp, CommandItem.cpp 12/3/2005 qwilk]
+- Manual positioning of the systembar using ctrl+drag is now supported
+  (saved as xoblite.systembar.placement: Manual x<int> y<int> in extensions.rc)
+- It is also possible to configure if the systembar window should snap to the screen edges when
+  in manual positioning mode (configurable from the systembar menu, item visible only when in
+  manual positioning mode, setting saved as xoblite.systembar.snapToEdges: <bool> in extensions.rc)
+
+[changed Settings.cpp/h, MenuMaker.cpp 12/1/2005 qwilk]
+- Complete rewrite of the style parsing engine (reduced the size of the .exe by 5kB)
+- A side benefit of this rewrite is more or less full support for bb4nix 0.70 style syntax,
+  including borders for all elements and a few safeguards for a flawed mix of old and new syntax... :P
+- Another benefit is that it allows for even more comprehensive configuration than before, e.g.
+  different fonts for toolbar.label/windowLabel/clock - basically all settings for all elements! :D
+  (not that I recommend you go crazy with it, but it *is* supported... <vbg>)
+- Added support for menu.title/frame.marginWidth (used if defined, otherwise classic xoblite slimline)
+
+[changed Toolbar.cpp/h, Systembar.cpp 11/28/2005 qwilk]
+- Added support for dynamic resizing of the toolbar and systembar based on font size(s)
+
+[changed Slit.cpp/h 11/10/2005 qwilk]
+- Lowered the slit reconfigure lock from 500 milliseconds to 300 milliseconds... ;)
+  (theoretically this should make style changes, reconfigure and restarts feel snappier)
+
+[changed BBApi.cpp/h 11/9/2005 qwilk]
+- Added a new xoblite application environment variable -> $Clipboard$
+- When parsed $Clipboard$ will be replaced by the text string present in the clipboard
+  (however please note that e.g. menu items are parsed at startup, which means they are
+  static, but e.g. hotkeys are usually parsed dynamically)
+- Example: @Script [mailto:address@isp.com?subject="$Clipboard$"]
+
+[changed Systembar.cpp/h 11/7/2005 qwilk]
+- Alt+Mid clicking on a taskbar button will now shade/unshade the corresponding window
+
+[changed Toolbar.cpp/h 11/7/2005 qwilk]
+- Substantial streamlining of the toolbar painting code (more aggressive caching etc)
+
+[changed Settings.cpp/h, Systembar.cpp, SystembarMenu.cpp, CommandItem.cpp 11/2/2005 qwilk]
+- It is now possible to configure if inactive task buttons should have a background or not,
+  using the "Inactive task background" menu item in the taskbar submenu
+- Saved as xoblite.taskbar.inactive.background: <bool> in extensions.rc (theme specific setting)
+- The default setting is background disabled, because I think it looks really nice and
+  blends well with the active and flashing task buttons
+
+[changed Blackbox.cpp, Systembar.cpp/h, Settings.cpp/h 11/2/2005 qwilk]
+- Added support for flashing task buttons! :D (again by popular demand, including myself...)
+- The colours used for the flashing task buttons are the active task button colours,
+  but inverted and then transformed RBG->BGR (i.e. automatically configured by xoblite)
+- It is possible to disable task flashing if you find it annoying (or fugly) using the
+  "Disable task flashing" menu item in the taskbar submenu
+- Saved as xoblite.taskbar.flashing: <bool> in extensions.rc (theme specific setting)
+
+[changed Desk.cpp, Menu.cpp 11/1/2005 qwilk]
+- Merged in two multi-monitor bug fixes provided by viceroy (thanks Stuart!)
+
+[changed ToolbarMenu.cpp, SystembarMenu.cpp, SlitMenu.cpp 10/31/2005 qwilk]
+- Rearranged the placement submenus similar to the bb4nix 0.70 layout (made sense)
+
+[changed Systembar.cpp, SystembarMenu.cpp 10/31/2005 qwilk]
+- All taskbar modes (Bars/Icons/Bars+Icons) are now supported also when placed on the toolbar
+
+[changed Settings.cpp 10/30/2005 qwilk]
+- The default menu bullet is now "Triangle" (i.e. if not specified in the style - same as in *nix?)
+
+[changed Toolbar.cpp/h, Systembar.cpp/h, Settings.cpp/h, SystembarMenu.cpp/h 10/29/2005 qwilk]
+- By popular demand: The taskbar can now swap places with the toolbar windowlabel! :D
+  (i.e. making it possible to place the taskbar on the toolbar a la fluxbox)
+- Toggle placement from the taskbar submenu in the toolbar/systembar menus: "Taskbar<->WindowLabel"
+- Saved as xoblite.taskbar.placement: <Systembar/Toolbar> in extensions.rc (theme specific setting)
+- Please note that xobloon notifications will still be displayed on the systembar
+  (i.e. temporarily replacing the windowlabel if the taskbar is placed on the toolbar)
+- Optimized the toolbar gradient rendering code (e.g. including caching of gradients)
+
+[changed MenuMaker.cpp 10/23/2005 qwilk]
+- Wildcard search patterns are now supported for menu [path] items (previously predefined *.*)
+- Example: [path] (executables) {"$Blackbox$\*.exe"}
+
+[changed MenuMaker.cpp 10/22/2005 qwilk]
+- Added simple menu [path] folder merging using the | character as separator, e.g.:
+  [path] (start) {"$StartMenu$"|"$CommonStartMenu$"}
+- "Simple" means no checking for duplicates since this would require too much
+  additional processing to be worthwhile
+- Right clicking on a [path] item with merged folders will open the first folder in Explorer
+- Made the example above the second entry (after the Explorer file manager entry)
+  in the default menu.rc in an attempt to be slightly more n00b-friendly... ;]
+
+[changed Settings.cpp, Painter.cpp, Toolbar.cpp 10/10/2005 qwilk]
+- Added limited (for now) support for the "border" gradient type/appearance definition
+  and the related style settings menu.hilite.borderColor, toolbar.label.borderColor,
+  toolbar.windowLabel.borderColor and toolbar.clock.borderColor
+- Plugin developers should note that the "border" type definition is not parsed by ParseItem,
+  as doing so would break older plugins compiled using the first generation StyleItem definition
+  (one of the drawbacks of using structs and then changing them, see below...)
+
+[changed BBApi.cpp, Settings.cpp 9/29/2005 qwilk]
+- Miscellaneous workarounds due to some bbLean "experimental" changes to the StyleItem
+  definition also ending up in and being used by certain plugins... (e.g. bbIconBox)
+- Maybe we should consider assembling a *box API standards committee or something? (just an idea)
+
+[changed BBApi.cpp 9/26/2005 qwilk]
+- Added the bb4win/bbLean GetDesktopInfo function to the the API for compatibility with bbIconBox
+
+[changed BBApi.cpp 9/25/2005 qwilk]
+- Fixed GetTask always returning NULL (which caused all BBTaskMenu menu item titles to be empty)
+
+[changed TrayManager.cpp 5/17/2005 qwilk]
+- Fixed an issue with the xobloon implementation that was affecting e.g. Miranda IM tray icons
+  (thanks for the heads-up Edgeman!)
+
+[changed TrayManager.cpp 5/16/2005 qwilk]
+- Added regular balloon tooltip timeouts to the xobloon notifications
+  (apparently people getting lots of xobloons got tired of clicking on them... =] )
+
+[changed Systembar.cpp 5/16/2005 qwilk]
+- Now filtering out Adobe Acrobat Reader 7.0 "offscreen" windows to avoid non-functioning duplicates
+  (for which the window class is "AcrobatOffscreenDocumentWnd")
+
+[changed TrayManager.cpp 4/16/2005 qwilk]
+- Temporarily disabled the NIF_ICON requirement when adding icons to the system tray (NIF_ICON
+  being a system tray flag indicating that the icon passed on to the tray is valid), because
+  certain applications forget to set this flag (including Azureus, so please pass this on to the devs:
+  -> http://msdn.microsoft.com/library/default.asp?url=/library/en-us/shellcc/platform/shell/reference/structures/notifyicondata.asp )
+- Now filtering out "empty" balloon tooltip messages (sent by some apps, for unknown reasons... <g>)
+
+[changed Systembar.cpp 3/31/2005 qwilk]
+- Drag'n'drop of files onto task buttons is now supported (not utilized by all apps though)
+
+[changed TrayManager.cpp, Systembar.cpp 3/24/2005 qwilk]
+- Introducing a xoblite style balloon tooltips replacement - xobloon notifications! =]
+- Instead of displaying the balloon tooltip in the non-*box-look'n'feel default Windows style,
+  the tooltip information is shown on the taskbar (momentarily replacing the taskbar buttons)
+  as a clickable button (i.e. when you click the tooltip button it is dismissed and the
+  regular taskbar buttons are shown again)
+- I think this a pretty good solution when you consider that the idea behind the balloon
+  tooltips is a notifier kind-of-thing. After all, you can not miss the xobloon notifications,
+  nor are they in the way or detracting from the *box experience! :D
+- Please note that I have not yet bothered implementing buffering of notifications, so each new
+  notification will replace a previously existing one (but given how uncommon balloon tooltips
+  are in the first place, and how non-frequently they pop up, this should be a very minor issue)
+- Finally, this feature can be disabled from the xoblite Configuration menu (theme specific
+  setting, state saved as xoblite.systembar.xobloon.notifications: <bool> in extensions.rc)
+  just in case the user or theme creator prefer using e.g. the "BBBalloon" plugin by kana
+
+[changed Systembar.cpp 3/24/2005 qwilk]
+- It is now possible to trigger move/resize mode for a task window
+  by Shift+Alt+LeftClick/Shift+Alt+RightClick on its taskbar button
+
+[changed Menu.cpp, Desk.cpp 3/20/2005 qwilk]
+- Merged in a couple of multi-monitor bug fixes provided by viceroy (thanks Stuart!)
+
+[changed Blackbox.cpp 3/20/2005 qwilk]
+- Added two new core broadcast messages: @xoblite MinimizeAll/RestoreAll
+  (minimizes/restores all windows, requested by stanna)
+
+[changed Settings.cpp, DesktopMenu.cpp 3/8/2005 qwilk]
+- Started implementing support for the new style syntax in bb4nix 0.70
+  (...please note that xoblite's built-in buffer will automatically take
+   care of the syntax conversion for plugins etc! :D )
+
+[changed PluginManager.cpp 1/21/2005 qwilk]
+- Now deleting the update.log file before downloading new repository/metafile information
+  (security precausion just in case all downloads fail, i.e. always starting with no information)
+
+[changed Systembar.cpp 1/21/2005 qwilk]
+- Now passing mid mouse button clicks to tray icon applications (previously left/right only)
+
+[changed Systembar.cpp 1/7/2005 qwilk]
+- It is now possible to close an application by Alt+Shift+MidClicking on its taskbar button
+  (requested by Stuart Turner (viceroy))
+- ...be careful though, you will not get a warning unless the application give you one... <g>
+
+[changed CommandItem.cpp 1/4/2005 qwilk]
+- Holding down they control key while mid clicking on a menu [exec] item now copies the
+  path *without* the Blackbox directory if the file is in a subfolder of this directory
+- This is useful e.g. when browsing your wallpapers folder from the menu - when you find
+  a wallpaper you like you can either MidClick on it to copy the full path to the wallpaper,
+  or Ctrl+MidClick on it to copy the path without the Blackbox directory, which can then
+  be pasted directly into a bsetbg rootCommand! :D
+- Examples:
+  c:\Blackbox\backgrounds\wallpaper.jpg -> "backgrounds\wallpaper.jpg"
+  c:\Blackbox\themes\mytheme\backgrounds\wallpaper.jpg -> "$CurrentTheme$\backgrounds\wallpaper.jpg"
+[updated CommandItem.cpp 5/12/2005 qwilk]
+- If the alt key is held down too a bsetbg -full command including the path as argument is created:
+  c:\Blackbox\backgrounds\wallpaper.jpg -> rootCommand: bsetbg -full "backgrounds\wallpaper.jpg"
+
+[changed TrayManager.cpp 1/4/2005 qwilk]
+- Was not refreshing the cached task button gradients when a tray icon was removed
+
+[changed Blackbox.cpp 1/3/2005 qwilk]
+- Added support for double clicking on .style files (assign extension to Blackbox.exe)
+- It is now also possible to apply a style using Blackbox.exe <style path>
+  Example: Blackbox.exe C:\Blackbox\styles\x-coal
+
+[changed MenuMaker.cpp 1/2/2005 qwilk]
+- Now filtering out .3dc files (as used by e.g. BBColorEx) present in [stylesmenu] folders
+
+[changed BBApi.cpp, Desk.cpp, Slit.cpp, Systembar.cpp, Toolbar.cpp, Workspaces.cpp 1/2/2005 qwilk]
+- Minor changes to the code adding basic support for 64-bit Windows (for more information see
+  http://msdn.microsoft.com/library/default.asp?url=/library/en-us/winprog/winprog/64_bit_windows.asp ,
+  e.g. replacing GetWindowLong with GetWindowLongPtr and GCL_HICONSM with GCLP_HICONSM)
+- Should be backwards compatible according to Microsoft... ;)
+- Thanks to Stuart Turner (viceroy) for the heads-up, suggestions and testing
+
+######################################################### xoblite bb2 | RC3 | 0.4.12.23 ##########
