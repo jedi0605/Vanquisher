@@ -133,6 +133,7 @@
             this.Open59btn.TabIndex = 1;
             this.Open59btn.Text = "Open 59 Manager";
             this.Open59btn.UseVisualStyleBackColor = true;
+            this.Open59btn.Click += new System.EventHandler(this.Open59btn_Click);
             // 
             // notifyIcon1
             // 

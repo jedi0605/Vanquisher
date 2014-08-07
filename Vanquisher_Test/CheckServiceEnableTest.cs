@@ -88,5 +88,17 @@ namespace Vanquisher_Test
             actual = CheckServiceEnable.CheckWinRMServiceIsEnable();
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        ///CheckRemotePowershellEnable 的測試
+        ///</summary>
+        [TestMethod()]
+        public void CheckRemotePowershellEnableTest()
+        {
+            bool expected = false; // TODO: 初始化為適當值
+            bool actual;
+            actual = CheckServiceEnable.CheckRemotePowershellEnable();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

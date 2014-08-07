@@ -26,6 +26,7 @@ namespace VanquisherAPI
         public static string GetPartition = "Get-Partition";
         public static string GetDomain = "(gwmi WIN32_ComputerSystem).Domain";
 
+        public static string FiveNine = "\\5nine.Manager.exe";
         public static string ExplorePlus = "\\Explorer++";
         public static string Corefig = "\\Corefig.ps1";
         public static string Computer = "\\Computer.ps1";
@@ -39,5 +40,7 @@ namespace VanquisherAPI
         public static string TaskManager = "taskmgr.exe";
         public static string Powershell = "Start-Process powershell";
         public static string Reboot = "shutdown -r -t 1";
+        public static string CheckPsRemote = "ls";
+        public static string EnablePsRemoting = " Enable-PSRemoting -force";
     }
 }

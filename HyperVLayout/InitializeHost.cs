@@ -64,6 +64,19 @@ namespace HyperVLayout
                 case CheckModule.JoinDomain:
                     ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.JoinDomainandRename);
                     break;
+                case CheckModule.EnablePSRemoting:
+                    bool result = Utilite.EnablePsRemoting();
+                    if (!result)
+                    {
+                        MessageBox.Show("Enable PSRemoting fail");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Enable PSRemoting success");
+                    }
+                    ChangeStatus(CheckModule.EnablePSRemoting, result);
+                    PaintingModuleListView();
+                    break;
                 //case CheckModule.CheckCluster:
                 //case CheckModule.CreateCluster:
                 //case CheckModule.JoinNodeToCluster:
@@ -142,6 +155,7 @@ namespace HyperVLayout
             WinRMChecker();
             IsJoinDomain();
             CheckFeatureAreInstall();
+            RemotePsChecker();
             ISCSiStatus();
             PaintingModuleListView();
             UseWaitCursor = false;
@@ -159,6 +173,11 @@ namespace HyperVLayout
 
                 ModuleListView.Items.Find(item.Key.ToString(), false)[0].BackColor = c;
             }
+        }
+
+        private void RemotePsChecker()
+        {
+            ChangeStatus(CheckModule.EnablePSRemoting, CheckServiceEnable.CheckRemotePowershellEnable());
         }
 
         private void NetworkChecker()
@@ -264,6 +283,7 @@ namespace HyperVLayout
         {
             ProcessCaller.ProcessOpenPowershell(VanScript.IscsiUI);
         }
+
 
     }
 }

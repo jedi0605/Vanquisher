@@ -136,7 +136,7 @@
   <data name="TaskManagerbtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACYAAAAeCAYAAABAFGxuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRy
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRy
         oQAAC2lJREFUWEelV3lQk2cal+3s7P6xnbYIFSI5gNwJ5CCEEALhRsETvBA13OHwQLFru+qOireAcp9y
         VG48OFQuj2pR6+gqtlatdtqpu+3obGfH2Z2d2Zlu8tvn+yAQqf61z8xvnvd9vy/kl99zvA9zyFymwJiz
         dwZjzmvGnJ87zmfvGXvTc4e96dn0mQuXy3Xp6e3ktrW3ytoJHR2fyjo6T8mYPeOZs3Y66+xsI9C+o1XW
@@ -192,7 +192,7 @@
   <data name="PowershellBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7AAAAOwAFq1okJAAAAGnRF
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA6/AAAOvwE4BVMkAAAAGnRF
         WHRTb2Z0d2FyZQBQYWludC5ORVQgdjMuNS4xMDD0cqEAAAVdSURBVEhL7ZRrTFNnHMZb5sYMi7olC4nL
         TJzKRWSiXGURkQhTp1Mh6OZUjFk2RMq8gXITSqFYplQ2i1QsA8pNKFLBglyLpbS0XCpgy6VcbLHcC2yK
         CiZ79lKWzH3Yh2Vf9sEn+eW8OSf5Pef833MO5U3+H0mXTFBzVAbz3PbRFfkdYysLOsdW8xQ6u5tNg4EZ
@@ -222,7 +222,7 @@
   <data name="Reboot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRy
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRy
         oQAAAnNJREFUaEPt2DtoVEEUxvH1EeMjaqKYQohaRLDQIKkCIRYWgoVBEATLdIJgGQuxM1opopVREEkR
         FAsDImJhlRSiQiSFTxBBFEQh4gPFRP1/4oHDsOzDzNw1Mh/8ioXdeeyduXPuLeXk5OTk5OTk5PxXWYbd
         WPL7UwOzHMdxzjn7x0ksQKWswVc8xn5U+37S9GEaPwPvsBCVool8g77/A9fQioZFy0MD8RN5j3omYiax

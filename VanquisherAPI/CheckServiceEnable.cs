@@ -14,7 +14,7 @@ namespace VanquisherAPI
             PSInvoker invoker = new PSInvoker();
             Collection<PSObject> result = invoker.ExecuteCommand(VanScript.CheckRDPfDeny);
             string rdpfDeny = result[0].ToString();
-            result = invoker.InvokeCommand("localhost", VanScript.RDPAuthentication, false);
+            result = invoker.ExecuteCommand(VanScript.RDPAuthentication);
             string rdpAuthentication = result[0].ToString();
 
             if (string.Equals("0", rdpfDeny) && string.Equals("0", rdpAuthentication))
@@ -46,6 +46,21 @@ namespace VanquisherAPI
             else
             {
                 return false;
+            }
+        }
+
+        public static bool CheckRemotePowershellEnable()
+        {
+            PSInvoker invoker = new PSInvoker();
+            try
+            {
+                Collection<PSObject> serviceResult = invoker.InvokeCommand("localhost", VanScript.CheckPsRemote, false);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+
             }
         }
     }

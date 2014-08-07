@@ -25,6 +25,7 @@ namespace HyperVLayout
         public static InitializeHost initForm;
         public static string CorefigPath = string.Empty;
         public static string ExploerPlusPath = string.Empty;
+        public static string FiveNinePath = string.Empty;
         public MainForm()
         {
             InitializeComponent();
@@ -40,6 +41,7 @@ namespace HyperVLayout
             Configuration appconfig = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             CorefigPath = appconfig.AppSettings.Settings["CorefigPath"].Value;
             ExploerPlusPath = appconfig.AppSettings.Settings["ExploerPlusPath"].Value;
+            FiveNinePath = appconfig.AppSettings.Settings["FiveNinePath"].Value;
         }
 
         private void initializeHyerVHostToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,6 +82,7 @@ namespace HyperVLayout
             initNMoudleStatus.Add(CheckModule.ISCSiConnection, false);
             initNMoudleStatus.Add(CheckModule.JoinDomain, false);
             initNMoudleStatus.Add(CheckModule.JoinNodeToCluster, false);
+            initNMoudleStatus.Add(CheckModule.EnablePSRemoting, false);
             string configToJson = JsonConvert.SerializeObject(initNMoudleStatus);
 
             File.AppendAllText(@".\ModuleStatus.txt", configToJson);
@@ -128,6 +131,11 @@ namespace HyperVLayout
             else
             {
             }
+        }
+
+        private void Open59btn_Click(object sender, EventArgs e)
+        {
+            ProcessCaller.ProcessOpenPowershell(MainForm.FiveNinePath + VanScript.FiveNine);
         }
     }
 }

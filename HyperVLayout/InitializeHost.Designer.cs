@@ -46,7 +46,7 @@ namespace HyperVLayout
             // 
             // CheckAllConfig
             // 
-            this.CheckAllConfig.Location = new System.Drawing.Point(348, 288);
+            this.CheckAllConfig.Location = new System.Drawing.Point(348, 333);
             this.CheckAllConfig.Name = "CheckAllConfig";
             this.CheckAllConfig.Size = new System.Drawing.Size(113, 38);
             this.CheckAllConfig.TabIndex = 6;
@@ -67,7 +67,7 @@ namespace HyperVLayout
             this.ModuleListView.Location = new System.Drawing.Point(43, 33);
             this.ModuleListView.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.ModuleListView.Name = "ModuleListView";
-            this.ModuleListView.Size = new System.Drawing.Size(418, 247);
+            this.ModuleListView.Size = new System.Drawing.Size(418, 283);
             this.ModuleListView.TabIndex = 17;
             this.ModuleListView.UseCompatibleStateImageBehavior = false;
             this.ModuleListView.View = System.Windows.Forms.View.Details;
@@ -79,7 +79,7 @@ namespace HyperVLayout
             // 
             // RunIscsiUI
             // 
-            this.RunIscsiUI.Location = new System.Drawing.Point(221, 288);
+            this.RunIscsiUI.Location = new System.Drawing.Point(221, 333);
             this.RunIscsiUI.Name = "RunIscsiUI";
             this.RunIscsiUI.Size = new System.Drawing.Size(121, 38);
             this.RunIscsiUI.TabIndex = 18;
@@ -92,7 +92,7 @@ namespace HyperVLayout
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(506, 338);
+            this.ClientSize = new System.Drawing.Size(506, 377);
             this.Controls.Add(this.RunIscsiUI);
             this.Controls.Add(this.ModuleListView);
             this.Controls.Add(this.CheckAllConfig);

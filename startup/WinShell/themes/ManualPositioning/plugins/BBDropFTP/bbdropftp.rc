@@ -1,9 +1,0 @@
-bbdropftp.x: 0
-bbdropftp.y: 0
-bbdropftp.alwaysontop: false
-bbdropftp.snapwindow: true
-bbdropftp.transparency.alpha: 255
-bbdropftp.dockedtoslit: true
-bbdropftp.copytoclipboard: false
-bbdropftp.showdetails: false
-bbdropftp.selected: example

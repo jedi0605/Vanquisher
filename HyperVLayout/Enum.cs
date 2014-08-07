@@ -16,6 +16,7 @@ namespace HyperVLayout
         JoinDomain,
         CheckCluster,
         CreateCluster,
+        EnablePSRemoting,
         JoinNodeToCluster
     }
 }
