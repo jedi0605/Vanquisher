@@ -18,6 +18,12 @@ namespace VanquisherAPI
             invoker.ExecuteCommand(VanScript.Reboot);
         }
 
+        public static void Shutdown()
+        {
+            PSInvoker invoker = new PSInvoker();
+            invoker.ExecuteCommand(VanScript.Shutdown);
+        }
+
         public static bool EnablePsRemoting()
         {
             try

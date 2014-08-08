@@ -365,48 +365,7 @@ $pboxHyperVDisabled.TabStop = $false
 $pboxHyperVDisabled.Text = ""
 $pboxHyperVDisabled.Visible = $false
 #region pboxHyperVDisabled.Image = ([System.Drawing.Image](...)
-$pboxHyperVDisabled.Image = ([System.Drawing.Image]([System.Drawing.Image]::FromStream((New-Object System.IO.MemoryStream(($$ = [System.Convert]::FromBase64String(
-"iVBORw0KGgoAAAANSUhEUgAAAC0AAAAiCAIAAABELscYAAAAAXNSR0IArs4c6QAAAARnQU1BAACx"+
-                                 "jwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAACJZJREFU"+
-                                 "WEedV2lzm0ga9kyq9sP+/8/jnbElARISIC7dEkLovi8ucXTDf5jardTs05LjjD1O7KRLUTCC7ofn"+
-                                 "ePvlF9/3735g/HL366d//fUn7vjfr//+6/N/n2/99OnT58+ff2CmV5cCx0dHcEn8Y3aekV2P7Lr0"+
-                                 "PEv8cxDGfni5REmn097tdnEcf3S2l9fdfey2IA78zFvRk0NWBvVXmb8hK5MeR7m7Go8X9w/FcrnM"+
-                                 "87yua0EQYnxs2q9XvYsjiC4x9bb0PCErnZ4meUbz9JKTKMsIOTr7Abfoyl29XKvVTNOUZblUKtq2"+
-                                 "nSRJEAQfR/NNHElwTtx14u3oaUy2HbJtZ5RmJMlInMU+jb0sudA0ytIk3Xb3Q2lvK6OOql2HKFYE"+
-                                 "Qdjv91EUfRDK2zgCP6DnOXVn9GiTTTPDqpQwEGlEgy31VsRbEndFkwBnwAsuiOZaMNM7Zh04VFWt"+
-                                 "1+s8x+E/aHS5XN5F8zaOOPRBQ+KU0pmc3wZNs+hMvSWNXEYJMEUucRckPOCYndx3fac6aMp1VW2b"+
-                                 "sqkpgCJJtWKxMBj04zj6vkxv44iCEzyYeQsAIIchOY1psAGOGyVZerlBybOM+utkJqXbDnhyHdlu"+
-                                 "KWtbOzjaYWKMO1JdkRVFrlQqZYHfbDYwzbeI+QYOn+GgBws4sthlQmzaNNgzdZKAghhgSiOyt3A+"+
-                                 "S0KAgGfDqXIca8G0noe4vnkc1be22jerMK8sSRzHKbLsuu6bMn1Dl+Ccu/PEuk/sR4C4KcOI2fXA"+
-                                 "BCJDz1OW23AHELAt2Q/SpXoZV4g3pyAJvsnyLDoB2dbWlwPFrIsIlCiKpVKp2+3GMdL0Ittv4gjj"+
-                                 "NA7WPepOaHhMZnK6aWUkRe1KJkK61NKFxjSKTuCGnCdAkMwlZCrPCBJEkwuBXZILUzCjmTv1nNp2"+
-                                 "BJlqilSt1aqoNBxXWi6Xfy96r3EgaZ7nV0R5bdUxBdMlz5HMZFJO1w32PZexJCxC9n2cSRdKutKz"+
-                                 "NMwhGUDEAfHWxJ0TlF2geXJSjBkOtryxlCob4KUCKBDLPZ9v2b6DjaEZ0oW/Mfq93sNjQRL5taVe"+
-                                 "JtWUyR886bIfpnPlVtHTlQFAyfAP2IL9iucmMb0ckSDkiGkHoEgTSnAMjTI2yUo+2aAEINhg5i2X"+
-                                 "kaZms0kJuUO1ub//7Xw6LxYLAZWZ5/GzXBVWlpZsW0yLaY261+Ac7XRRhzFZnlc6+LhaeEF2A1bZ"+
-                                 "vGV2OX4NVHrNdhKCG4BmW9LJWQ9kiZmEwbgiYaNYKEAsxgco4nmu8PggCAzEDcfOVrNgwwpHdE5m"+
-                                 "tWSpQ45kVMAx0FyX72FhxsXlBNPQ0xQxvq4d0MsJyHAMtnAXDQ9MpmN/Y9VvOJgyYoUtWngsFotS"+
-                                 "rXZnWdZwaKEGdjod4AA6lGS1JrhTLT90c3Jh5Rxk+FsYNoEumNdfI7FAE1v3ZNe/qZZFHlk3GALs"+
-                                 "Psj3aQwaaLhngQIru37kFBAcuYbgVKHJFUGB50pggeEY2TZ+MAyz7eiGaaAql4oFpGvcEuc96WBV"+
-                                 "ycHOUEwBxVskCzXddOASZljkFtvvpgmjYD1AYSch3MFmWIMdq3WoMYdhMhXTVYMcB64jCTzmLjEE"+
-                                 "bHD4POGYjMcQot3utIaaYeqGoZumAd4eHh5EsTxqK3tH8ydyHqzIwWK6wJ7wx26AGsr8COHcRWw/"+
-                                 "QCbm3NFDujbxYQyFe0Sa5es4xDPk3rij8lAfIADlNY7pZIJVexhrzTA0/ToApd1us5aC4+uKNO3K"+
-                                 "KNWXiZQuamSDJ7NRURLEeKkz5iOXofFWIINxg9Ci4iHqsxo5g8sop/F2OeK5olrl8F0EHcXCFzRf"+
-                                 "+Oj3e/CEoii2BQCAYrRaTXyazQb+qap2dQzfMiSou7Pr2b6XH7uBLYQzNVnIyZgnh9HNIqzELTVm"+
-                                 "Z/sPGILGfk7CJDzAESL3u9OsoE1hmrDBcHxBc/UpdHEcB7VlZJmtZgM0XEEwHNdh4gAlGbaCxbum"+
-                                 "FMzN47B6dFR/ZmY5Zctv27HDIzvJtJI4BUQ6XWnYlvL41Gro/ONvfUMYDVqTgdFQBO4ljkKBaTSf"+
-                                 "z+4Qk+Vy0el2QZBpfsVxQwEcGPAvvrBn4glaqjhqS8u+HK7auTdjPkCiwgM0SqDLrEpRhV3bGQ1L"+
-                                 "D/9pSY9OV7N7DbvfgvE72gs+8GygH1UU+/BTXUepR0lFx1AWhCsHNzYYBoC4Dh1/1+sKxyzGNTTp"+
-                                 "7Chow+JV45ptwohZN7OlfJi1iyVOqRSGLZkhwKej9nW+rZZlts1dVSkUYEp0Auiwb53Ai/0FO/Ju"+
-                                 "t2UFrlp9JuMJhsH8i4zhfuQc16AGtPTaxpKRxuw4ZDhmYq3CiUJpoPOjfgsIRl3DMstdTTBk/jmx"+
-                                 "QAInYA/5e2f0ep/Db+Cm3+8DOLo7oLmRAQvrmobJ4FnwgUarXBbwYBWxYjWqm6HaVACyONA4p6va"+
-                                 "LWkEGppiV+Mb9XIVajxVjQL853neP1uQt/sP1vmHIVopzI3K9oRDZw0w3AocQIOyC/+WUBABufBY"+
-                                 "LXMDo2IZgtMzRo1KRxMaSlkRWSwxIIQkSewF5xst2ffeG0DM+XyGEHh0FH545WoOHmhgo2disFfB"+
-                                 "cVgPRm7UBaslgxVTqdxqNjjD7dvdlhDynRb13fcXH0LOZ3NMigdCY8fIwII8h+VvhRk7Q5ntF6xU"+
-                                 "V8qcLgvNelmtMZoAAmUBKrz7LvM+Dpj51p0M+n2sj0xdpeHhFYBA24DuEwyBkudSDal+fyg0Wx0E"+
-                                 "8iMvDa/z8v23DMwIpfByAkVADGDgAHs14oMyCD5uSoED+AlV4eMvUT+G44byNvutgUArYz/hqAIH"+
-                                 "S3VVXK/WaZq+++L06oIP6fLPSYEGVQgWAB/gADti4fERZwhJ37XCmxB/EgfmgvZYeDaboaEEOdiw"+
-                                 "Ucp+lIbn638eB6YADrzaD4dDhBgV76dB4Mb/AwWs3kKoq2L9AAAAAElFTkSuQmCC")),0,$$.Length)))))
+
 #endregion
 #~~< pboxHyperV >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $pboxHyperV = New-Object System.Windows.Forms.PictureBox
@@ -748,19 +707,19 @@ $lblComputer1.Text = $CoreStrings.ComputerSettings
 #$lblLicence1.Size = New-Object System.Drawing.Size(171, 16)
 #$lblLicence1.TabIndex = 1
 #$lblLicence1.Text = $CoreStrings.LicenseSettings
-$panelMenu.Controls.Add($btnHyperV)
+#$panelMenu.Controls.Add($btnHyperV)
 $panelMenu.Controls.Add($btnNetwork)
 $panelMenu.Controls.Add($btnControlPanel)
 $panelMenu.Controls.Add($btnComputer)
 $panelMenu.Controls.Add($btnLicence)
 $panelMenu.Controls.Add($pboxHyperVDisabled)
-$panelMenu.Controls.Add($pboxHyperV)
-$panelMenu.Controls.Add($lblHyperv2)
+#$panelMenu.Controls.Add($pboxHyperV)
+#$panelMenu.Controls.Add($lblHyperv2)
 $panelMenu.Controls.Add($pboxNetwork)
 $panelMenu.Controls.Add($lblNetwork2)
 $panelMenu.Controls.Add($pboxControl)
 $panelMenu.Controls.Add($lblControl2)
-$panelMenu.Controls.Add($lblHyperV1)
+#$panelMenu.Controls.Add($lblHyperV1)
 $panelMenu.Controls.Add($pboxComputer)
 $panelMenu.Controls.Add($lblNetwork1)
 $panelMenu.Controls.Add($lblComputer2)

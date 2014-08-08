@@ -122,7 +122,7 @@ namespace Vanquisher_Test
             int diskNumber = 2; // TODO: 初始化為適當值
             bool expected = true; // TODO: 初始化為適當值
             bool actual;
-            actual = ISCSiAPI.SetDiskOnline(diskNumber);
+            actual = ISCSiAPI.SetDiskStatus(diskNumber,true);
             Assert.AreEqual(expected, actual);
         }
 

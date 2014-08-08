@@ -83,13 +83,20 @@ namespace VanquisherAPI
             }
         }
 
-        public static bool SetDiskOnline(int diskNumber)
+        public static bool SetDiskStatus(int diskNumber,bool online)
         {
             PSInvoker invoker = new PSInvoker();
 
             try
             {
-                Collection<PSObject> result = invoker.ExecuteCommand(VanScript.SetDiskOnline(diskNumber));
+                if (online)
+                {
+                    Collection<PSObject> result = invoker.ExecuteCommand(VanScript.SetDiskOnline(diskNumber));
+                }
+                else
+                {
+                    Collection<PSObject> result = invoker.ExecuteCommand(VanScript.SetDiskOffline(diskNumber));
+                }
                 return true;
             }
             catch (Exception ex)

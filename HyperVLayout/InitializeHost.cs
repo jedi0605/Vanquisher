@@ -56,10 +56,16 @@ namespace HyperVLayout
                     ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.Roles);
                     break;
                 case CheckModule.ISCSiConnection:
-                    // GetISCSiInfo();
-                    iscsiForm = new iSCSIForm(GetISCSiInfo());
-                    iscsiForm.Show(this);
-                    // iscsiForm = new iSCSIForm(this.GetISCSiInfo());
+                    List<ISCSiInfo> info = GetISCSiInfo();
+                    if (info.Count > 0)
+                    {
+                        iscsiForm = new iSCSIForm(info);
+                        iscsiForm.Show(this);
+                    }
+                    else
+                    {
+                        ProcessCaller.ProcessOpenPowershell(VanScript.IscsiUI);
+                    }
                     break;
                 case CheckModule.JoinDomain:
                     ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.JoinDomainandRename);
@@ -150,14 +156,23 @@ namespace HyperVLayout
         private void CheckAllConfig_Click(object sender, EventArgs e)
         {
             UseWaitCursor = true;
+            CheckConfigBar.Value = 0;
             NetworkChecker();
+            CheckConfigBar.Value = 10;
             RDPChecker();
+            CheckConfigBar.Value = 20;
             WinRMChecker();
+            CheckConfigBar.Value = 30;
             IsJoinDomain();
+            CheckConfigBar.Value = 50;
             CheckFeatureAreInstall();
+            CheckConfigBar.Value = 60;
             RemotePsChecker();
+            CheckConfigBar.Value = 80;
             ISCSiStatus();
+            CheckConfigBar.Value = 90;
             PaintingModuleListView();
+            CheckConfigBar.Value = 100;
             UseWaitCursor = false;
         }
 

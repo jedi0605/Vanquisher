@@ -128,14 +128,31 @@ namespace HyperVLayout
             {
                 Utilite.Reboot();
             }
-            else
-            {
-            }
         }
 
         private void Open59btn_Click(object sender, EventArgs e)
         {
             ProcessCaller.ProcessOpenPowershell(MainForm.FiveNinePath + VanScript.FiveNine);
         }
+
+        private void ShutdownComputer_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("This will shotdown computer. Confirm?", "Shotdown computer", MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                Utilite.Shutdown();
+            }
+        }
+
+        private void CommandPrompt_Click(object sender, EventArgs e)
+        {
+            ProcessCaller.ProcessOpenPowershell(VanScript.CMD);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProcessCaller.ProcessOpenPowershell(VanScript.IscsiUI);
+        }
+
     }
 }

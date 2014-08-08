@@ -57,7 +57,7 @@ $Panel3.Controls.Add($Label7)
 $btnCreditsClose = New-Object System.Windows.Forms.Button
 $btnCreditsClose.FlatStyle = [System.Windows.Forms.FlatStyle]::System
 $btnCreditsClose.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
-$btnCreditsClose.Location = New-Object System.Drawing.Point(163, 184)
+$btnCreditsClose.Location = New-Object System.Drawing.Point(163, 200)
 $btnCreditsClose.Size = New-Object System.Drawing.Size(92, 23)
 $btnCreditsClose.TabIndex = 1
 $btnCreditsClose.Text = $CommonStrings.Close
@@ -66,34 +66,34 @@ $btnCreditsClose.add_Click({BtnCreditsCloseClick($btnCreditsClose)})
 #~~< lblOriginalDev >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $lblOriginalDev = New-Object System.Windows.Forms.Label
 $lblOriginalDev.Location = New-Object System.Drawing.Point(22, 70)
-$lblOriginalDev.Size = New-Object System.Drawing.Size(100, 18)
+$lblOriginalDev.Size = New-Object System.Drawing.Size(100, 30)
 $lblOriginalDev.TabIndex = 0
 $lblOriginalDev.Text = $CommonStrings.OriginalDev
 #~~< lblOriginalDevValue >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $lblOriginalDevValue = New-Object System.Windows.Forms.Label
 $lblOriginalDevValue.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
 $lblOriginalDevValue.Location = New-Object System.Drawing.Point(122, 70)
-$lblOriginalDevValue.Size = New-Object System.Drawing.Size(251, 36)
+$lblOriginalDevValue.Size = New-Object System.Drawing.Size(251, 56)
 $lblOriginalDevValue.TabIndex = 0
 $lblOriginalDevValue.Text = $CommonStrings.OriginalDevValue
 #~~< lblCurrentDev >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $lblCurrentDev = New-Object System.Windows.Forms.Label
-$lblCurrentDev.Location = New-Object System.Drawing.Point(22, 108)
+$lblCurrentDev.Location = New-Object System.Drawing.Point(22, 128)
 $lblCurrentDev.Size = New-Object System.Drawing.Size(100, 18)
 $lblCurrentDev.TabIndex = 0
 $lblCurrentDev.Text = $CommonStrings.CurrentDev
 #~~< lblCurrentDevValue >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $lblCurrentDevValue = New-Object System.Windows.Forms.Label
 $lblCurrentDevValue.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
-$lblCurrentDevValue.Location = New-Object System.Drawing.Point(122, 108)
+$lblCurrentDevValue.Location = New-Object System.Drawing.Point(122, 128)
 $lblCurrentDevValue.Size = New-Object System.Drawing.Size(251, 36)
 $lblCurrentDevValue.TabIndex = 0
 $lblCurrentDevValue.Text = $CommonStrings.CurrentDevValue
 #~~< lblProjectURL >~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $lblProjectURL = New-Object System.Windows.Forms.Label
 $lblProjectURL.Font = New-Object System.Drawing.Font("Tahoma", 8.25, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Point, ([System.Byte](0)))
-$lblProjectURL.Location = New-Object System.Drawing.Point(28, 160)
-$lblProjectURL.Size = New-Object System.Drawing.Size(392, 18)
+$lblProjectURL.Location = New-Object System.Drawing.Point(28, 165)
+$lblProjectURL.Size = New-Object System.Drawing.Size(392, 28)
 $lblProjectURL.TabIndex = 0
 $lblProjectURL.Text = $CommonStrings.ProjectURL
 $PanelAbout.Controls.Add($Panel3)

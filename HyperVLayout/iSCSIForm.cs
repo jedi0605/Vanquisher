@@ -78,7 +78,7 @@ namespace HyperVLayout
             foreach (string item in selecets)
             {
                 ISCSiInfo info = this.iSCSiInfo.Find(x => item.Contains(x.FriendlyName) && item.Contains(x.Number.ToString()));
-                bool result = ISCSiAPI.SetDiskOnline(info.Number);
+                bool result = ISCSiAPI.SetDiskStatus(info.Number,true);
                 if (!result)
                 {
                     MessageBox.Show("Set Online fail.");
@@ -86,6 +86,29 @@ namespace HyperVLayout
                 else
                 {
                     MessageBox.Show("Set Online Success.");
+                }
+            }
+
+            if (selecets.Count > 0)
+            {
+                RefleshVolumeInfo(true);
+            }
+        }
+
+        private void SetDiskOffbtn_Click(object sender, EventArgs e)
+        {
+            CheckedListBox.CheckedItemCollection selecets = ISCSiCheckedListBox.CheckedItems;
+            foreach (string item in selecets)
+            {
+                ISCSiInfo info = this.iSCSiInfo.Find(x => item.Contains(x.FriendlyName) && item.Contains(x.Number.ToString()));
+                bool result = ISCSiAPI.SetDiskStatus(info.Number,false);
+                if (!result)
+                {
+                    MessageBox.Show("Set offline fail.");
+                }
+                else
+                {
+                    MessageBox.Show("Set offline Success.");
                 }
             }
 
