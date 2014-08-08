@@ -116,7 +116,7 @@
             this.OpenExpolerbtn.Name = "OpenExpolerbtn";
             this.OpenExpolerbtn.Size = new System.Drawing.Size(187, 38);
             this.OpenExpolerbtn.TabIndex = 1;
-            this.OpenExpolerbtn.Text = "Open Expoler";
+            this.OpenExpolerbtn.Text = "Open Explorer";
             this.OpenExpolerbtn.UseVisualStyleBackColor = true;
             this.OpenExpolerbtn.Click += new System.EventHandler(this.OpenExpolerbtn_Click);
             // 
