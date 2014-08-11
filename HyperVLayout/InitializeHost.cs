@@ -98,7 +98,7 @@ namespace HyperVLayout
             {
                 var newItem = new ListViewItem();
                 newItem.Name = item.Key.ToString();
-                newItem.Text = item.Key.ToString();
+                newItem.Text = item.Key.GetCheckModuleDes();
                 newItem.BackColor = Color.FromArgb(255, 255, 128);
                 newItem.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
                 ModuleListView.Items.Add(newItem);
