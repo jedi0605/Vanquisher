@@ -1,0 +1,166 @@
+! ---------------------------------------------------
+! elyts by qwilk (qwilk_AT_xoblite_DOT_net)
+! http://xoblite.net/
+! November 12th, 2004
+! ---------------------------------------------------
+
+style.name:	elyts
+style.author:	qwilk
+style.date:	Fri Nov 12 2004
+style.credits:
+style.comments:	http://xoblite.net/
+
+! ------------------------------------ toolbar ------
+
+toolbar:				Raised Gradient Elliptic Bevel1
+toolbar.color:				#5f665f
+toolbar.colorTo:			#161916
+toolbar.textColor:			#7c7e79
+toolbar.font:				cure
+toolbar.justify:			Left
+
+toolbar.label:				ParentRelative
+!toolbar.label.color:
+!toolbar.label.colorTo:
+toolbar.label.textColor:		#7c7e79
+
+toolbar.windowLabel:			Sunken Gradient Diagonal Bevel1
+toolbar.windowLabel.color:		#161916
+toolbar.windowLabel.colorTo:		#3f4f3f
+toolbar.windowLabel.textColor:		#7f8f7f
+
+toolbar.clock:				ParentRelative
+!toolbar.clock.color:
+!toolbar.clock.colorTo:
+toolbar.clock.textColor:		#7c7e79
+
+toolbar.button:				Raised Gradient Diagonal Bevel1
+toolbar.button.color:			#5f665f
+toolbar.button.colorTo:			#161916
+toolbar.button.picColor:		#7c7e79
+
+toolbar.button.pressed:			Raised Gradient Diagonal Bevel1
+toolbar.button.pressed.color:		#3f4f3f
+toolbar.button.pressed.colorTo:		#161916
+toolbar.button.pressed.picColor:	#ffffff
+
+toolbar.borderWidth:			1
+toolbar.borderColor:			#161916
+
+! ------------------------------------ menu ---------
+
+menu.title:				Raised Gradient Vertical Bevel1
+menu.title.color:			#3f4f3f
+menu.title.colorTo:			#60755d
+menu.title.textColor:			#ffffff
+menu.title.font:			cure
+menu.title.justify:			Center
+
+menu.frame:				Sunken Gradient Elliptic Bevel1
+menu.frame.color:			#161916
+menu.frame.colorTo:			#5f665f
+menu.frame.textColor:			#ffffff
+menu.frame.font:			cure
+menu.frame.justify:			Left
+menu.frame.disableColor:		#161916
+
+menu.hilite:				Sunken Gradient Diagonal Bevel1
+menu.hilite.color:			#4f564f
+menu.hilite.colorTo:			#060906
+menu.hilite.textColor:			#ffffff
+
+menu.bullet:				Square
+menu.bullet.position:			Right
+menu.frame.bulletColor:			#b5907d
+menu.hilite.bulletColor:		#65402d
+
+menu.indicator:				Sunken Gradient Diagonal Bevel1
+menu.indicator.color:			#b0a890
+menu.indicator.colorTo:			#807860
+
+menu.separator.color:			#4f564f
+
+menu.borderWidth:			1
+menu.borderColor:			#161916
+
+! ------------------------------------ slit ---------
+
+slit:					Raised Gradient Elliptic Bevel1
+slit.color:				#5f665f
+slit.colorTo:				#161916
+
+slit.borderWidth:			1
+slit.borderColor:			#161916
+
+! ------------------------------------ window -------
+
+window.font:				cure
+window.justify:				Left
+
+window.title.focus:			Raised Gradient Elliptic Bevel1
+window.title.focus.color:		#5f665f
+window.title.focus.colorTo:		#161916
+
+window.title.unfocus:			Raised Gradient Elliptic Bevel1
+window.title.unfocus.color:		#5f665f
+window.title.unfocus.colorTo:		#161916
+
+window.label.focus:			Sunken Gradient Diagonal Bevel1
+window.label.focus.color:		#161916
+window.label.focus.colorTo:		#3f4f3f
+window.label.focus.textColor:		#7f8f7f
+window.label.focus.font:		cure
+window.label.focus.justify:		Left
+
+window.label.unfocus:			ParentRelative
+!window.label.unfocus.color:
+!window.label.unfocus.colorTo:
+window.label.unfocus.textColor:		#7c7e79
+
+window.button.focus:			Raised Gradient Diagonal Bevel1
+window.button.focus.color:		#5f665f
+window.button.focus.colorTo:		#161916
+window.button.focus.picColor:		#7c7e79
+
+window.button.unfocus:			ParentRelative
+!window.button.unfocus.color:
+!window.button.unfocus.colorTo:
+window.button.unfocus.picColor:		#7c7e79
+
+window.button.pressed:			Raised Gradient Diagonal Bevel1
+window.button.pressed.color:		#3f4f3f
+window.button.pressed.colorTo:		#161916
+window.button.pressed.picColor:		#ffffff
+
+window.grip.focus:			Raised Gradient Diagonal Bevel1
+window.grip.focus.color:		#3f4f3f
+window.grip.focus.colorTo:		#161916
+
+window.grip.unfocus:			Raised Gradient Diagonal Bevel1
+window.grip.unfocus.color:		#5f665f
+window.grip.unfocus.colorTo:		#161916
+
+window.handle.focus:			Raised Gradient CrossDiagonal Bevel1
+window.handle.focus.color:		#5f665f
+window.handle.focus.colorTo:		#161916
+
+window.handle.unfocus:			Raised Gradient CrossDiagonal Bevel1
+window.handle.unfocus.color:		#5f665f
+window.handle.unfocus.colorTo:		#161916
+
+window.frame.focusColor:		#161916
+window.frame.unfocusColor:		#161916
+
+! ------------------------------------ global -------
+
+handleWidth:				5
+frameWidth:				0
+bevelWidth:				1
+borderWidth:				1
+borderColor:				#161916
+
+*font:					cure
+
+! ---------------------------------------------------
+
+rootCommand:	bsetroot -mod 6 6 -fg #222522 -bg #161916

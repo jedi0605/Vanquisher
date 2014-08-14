@@ -1,0 +1,239 @@
+style.name: 					Flatpack Blue
+style.author: 					~Nosebleed
+style.date: 					2008-11-20
+style.credits: 					
+style.comments: 
+
+# Toolbar
+
+toolbar.appearance: 				flat Solid Border Bevel1
+!toolbar.backgroundColor: 				#000000
+toolbar.color1: 					#191919
+toolbar.color2: 					#101010
+toolbar.borderColor: 				#222222
+toolbar.borderWidth: 				0
+toolbar.alignment:					Center
+toolbar.font: 					HaxrCorp 4088
+toolbar.fontHeight:					11
+toolbar.marginWidth: 				0
+toolbar.textColor:					#5f5f5f
+
+toolbar.button.appearance: 				Flat Solid Border
+!toolbar.button.backgroundColor:
+toolbar.button.color1: 				#191919
+toolbar.button.color2: 				#191919
+toolbar.button.borderWidth: 			0
+toolbar.button.borderColor: 
+toolbar.button.foregroundColor: 			#353535
+toolbar.button.textcolor:				#0055FF
+toolbar.button.marginWidth: 			0
+
+toolbar.button.pressed.appearance:			Flat Solid Border
+!toolbar.button.pressed.backgroundColor:
+toolbar.button.pressed.color1: 			#222222
+toolbar.button.pressed.color2: 			#000000
+toolbar.button.pressed.borderWidth: 			0
+toolbar.button.pressed.borderColor: 			#151515
+toolbar.button.pressed.foregroundColor: 		#101010
+
+toolbar.clock.appearance: 				Flat Solid Border
+!toolbar.clock.backgroundColor:
+toolbar.clock.color1: 				#191919
+toolbar.clock.color2: 
+toolbar.clock.borderWidth:				0
+toolbar.clock.borderColor: 				#222222
+toolbar.clock.textColor: 				#AFAFAF
+toolbar.clock.textColor.shadowX: 
+toolbar.clock.textColor.shadowY: 
+toolbar.clock.marginWidth: 				0
+
+toolbar.label.appearance: 				Flat Solid border
+!toolbar.label.backgroundColor:
+toolbar.label.color1:					#191919
+toolbar.label.color2: 				#000000
+toolbar.label.borderWidth:				0
+toolbar.label.borderColor: 				
+toolbar.label.textColor: 				#AAAAAA
+toolbar.label.textColor.shadowX:			1
+toolbar.label.textColor.shadowY: 			1
+toolbar.label.marginWidth: 				2
+
+toolbar.windowLabel.appearance: 			flat Solid Border
+!toolbar.windowLabel.backgroundColor: 		#202020
+toolbar.windowLabel.color1: 				#171717
+toolbar.windowLabel.color2: 			#101010
+toolbar.windowLabel.borderWidth: 			0
+toolbar.windowLabel.borderColor: 			#050505
+toolbar.windowLabel.textColor: 			#0055FF
+toolbar.windowLabel.textColor.shadowX:		0
+toolbar.windowLabel.textColor.shadowY: 		0
+toolbar.windowLabel.marginWidth: 			1
+
+# Menu
+menu.separator.color:				 #242424
+
+menu.title.appearance:				flat Solid Border
+!menu.title.backgroundColor:
+menu.title.color1: 					#191919
+menu.title.color2: 					#191919
+menu.title.borderWidth: 				0
+menu.title.borderColor:   				#191919
+menu.title.foregroundColor: 
+menu.title.textColor: 				#AAAAAA
+menu.title.textColor.shadowX: 			1	
+menu.title.textColor.shadowY: 			1
+menu.title.font: 					Blank
+menu.title.fontHeight:				1
+menu.title.alignment: 				right
+menu.title.marginWidth: 				-1
+
+menu.frame.appearance:				Flat Solid Border
+!menu.frame.backgroundColor:
+menu.frame.color1: 				#191919
+menu.frame.color2: 				#000000
+menu.frame.borderWidth:				1
+menu.frame.borderColor: 				#202020
+menu.frame.foregroundColor:			#191919
+menu.frame.textColor:				#AFAFAF
+menu.frame.textColor.shadowColor: 			#222222
+menu.frame.textColor.shadowX: 			1
+menu.frame.textColor.shadowY: 			1
+menu.frame.disabledColor: 
+menu.frame.font: 					HaxrCorp 4088
+menu.frame.fontHeight:				11
+menu.frame.alignment: 				Left
+menu.frame.marginWidth: 				1
+
+menu.active:				 	flat Gradient vertical  Border bevel2
+!menu.active.backgroundColor:
+menu.active.color1:  				#222222
+menu.active.color2: 				#191919
+menu.active.borderWidth: 				1
+menu.active.borderColor:				#202020
+menu.active.foregroundColor:			#0055FF
+menu.active.textColor: 				#0055FF
+menu.active.textColor.shadowX: 			1	
+menu.active.textColor.shadowY:			1
+
+menu.bullet:                   			Arrow
+menu.bullet.position:        			right
+# Slit
+
+slit.appearance: 					Flat Solid
+!slit.backgroundColor:
+slit.color1: 					#000000
+slit.color2: 					#151515
+slit.borderWidth:					1
+slit.borderColor: 					#151515
+slit.marginWidth: 					0
+
+# Window
+
+window.font: 					blank
+window.alignment: 				right
+
+window.frame.borderWidth: 				1
+window.frame.focus.borderColor: 			#191919
+window.frame.unfocus.borderColor: 			#191919
+
+
+window.title.marginWidth: 				0
+
+window.title.focus.appearance: 			Flat Solid Border
+!window.title.focus.backgroundColor:
+window.title.focus.color1:				#191919
+window.title.focus.color2: 				#191919
+window.title.focus.borderWidth:			0
+window.title.focus.borderColor: 			#202020
+window.title.focus.textColor: 			#0055FF 
+
+
+window.title.unfocus.appearance: 			flat Solid Border
+!window.title.unfocus.backgroundColor:
+window.title.unfocus.color1: 				#191919
+window.title.unfocus.color2: 			#101010
+window.title.unfocus.borderWidth:			0
+window.title.unfocus.borderColor:			#1c1c1c
+window.title.unfocus.textColor: 			#353535
+
+
+window.label.marginWidth: 				0
+
+window.label.focus.appearance: 			parentrelative
+!window.label.backgroundColor:
+window.label.color1: 				#191919
+window.label.color2: 				#191919
+window.label.borderWidth:				0
+window.label.borderColor: 				#0a0a0a
+window.label.focus.textColor: 			#0055FF
+window.label.focus.shadowColor: 			#404040
+window.label.focus.shadowX:			0
+window.label.focus.shadowY:			0
+
+window.label.unfocus.appearance: 			parentrelative
+!window.label.unfocus.backgroundColor:
+window.label.unfocus.color1: 				#191919
+window.label.unfocus.color2: 			#191919
+window.label.unfocus.borderWidth: 			1
+window.label.unfocus.borderColor: 			#1c1c1c
+window.label.unfocus.textColor: 			#aaaaaa
+window.label.unfocus.shadowColor: 			#404040
+window.label.unfocus.shadowX:			0
+window.label.unfocus.shadowY:			0
+
+window.button.marginWidth: 			2
+
+window.button.focus.appearance:			parentrelative
+!window.button.focus.backgroundColor:		#0F0F0F
+window.button.focus.color1: 				#191919
+window.button.focus.color2: 			#222222
+window.button.focus.borderWidth:			0
+window.button.focus.borderColor: 
+window.button.focus.foregroundColor: 		#0055FF
+
+window.button.unfocus.appearance: 			parentrelative
+!window.button.unfocus.backgroundColor:
+window.button.unfocus.color1: 
+window.button.unfocus.color2: 
+window.button.unfocus.borderWidth:   		1
+window.button.unfocus.borderColor: 
+window.button.unfocus.foregroundColor: 		#191919
+
+window.button.pressed.appearance:			parentrelative
+!window.button.pressed.backgroundColor:
+window.button.pressed.color1: 			#AFAFAF
+window.button.pressed.color2: 			#222222
+window.button.pressed.borderWidth: 			1
+window.button.pressed.borderColor: 
+window.button.pressed.foregroundColor: 		#AFAFAF
+
+window.handleHeight: 				1
+
+window.handle.focus.appearance:			Flat Solid
+!window.handle.focus.backgroundColor:
+window.handle.focus.color1:  			#0055FF
+window.handle.focus.color2: 			#000000
+window.handle.focus.borderWidth: 
+window.handle.focus.borderColor: 			#101010
+
+window.handle.unfocus.appearance: 			Flat Solid
+!window.handle.unfocus.backgroundColor:
+window.handle.unfocus.color1:  			#1c1c1c
+window.handle.unfocus.color2: 			#000000
+window.handle.unfocus.borderWidth: 			0
+window.handle.unfocus.borderColor: 			#222222
+
+window.grip.focus.appearance: 			Flat Solid Border
+!window.grip.focus.backgroundColor:
+window.grip.focus.color1:  				#0055FF
+window.grip.focus.color2:				#000000
+window.grip.focus.borderWidth: 			0
+window.grip.focus.borderColor: 
+
+window.grip.unfocus.appearance:			Flat Solid Border
+!window.grip.unfocus.backgroundColor:
+window.grip.unfocus.color1: 				#1c1c1c
+window.grip.unfocus.color2: 				#000000
+window.grip.unfocus.borderWidth: 			0
+window.grip.unfocus.borderColor: 			#191919
+

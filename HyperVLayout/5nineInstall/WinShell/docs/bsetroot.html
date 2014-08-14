@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>Blackbox for Windows: bsetroot</title>
+<style>
+	body
+	{background-color: #333333;
+	margin-top: 5px; margin-left: 5px;
+	scrollbar-face-color: #636363;
+	scrollbar-shadow-color: #535353;
+	scrollbar-highlight-color: #737373;
+	scrollbar-3dlight-color: #737373;
+	scrollbar-darkshadow-color: #535353;
+	scrollbar-track-color: #333333;
+	scrollbar-arrow-color: #FFFFFF;}
+	<!--
+	a:hover{color:#888888;}
+	.myhover a:hover{color:#888888;}
+	-->
+	hr {height: 1px; color: #666666;}
+	table {font-family: Tahoma; font-size: 8pt; font-weight: normal; text-align: left; color: #FFFFFF;}
+	span {color: #777777;}
+	span.desc {color: #BBBBBB;}
+	span.example {color: #555555;}
+</style>
+</head>
+
+<!-- ---------- -->
+
+<body bgcolor="#333333" text="#FFFFFF" link="#AAAAAA" vlink="#AAAAAA" alink="#AAAAAA" topmargin="10" leftmargin="5">
+
+<table border="0" cellpadding="0" cellspacing="2" height="100%" align="center" valign="center">
+
+<!-- ---------- -->
+
+<tr><td colspan="2">
+
+<table cellpadding="10" cellspacing="0" border="1" bordercolor="#666666"><tr bgcolor="#555555"><td width="600">
+&nbsp;&nbsp;<font size="+1">bsetroot</font>
+</td></tr></table>
+
+<!-- ---------- -->
+
+<table cellpadding="4" cellspacing="0">
+
+<tr valign="top"><td colspan="2" width="622">
+bsetroot.exe is a <a href="http://bb4win.org/">Blackbox for Windows</a> tool that lets you set your desktop background to be either a gradient,
+<br>a square pattern ("modula"), a solid colour, a bitmap, or a combination of a bitmap and a solid colour.
+<p>Switches:
+</td></tr>
+
+<tr valign="top">
+<td width="190"><span>-help</span></td>
+<td width="422">Shows some help text...</td>
+</tr>
+
+<tr valign="top">
+<td width="190"><span>-gradient type -from colour -to colour</span></td>
+<td width="422">Paints a gradient on your desktop background.
+<br>"from" and "to" are standard colours (see above). "type" can be any of:
+<br><span class="desc">vertical, horizontal, diagonal, crossdiagonal, pipecross, elliptic, rectangle, pyramid</span>.
+<br>You can also have them interlaced by appending <span class="desc">interlaced</span> to the option, e.g. <span class="desc">verticalinterlaced</span>.
+Gradients work exactly like the ones in Blackbox for Windows.
+</td>
+</tr>
+
+<tr valign="top">
+<td width="190"><span>-mod x y -fg colour -bg colour</span></td>
+<td width="422">Paints a square pattern on your desktop background.
+<br>"x" and "y" set the size of the squares. "fg" and "bg" are standard colours (see above).
+</td>
+</tr>
+
+<tr valign="top">
+<td width="190"><span>-solid colour</span></td>
+<td width="422">Changes the desktop background to the colour you specify (can be in any format Blackbox accepts, ie. grey, rgb:80/80/80, #808080 ).</td>
+</tr>
+
+<tr valign="top">
+<td width="190"><span>-bitmap style bitmap</span></td>
+<td width="422">Sets the bitmap (.bmp) as your wallpaper. Style can be tile, stretch or center.</td>
+</tr>
+
+<tr valign="top">
+<td width="190"><span>-bitmap style bitmap -solid colour</span></td>
+<td width="422">Sets the bitmap (.bmp) as your wallpaper and changes the desktop background to the colour you specify (see above; this is naturally only useful for centered bitmaps! &lt;g&gt;).</td>
+</tr>
+
+</td></tr></table>
+
+<!-- ---------- -->
+
+<table cellpadding="0" cellspacing="0"><tr><td width="622" align="left">
+<hr>
+
+<span class="desc">Version 1.8 (2003-04-01)</span>
+	<li>~ Cleaned up the code and corrected some resource leaks <span>grischka</span></li>
+	<li>~ Fixed 16-bit support <span>grischka</span></li>
+
+<p><span class="desc">Version 1.7 (2002-09-05)</span>
+	<li>+ Now uses the same rendering engine as Blackbox for Windows 0.0.60 <span>ironhead/qwilk + nivenh</span></li>
+	<li>+ Added -mod support <span>ironhead</span></li>
+	<li>+ It is now possible to use -bitmap and -solid concurrently (useful for centered bitmaps) <span>qwilk</span></li>
+	<li>~ Fixed a bug where Diagonal would be drawn instead of CrossDiagonal <span>ironhead</span></li>
+	<li>+ Created the missing 48x48 pixel icon... :) <span>qwilk</span></li>
+	<li>~ Cleaned up the code and made minor changes all over the place... =] <span>qwilk/ironhead</span></li>
+	<li># bsetroot is now <a href="http://docs.bb4win.org/license.html" target="_new">open source</a>...</li>
+
+<p><span class="desc">Version 1.0.0.6 (2002-03-03)</span>
+	<li>+ Reintroduced the "stretch" bitmap style option <span>qwilk</span></li>
+	<li>~ Fixed an issue using rgb: colours, added more colour definitions <span>deadbeat</span></li>
+	<li>~ Fixed a memory leak in the gradient code <span>steev/nivenh</span></li>
+	<li>+ New HTML documentation <span>qwilk</span></li>
+
+<p><span class="desc">Version 1.0.0.5 (2002-01-03)</span>
+	<li>~ Changed literal parsing <span>azathoth</span></li>
+
+<p><span class="desc">Version 1.0.0.4 (2002-01-02)</span>
+	<li>- Removed stretch option <span>azathoth</span></li>
+	<li>~ Updated to use new BImage version <span>azathoth</span></li>
+
+<p><span class="desc">Version 1.0.0.3 (2001-12-30)</span>
+	<li>~ Fixed colour order <span>azathoth</span></li>
+
+<p><span class="desc">Version 1.0.0.2 (2001-12-29)</span>
+	<li>~ Swapped colour rendering <span>azathoth</span></li>
+	<li>~ Fixed gradients so elliptic shows correctly and other gradients render more nicely <span>azathoth</span></li>
+
+</span>
+</td></tr></table>
+
+<!-- ---------- -->
+
+<table cellpadding="0" cellspacing="0"><tr><td width="622" align="right">
+<hr>
+<span>&copy; 2001-2002 <a href="http://bb4win.org/">The Blackbox for Windows Development Team</a></span>
+</td></tr></table>
+
+</td></tr>
+
+<!-- ---------- -->
+
+</td></tr></table>
+
+</body>
+</html>

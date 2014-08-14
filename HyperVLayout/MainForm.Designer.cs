@@ -100,7 +100,7 @@
             // 
             this.OpenCorefigbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenCorefigbtn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.OpenCorefigbtn.Location = new System.Drawing.Point(267, 143);
+            this.OpenCorefigbtn.Location = new System.Drawing.Point(257, 143);
             this.OpenCorefigbtn.Name = "OpenCorefigbtn";
             this.OpenCorefigbtn.Size = new System.Drawing.Size(187, 38);
             this.OpenCorefigbtn.TabIndex = 1;
@@ -112,7 +112,7 @@
             // 
             this.OpenExpolerbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenExpolerbtn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.OpenExpolerbtn.Location = new System.Drawing.Point(12, 292);
+            this.OpenExpolerbtn.Location = new System.Drawing.Point(20, 292);
             this.OpenExpolerbtn.Name = "OpenExpolerbtn";
             this.OpenExpolerbtn.Size = new System.Drawing.Size(187, 38);
             this.OpenExpolerbtn.TabIndex = 1;
@@ -124,7 +124,7 @@
             // 
             this.Open59btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Open59btn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Open59btn.Location = new System.Drawing.Point(267, 292);
+            this.Open59btn.Location = new System.Drawing.Point(257, 292);
             this.Open59btn.Name = "Open59btn";
             this.Open59btn.Size = new System.Drawing.Size(187, 38);
             this.Open59btn.TabIndex = 1;
@@ -142,7 +142,7 @@
             this.Corefigbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Corefigbox.Cursor = System.Windows.Forms.Cursors.Default;
             this.Corefigbox.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Corefigbox.Location = new System.Drawing.Point(267, 37);
+            this.Corefigbox.Location = new System.Drawing.Point(257, 37);
             this.Corefigbox.Multiline = true;
             this.Corefigbox.Name = "Corefigbox";
             this.Corefigbox.ReadOnly = true;
@@ -156,7 +156,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.Location = new System.Drawing.Point(12, 199);
+            this.textBox2.Location = new System.Drawing.Point(20, 199);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -170,7 +170,7 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox3.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox3.Location = new System.Drawing.Point(267, 199);
+            this.textBox3.Location = new System.Drawing.Point(257, 199);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
@@ -185,7 +185,7 @@
             this.TaskManagerbtn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.TaskManagerbtn.Image = ((System.Drawing.Image)(resources.GetObject("TaskManagerbtn.Image")));
             this.TaskManagerbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TaskManagerbtn.Location = new System.Drawing.Point(12, 39);
+            this.TaskManagerbtn.Location = new System.Drawing.Point(20, 39);
             this.TaskManagerbtn.Name = "TaskManagerbtn";
             this.TaskManagerbtn.Size = new System.Drawing.Size(187, 34);
             this.TaskManagerbtn.TabIndex = 4;
@@ -200,7 +200,7 @@
             this.PowershellBtn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.PowershellBtn.Image = ((System.Drawing.Image)(resources.GetObject("PowershellBtn.Image")));
             this.PowershellBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PowershellBtn.Location = new System.Drawing.Point(12, 79);
+            this.PowershellBtn.Location = new System.Drawing.Point(20, 79);
             this.PowershellBtn.Name = "PowershellBtn";
             this.PowershellBtn.Size = new System.Drawing.Size(187, 34);
             this.PowershellBtn.TabIndex = 4;
@@ -242,7 +242,7 @@
             this.CommandPrompt.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.CommandPrompt.Image = ((System.Drawing.Image)(resources.GetObject("CommandPrompt.Image")));
             this.CommandPrompt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CommandPrompt.Location = new System.Drawing.Point(12, 119);
+            this.CommandPrompt.Location = new System.Drawing.Point(20, 119);
             this.CommandPrompt.Name = "CommandPrompt";
             this.CommandPrompt.Size = new System.Drawing.Size(187, 34);
             this.CommandPrompt.TabIndex = 4;
@@ -275,7 +275,7 @@
             this.ISCSIConnector.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.ISCSIConnector.Image = ((System.Drawing.Image)(resources.GetObject("ISCSIConnector.Image")));
             this.ISCSIConnector.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ISCSIConnector.Location = new System.Drawing.Point(12, 159);
+            this.ISCSIConnector.Location = new System.Drawing.Point(20, 159);
             this.ISCSIConnector.Name = "ISCSIConnector";
             this.ISCSIConnector.Size = new System.Drawing.Size(187, 34);
             this.ISCSIConnector.TabIndex = 4;

@@ -1,0 +1,134 @@
+! -------------------------------------------------------
+! ultrablue by nc-17 (nc-17@ratednc-17.com)
+! http://ratednc-17.com
+! december 6th, 2002
+! -------------------------------------------------------
+
+! ---------------------------------------- style info ---
+
+style.name:         ultrablue
+style.author:       nc-17 (nc-17@ratednc-17.com)
+style.date:         friday dec 6th 2002
+style.credits:      http://ratednc-17.com
+style.comments:     dark. blue. based on ultraviolet
+
+! ---------------------------------------- toolbar ------
+
+toolbar:                            raised gradient diagonal
+toolbar.color:                      #58698a
+toolbar.colorTo:                    #182948
+toolbar.textColor:                  #c6d7f3
+toolbar.font:                       snap
+toolbar.justify:                    center
+
+toolbar.button:                     parentrelative
+toolbar.button.picColor:            #dbedff
+
+toolbar.button.pressed:             sunken gradient diagonal
+toolbar.button.pressed.color:       #c6d7f3
+toolbar.button.pressed.colorTo:     #455a82
+toolbar.button.pressed.picColor:    #00111c
+
+toolbar.label:                      parentrelative
+toolbar.label.textColor:            #c6d7f3
+
+toolbar.windowLabel:                sunken gradient pyramid interlaced
+toolbar.windowLabel.color:          #203153
+toolbar.windowLabel.colorTo:        #00111c
+toolbar.windowLabel.textColor:      #dbedff
+
+toolbar.clock:                      parentrelative
+toolbar.clock.textColor:            #c6d7f3
+
+! ---------------------------------------- menu ---------
+
+menu.title:                         raised gradient diagonal
+menu.title.color:                   #586985
+menu.title.colorTo:                 #182943
+menu.title.textColor:               #dbedff
+menu.title.font:                    snap
+menu.title.justify:                 right
+
+menu.frame:                         raised gradient pyramid interlaced
+menu.frame.color:                   #00111c
+menu.frame.colorTo:                 #203153
+menu.frame.textColor:               #c6d7f3
+menu.frame.font:                    snap
+menu.frame.justify:                 left
+menu.frame.disableColor:            #000000
+
+menu.hilite:                        sunken gradient diagonal
+menu.hilite.color:                  #c6d7f3
+menu.hilite.colorTo:                #455a82
+menu.hilite.textColor:              #000000
+
+menu.bullet:                        square
+menu.bullet.position:               right
+
+! ---------------------------------------- window -------
+
+window.font:                        snap
+window.justify:                     center
+
+window.button.focus:                raised gradient diagonal
+window.button.focus.color:          #586988
+window.button.focus.colorTo:        #182946          
+window.button.focus.picColor:       #dbedff
+
+window.button.unfocus:              raised gradient diagonal
+window.button.unfocus.color:        #586988
+window.button.unfocus.colorTo:      #182946          
+window.button.unfocus.picColor:     #dbedff
+
+window.button.pressed:              sunken gradient diagonal
+window.button.pressed.color:        #c6d7f3
+window.button.pressed.colorTo:      #455a82
+
+window.grip.focus:                  parentrelative
+window.grip.focus.color:            #000000
+window.grip.focus.colorTo:          #000000
+
+window.grip.unfocus:                parentrelative
+window.grip.unfocus.color:          #000000
+window.grip.unfocus.colorTo:        #000000
+
+window.handle.focus:                raised gradient diagonal
+window.handle.focus.color:          #586988
+window.handle.focus.colorTo:        #182946
+
+window.handle.unfocus:              raised gradient diagonal
+window.handle.unfocus.color:        #586988
+window.handle.unfocus.colorTo:      #182946
+
+window.label.focus:                 sunken gradient pyramid interlaced
+window.label.focus.color:           #183151
+window.label.focus.colorTo:         #00111c
+window.label.focus.textColor:       #c6d7f3
+window.label.focus.font:            snap
+window.label.focus.justify:         center
+
+window.label.unfocus:               parentrelative
+window.label.unfocus.textColor:     #c6d7f3
+
+window.title.focus:                 raised gradient diagonal
+window.title.focus.color:           #586988
+window.title.focus.colorTo:         #182946
+
+window.title.unfocus:               raised gradient diagonal
+window.title.unfocus.color:         #586988
+window.title.unfocus.colorTo:       #182946
+
+window.frame.focusColor:            #000000
+window.frame.unfocusColor:          #000000
+
+! ---------------------------------------- other --------
+
+handleWidth:        5
+frameWidth:         1
+bevelWidth:         2
+borderWidth:        1
+borderColor:        #000000
+
+*Font:              snap
+
+rootCommand: bsetroot -mod 2 2 -fg #00111c -bg #203153

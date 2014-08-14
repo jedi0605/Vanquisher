@@ -91,7 +91,7 @@ Section "Full" Sec1
    ;File "MUI_EXTRAPAGES.nsh"
    ;File "SQL.ini"
 
-   ;Exec DaasInstallWizard.exe
+   Exec $INSTDIR\Vanquisher.exe
 
 SectionEnd
 

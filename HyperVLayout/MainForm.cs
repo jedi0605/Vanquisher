@@ -15,6 +15,8 @@ using System.Collections.ObjectModel;
 using System.Management.Automation;
 using System.Reflection;
 using System.Diagnostics;
+using Microsoft.Win32;
+using NLog;
 
 
 namespace HyperVLayout
@@ -22,18 +24,23 @@ namespace HyperVLayout
     public partial class MainForm : Form
     {
         public static Dictionary<CheckModule, bool> initNMoudleStatus = new Dictionary<CheckModule, bool>();
+        
+        static Logger logger = LogManager.GetCurrentClassLogger();
         public static InitializeHost initForm;
         public static string CorefigPath = string.Empty;
         public static string ExploerPlusPath = string.Empty;
         public static string FiveNinePath = string.Empty;
+        public static string FiveNineInstallPath = string.Empty;
         public MainForm()
         {
             InitializeComponent();
             string LoadConfig = File.ReadAllText(@".\ModuleStatus.txt");
-            // Object test = JsonConvert.DeserializeObject(LoadConfig);
-            initNMoudleStatus = (Dictionary<CheckModule, bool>)JsonConvert.DeserializeObject(LoadConfig, typeof(Dictionary<CheckModule, bool>));
+            initNMoudleStatus = (Dictionary<CheckModule, bool>)JsonConvert.DeserializeObject(LoadConfig,
+                                                                                    typeof(Dictionary<CheckModule, bool>));
+
             initForm = new InitializeHost(ref initNMoudleStatus);
             GetThreadPartyPath();
+            CreateVMFolder();
         }
 
         private void GetThreadPartyPath()
@@ -41,7 +48,8 @@ namespace HyperVLayout
             Configuration appconfig = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             CorefigPath = appconfig.AppSettings.Settings["CorefigPath"].Value;
             ExploerPlusPath = appconfig.AppSettings.Settings["ExploerPlusPath"].Value;
-            FiveNinePath = appconfig.AppSettings.Settings["FiveNinePath"].Value;
+            // FiveNinePath = appconfig.AppSettings.Settings["FiveNinePath"].Value;
+            FiveNineInstallPath = appconfig.AppSettings.Settings["FiveNineInstallPath"].Value;
         }
 
         private void initializeHyerVHostToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,7 +92,6 @@ namespace HyperVLayout
             initNMoudleStatus.Add(CheckModule.JoinNodeToCluster, false);
             initNMoudleStatus.Add(CheckModule.EnablePSRemoting, false);
             string configToJson = JsonConvert.SerializeObject(initNMoudleStatus);
-
             File.AppendAllText(@".\ModuleStatus.txt", configToJson);
         }
 
@@ -105,7 +112,7 @@ namespace HyperVLayout
 
         private void TaskManagerbtn_Click(object sender, EventArgs e)
         {
-            ProcessCaller.ProcessOpenPowershell(VanScript.TaskManager);
+            ProcessCaller.ProcessOpen(VanScript.TaskManager);
         }
 
         private void PowershellBtn_Click(object sender, EventArgs e)
@@ -132,8 +139,25 @@ namespace HyperVLayout
 
         private void Open59btn_Click(object sender, EventArgs e)
         {
-            ProcessCaller.ProcessOpenPowershell(MainForm.FiveNinePath + VanScript.FiveNine);
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+            object o = key.GetValue("5nine Manager for Hyper-V");
+
+            if (o == null)
+            {
+                if (MessageBox.Show("Installed 59manager?", "Init f9manager", MessageBoxButtons.YesNo, MessageBoxIcon.Information,
+                                    MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    ProcessCaller.ProcessOpen(MainForm.FiveNineInstallPath + VanScript.FiveNineInstall);
+                }
+            }
+            else
+            {
+                logger.Debug(o.ToString());
+                ProcessCaller.ProcessOpen(o.ToString());
+            }
         }
+
+
 
         private void ShutdownComputer_Click(object sender, EventArgs e)
         {
@@ -152,6 +176,14 @@ namespace HyperVLayout
         private void button1_Click(object sender, EventArgs e)
         {
             ProcessCaller.ProcessOpenPowershell(VanScript.IscsiUI);
+        }
+
+        private void CreateVMFolder()
+        {
+            if (!Directory.Exists(@"c:\VMs"))
+            {
+                Directory.CreateDirectory(@"c:\VMs\");
+            }
         }
 
     }

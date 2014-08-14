@@ -64,7 +64,7 @@ namespace HyperVLayout
                     }
                     else
                     {
-                        ProcessCaller.ProcessOpenPowershell(VanScript.IscsiUI);
+                        ProcessCaller.ProcessOpen(VanScript.IscsiUI);
                     }
                     break;
                 case CheckModule.JoinDomain:
@@ -279,7 +279,7 @@ namespace HyperVLayout
             catch (Exception ex)
             {
                 logger.Error(ex.ToString());
-                MessageBox.Show("ISCSI connection not ready. You shoud set iSCSI connection first (Open iSCSI UI).");
+                MessageBox.Show("ISCSI connection is not ready. You shoud create iSCSI connection first (Open iSCSI UI).");
             }
 
             // iscsiInfo.Add(new ISCSiInfo(1, "test", "qwe", 100));
@@ -296,7 +296,7 @@ namespace HyperVLayout
 
         private void RunIscsiUI_Click(object sender, EventArgs e)
         {
-            ProcessCaller.ProcessOpenPowershell(VanScript.IscsiUI);
+            ProcessCaller.ProcessOpen(VanScript.IscsiUI);
         }
 
 

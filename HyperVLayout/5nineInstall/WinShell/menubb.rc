@@ -1,0 +1,37 @@
+[submenu] (BlackBox)
+        [config] (Configuration)
+        [submenu] (About)
+            [aboutstyle] (Style)
+            [aboutplugins] (Plugins)
+            [about] (bbLean)
+        [end]
+        [submenu] (Edit)
+            [editstyle] (Current Style)
+            [editmenu] (menu.rc)
+            [editblackbox] (blackbox.rc)
+            [editextensions] (extensions.rc)
+            [editplugins] (plugins.rc)
+            [nop]
+            [edit] (BBKeys.rc) {plugins\BBKeys\BBKeys.rc}
+            [edit] (bbLeanSkin.rc) {plugins\bbLeanSkin\bbLeanSkin.rc}
+            [edit] (bbLeanBar.rc) {plugins\bbLeanBar\bbLeanBar.rc}
+        [end]
+        [submenu] (bbLeanSkin)
+            [exec] (Toggle Log)         {@BBLeanSkin.ToggleLog}
+            [exec] (Toggle Skin)        {@BBLeanSkin.ToggleSkin}
+            [edit] (Edit Exclusions)    {plugins\bbleanskin\exclusions.rc}
+            [edit] (Edit Settings)      {plugins\bbleanskin\bbleanskin.rc}
+            [edit] (Readme)             {plugins\bbleanskin\readme.txt}
+            [exec] (About)              {@BBLeanSkin.About}
+        [end]
+        [submenu] (Install)
+            [exec] (Install) {blackbox.exe -install}
+            [exec] (Uninstall) {blackbox.exe -uninstall}
+        [end]
+        [nop]
+        [exec] (Documentation) {docs\bblean.htm}
+        [nop]
+        [reconfig] (Reconfigure)
+        [restart] (Restart)
+        [exit]  (Quit)
+    [end]

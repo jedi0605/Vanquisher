@@ -1,0 +1,78 @@
+style.name:         mourn-blue
+style.author:       insin
+style.date:         Wed Dec 4 2002
+style.credits:      
+style.comments:     A nice happy depressing dull place
+
+!--[toolbar]-->
+toolbar.button:              Sunken Gradient Vertical Bevel1
+toolbar.button.color:        #161619
+toolbar.button.colorTo:      #5f6066
+toolbar.button.picColor:     #ffffff
+
+toolbar.button.pressed:           Sunken Gradient Vertical Bevel1
+toolbar.button.pressed.color:     #5f6066
+toolbar.button.pressed.colorTo:   #161619
+toolbar.button.pressed.picColor:  #ffffff
+
+toolbar.label:              ParentRelative
+toolbar.label.textColor:    #ffffff
+
+toolbar.windowLabel:              Flat Gradient Vertical Bevel1
+toolbar.windowLabel.color:        #676a89
+toolbar.windowLabel.colorTo:      #7276a5
+toolbar.windowLabel.textColor:    #ffffff
+
+toolbar.clock:              ParentRelative
+toolbar.clock.textColor:    #ffffff
+
+toolbar:              Sunken Gradient VerticalInterlaced Bevel1
+toolbar.color:        #161619
+toolbar.colorTo:      #5f6066
+toolbar.textColor:    #ffffff
+toolbar.font:         anorexia
+toolbar.justify:      Center
+
+!--[menu]-->
+menu.frame:             Flat Gradient EllipticInterlaced Bevel1
+menu.frame.color:       #161619
+menu.frame.colorTo:     #5f6066
+menu.frame.textColor:   #ffffff
+menu.frame.font:        anorexia
+menu.frame.justify:     left
+
+menu.title:             Flat Gradient Vertical Bevel1
+menu.title.color:       #3f3f4f
+menu.title.colorTo:     #5d6075
+menu.title.textColor:   #ffffff
+menu.title.font:        anorexia
+menu.title.justify:     center
+
+menu.hilite:            Flat Gradient Vertical Bevel1
+menu.hilite.color:      #676a89
+menu.hilite.colorTo:    #7276a5
+menu.hilite.textColor:  #ffffff
+
+menu.bullet:                diamond
+menu.bullet.position:       right
+menu.frame.disableColor:    #ffffff
+
+!--[window(for BBColor goodies)]-->
+window.label.focus:           Flat Gradient Vertical Bevel1
+window.label.focus.color:     #676a89
+window.label.focus.colorTo:   #7276a5
+window.label.focus.textColor: #ffffff
+window.label.focus.font:      verdana
+window.label.focus.justify:   Center
+
+window.label.unfocus:           Flat Gradient Vertical Bevel1
+window.label.unfocus.color:     #3f3f4f
+window.label.unfocus.colorTo:   #5d6075
+window.label.unfocus.textColor: #909090
+
+bevelWidth:                   1
+borderWidth:                  1
+borderColor:                  #3f3f4f
+
+!blank
+rootCommand: bsetroot -gradient ellipticinterlaced -from #1e1a1a -to #7276a5

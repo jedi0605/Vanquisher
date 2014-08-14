@@ -1,0 +1,139 @@
+! -------------------------------------------------------
+! dark-ego by nc-17 (nc-17@ratednc-17.com)
+! http://ratednc-17.com
+! january 4th, 2003
+! -------------------------------------------------------
+
+! ---------------------------------------- style info ---
+
+style.name:         dark-ego
+style.author:       nc-17 (nc-17@ratednc-17.com)
+style.date:         saturday jan 4th 2003
+style.credits:      http://ratednc-17.com
+style.comments:     as black as the night can get.
+
+! ---------------------------------------- toolbar ------
+
+toolbar:                            sunken bevel2 gradient elliptic
+toolbar.color:                      #585858
+toolbar.colorTo:                    #000000
+toolbar.textColor:                  #CBCBCB
+toolbar.font:                       anorexia
+toolbar.justify:                    center
+
+toolbar.button:                     raised gradient crossdiagonal
+toolbar.button.color:               #DDDDDD
+toolbar.button.colorTo:             #888888
+toolbar.button.picColor:            #000000
+
+toolbar.button.pressed:             sunken gradient crossdiagonal
+toolbar.button.pressed.color:       #888888
+toolbar.button.pressed.colorTo:     #DDDDDD
+toolbar.button.pressed.picColor:    #000000
+
+toolbar.label:                      sunken gradient crossdiagonal
+toolbar.label.color:                #767676
+toolbar.label.colorTo:              #000000
+toolbar.label.textColor:            #CBCBCB
+
+toolbar.windowLabel:                raised gradient elliptic
+toolbar.windowLabel.color:          #767676
+toolbar.windowLabel.colorTo:        #000000
+toolbar.windowLabel.textColor:      #E5E5E5
+
+toolbar.clock:                      sunken gradient diagonal
+toolbar.clock.color:                #767676
+toolbar.clock.colorTo:              #000000
+toolbar.clock.textColor:            #CBCBCB
+
+! ---------------------------------------- menu ---------
+
+menu.title:                         raised gradient rectangle
+menu.title.color:                   #888888
+menu.title.colorTo:                 #DDDDDD
+menu.title.textColor:               #000000
+menu.title.font:                    snap
+menu.title.justify:                 center
+
+menu.frame:                         sunken bevel2 gradient elliptic
+menu.frame.color:                   #000000
+menu.frame.colorTo:                 #585858
+menu.frame.textColor:               #CBCBCB
+menu.frame.font:                    anorexia
+menu.frame.justify:                 center
+menu.frame.disableColor:            #000000
+
+menu.hilite:                        flat gradient rectangle
+menu.hilite.color:                  #585858
+menu.hilite.colorTo:                #000000
+menu.hilite.textColor:              #E5E5E5
+
+menu.bullet:                        diamond
+menu.bullet.position:               right
+
+! ---------------------------------------- window -------
+
+window.font:                        snap
+window.justify:                     center
+
+window.button.focus:                raised gradient crossdiagonal
+window.button.focus.color:          #DDDDDD
+window.button.focus.colorTo:        #888888
+window.button.focus.picColor:       #000000
+
+window.button.unfocus:              raised gradient crossdiagonal
+window.button.unfocus.color:        #585858
+window.button.unfocus.colorTo:      #000000
+window.button.unfocus.picColor:     #CBCBCB
+
+window.button.pressed:              sunken gradient crossdiagonal
+window.button.pressed.color:        #888888
+window.button.pressed.colorTo:      #DDDDDD
+window.button.pressed.picColor:     #000000
+
+window.grip.focus:                  raised gradient crossdiagonal
+window.grip.focus.color:            #DDDDDD
+window.grip.focus.colorTo:          #888888
+
+window.grip.unfocus:                parentrelative
+window.grip.unfocus.color:          #585858
+window.grip.unfocus.colorTo:        #000000
+
+window.handle.focus:                raised gradient elliptic
+window.handle.focus.color:          #767676
+window.handle.focus.colorTo:        #000000
+
+window.handle.unfocus:              raised gradient elliptic
+window.handle.unfocus.color:        #585858
+window.handle.unfocus.colorTo:      #000000
+
+window.label.focus:                 parentrelative
+window.label.focus.textColor:       #E5E5E5
+window.label.focus.font:            snap
+window.label.focus.justify:         center
+
+window.label.unfocus:               parentrelative
+window.label.unfocus.textColor:     #CBCBCB
+
+window.title.focus:                 raised gradient elliptic
+window.title.focus.color:           #767676
+window.title.focus.colorTo:         #000000
+
+window.title.unfocus:               raised gradient elliptic
+window.title.unfocus.color:         #585858
+window.title.unfocus.colorTo:       #000000
+
+window.frame.focusColor:            #000000
+window.frame.unfocusColor:          #000000
+
+! ---------------------------------------- other --------
+
+handleWidth:        5
+frameWidth:         1
+bevelWidth:         3
+borderWidth:        0
+borderColor:        #000000
+
+*Font:              anorexia
+
+rootCommand: bsetroot -solid rgb:17/17/17

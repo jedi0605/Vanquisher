@@ -31,7 +31,8 @@ namespace VanquisherAPI
         public static string GetDomain = "(gwmi WIN32_ComputerSystem).Domain";
 
         public static string CMD = "Start-Process cmd";
-        public static string FiveNine = "\\5nine.Manager.exe";
+        
+        public static string FiveNineInstall = "\\59Manager.exe";
         public static string ExplorePlus = "\\Explorer++";
         public static string Corefig = "\\Corefig.ps1";
         public static string Computer = "\\Computer.ps1";

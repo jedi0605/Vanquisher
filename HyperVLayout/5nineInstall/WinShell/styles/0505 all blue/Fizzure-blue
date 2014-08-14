@@ -1,0 +1,111 @@
+style.name: Fizzure
+style.author: snkmchnb
+style.date: March 16, 2004
+style.credits: wallpaper: Minimalistic (http://ajpennypacker.deviantart.com/) 
+style.comments:
+
+toolbar:			raised gradient vertical
+toolbar.color:			#fefefe
+toolbar.colorTo:		#a6a6a6
+toolbar.justify:		center
+toolbar.textcolor:		#000000
+
+toolbar.button:			raised gradient vertical
+toolbar.button.color:		#fefefe
+toolbar.button.colorTo:		#a6a6a6
+toolbar.button.picColor:	#000000
+toolbar.button.pressed:		sunken gradient diagonal
+toolbar.button.pressed.color:	#a6a6a6
+toolbar.button.pressed.colorTo:	#fefefe
+
+toolbar.clock:			sunken gradient vertical
+toolbar.clock.color:		#00ccfe
+toolbar.clock.colorTo:		#034e88
+toolbar.clock.textColor:	#fefefe
+
+toolbar.label:			sunken gradient vertical
+toolbar.label.color:		#00ccfe
+toolbar.label.colorTo:		#034e88
+toolbar.label.textColor:	#fefefe
+
+toolbar.windowLabel:		sunken gradient vertical
+toolbar.windowLabel.color:	#00ccfe
+toolbar.windowLabel.colorTo:	#034e88
+toolbar.windowLabel.textColor:	#fefefe
+
+menu.title:			sunken gradient vertical
+menu.title.color:		#00ccfe
+menu.title.colorTo:		#034e88
+menu.title.textColor:		#fefefe
+menu.title.justify:		center
+
+menu.frame:			raised gradient vertical
+menu.frame.color:		#fefefe
+menu.frame.colorTo:		#a6a6a6
+menu.frame.textColor:		#000000
+menu.frame.justify:		left
+
+menu.hilite:			sunken gradient vertical
+menu.hilite.color:		#00ccfe
+menu.hilite.colorTo:		#034e88
+menu.hilite.textColor:		#fefefe
+
+menu.bullet:			circle
+menu.bullet.position:		right
+
+window.justify:			center
+
+window.title.focus:		raised gradient vertical
+window.title.focus.color:	#fefefe
+window.title.focus.colorTo:	#a6a6a6
+window.title.unfocus:		raised gradient vertical
+window.title.unfocus.color:	#fefefe
+window.title.unfocus.colorTo:	#a6a6a6
+
+window.label.focus:		sunken gradient vertical
+window.label.focus.color:	#00ccfe
+window.label.focus.colorTo:	#034e88
+window.label.focus.textColor:	#fefefe
+window.label.unfocus:		parentrelative
+window.label.unfocus.color:	#fefefe
+window.label.unfocus.colorTo:	#a6a6a6
+window.label.unfocus.textColor:	#000000
+
+window.button.focus:		raised gradient vertical
+window.button.focus.color:	#fefefe
+window.button.focus.colorTo:	#a6a6a6
+window.button.focus.picColor:	#000000
+window.button.unfocus:		raised gradient vertical
+window.button.unfocus.color:	#fefefe
+window.button.unfocus.colorTo:	#a6a6a6
+window.button.unfocus.picColor:	#000000
+window.button.pressed:		sunken gradient diagonal
+window.button.pressed.color:	#a6a6a6
+window.button.pressed.colorTo:	#fefefe
+
+window.frame.focusColor:	#a6a6a6	
+window.frame.unfocusColor:	#a6a6a6
+
+window.handle.focus:		raised gradient vertical
+window.handle.focus.color:	#fefefe
+window.handle.focus.colorTo:	#a6a6a6
+window.handle.unfocus:		raised gradient vertical
+window.handle.unfocus.color:	#fefefe
+window.handle.unfocus.colorTo:	#a6a6a6
+
+window.grip.focus:		sunken gradient vertical
+window.grip.focus.color:	#00ccfe
+window.grip.focus.colorTo:	#034e88
+window.grip.unfocus:		raised gradient vertical
+window.grip.unfocus.color:	#fefefe
+window.grip.unfocus.colorTo:	#a6a6a6
+
+borderColor:			#a6a6a6
+
+bevelWidth:			2
+borderWidth:			1
+handleWidth:			5
+
+*Font: snap
+
+rootCommand: bsetroot -solid interlaced	#c0c0c0

@@ -22,5 +22,15 @@ namespace VanquisherAPI
             p.StartInfo.Verb = "runas";
             p.Start();
         }
+        public static void ProcessOpen(string path)
+        {
+            Process p = new Process();
+            //p.StartInfo.UseShellExecute = false;
+            //p.StartInfo.CreateNoWindow = true;
+            p.StartInfo.FileName = path;
+            p.StartInfo.WorkingDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            p.StartInfo.Verb = "runas";
+            p.Start();
+        }
     }
 }

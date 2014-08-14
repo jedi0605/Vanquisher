@@ -18,7 +18,7 @@ namespace HyperVLayout
                     return "WinRM service is open.";
                    
                 case CheckModule.IPconfig:
-                    return "All ip can pingable to gateway.";
+                    return "Gateway of each NIC is pingable.";
                 case CheckModule.HyperVFeature:
                     return "All Hyper-V features are install.";
                 case CheckModule.ClusterFeature:
@@ -52,5 +52,11 @@ namespace HyperVLayout
         CreateCluster,
         EnablePSRemoting,
         JoinNodeToCluster
+    }
+
+    public enum FiveNine
+    {
+        IsInsatll,
+        StartPath
     }
 }

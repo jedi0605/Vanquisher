@@ -1,0 +1,23 @@
+boxBar.vertical:            false
+boxBar.items:               clock,tray,tasks
+boxBar.percentage:          100
+boxBar.useSlit:             true
+boxBar.toggleWithPlugins:   true
+
+boxBar.tasks.iconsize:      16
+boxBar.tasks.stretchArea:   true
+
+boxBar.tray.vertical:       false
+boxBar.tray.iconsize:       16
+boxBar.tray.maxRows:        2
+boxBar.tray.maxCols:        5
+boxBar.tray.newIconsFirst:  true
+
+boxBar.clock.format:        Start Menu %H:%M       .
+boxBar.clock.tipFormat:     %A %d %B %Y
+
+boxBar.drawBackground:      true
+boxBar.useAlphaBlend:       false
+boxBar.x:                   0
+boxBar.y:                   0
+

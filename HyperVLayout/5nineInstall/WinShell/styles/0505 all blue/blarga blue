@@ -1,0 +1,135 @@
+! Stylefile for blackbox 
+
+! -- info --
+style.name:                         blarga blue
+style.author:                       blockhead aka pcc
+style.date:                         feb 2004
+style.credits:                      
+style.comments:                     black with sky blue
+
+! -- background --
+rootcommand:                        bsetroot -solid #000000
+
+! -- toolbar --
+toolbar:                            gradient diagonal raised bevel1
+toolbar.color:                      grey22
+toolbar.colorto:                    grey11
+toolbar.textcolor:                  grey50
+toolbar.justify:                    left
+toolbar.font:                       anorexia
+toolbar.fontheight:                 12
+toolbar.fontweight:                 normal
+
+toolbar.label:                      gradient diagonal raised bevel1
+toolbar.label.color:                black
+toolbar.label.colorto:              grey22
+toolbar.label.textcolor:            grey50
+
+toolbar.windowlabel:                gradient diagonal raised bevel1
+toolbar.windowlabel.color:          #4aa4ff
+toolbar.windowlabel.colorto:        #0078f1
+toolbar.windowlabel.textcolor:      black
+
+toolbar.clock:                      gradient diagonal raised bevel1
+toolbar.clock.color:                black
+toolbar.clock.colorto:              grey22
+toolbar.clock.textcolor:            grey50
+
+toolbar.button:                     gradient diagonal raised bevel1
+toolbar.button.color:               grey22
+toolbar.button.colorto:             grey11
+toolbar.button.piccolor:            black
+
+toolbar.button.pressed:             gradient diagonal sunken bevel1
+toolbar.button.pressed.color:       grey22
+toolbar.button.pressed.colorto:     grey11
+toolbar.button.pressed.piccolor:    black
+
+! -- menu --
+menu.title:                         gradient vertical raised bevel1
+menu.title.color:                   grey19
+menu.title.colorto:                 grey9
+menu.title.textcolor:               #007efd
+menu.title.justify:                 left
+menu.title.font:                    anorexia
+menu.title.fontheight:              12
+menu.title.fontweight:              normal
+
+menu.frame:                         gradient diagonal flat
+menu.frame.color:                   grey20
+menu.frame.colorto:                 black
+menu.frame.textcolor:               grey50
+menu.frame.justify:                 left
+menu.frame.font:                    anorexia
+menu.frame.fontheight:              12
+menu.frame.fontweight:              normal
+
+menu.hilite:                        gradient diagonal raised bevel1
+menu.hilite.color:                  #4aa4ff
+menu.hilite.colorto:                #0078f1
+menu.hilite.textcolor:              black
+
+menu.bullet:                        diamond
+menu.bullet.position:               right
+
+! -- window --
+window.title.focus:                 gradient diagonal raised bevel1
+window.title.focus.color:           grey22
+window.title.focus.colorTo:         grey11
+
+window.label.focus:                 gradient diagonal raised bevel1
+window.label.focus.color:           #4aa4ff
+window.label.focus.colorTo:         #0078f1
+window.label.focus.textColor:       black
+
+window.handle.focus:                gradient diagonal raised bevel1
+window.handle.focus.color:          grey22
+window.handle.focus.colorTo:        grey11
+
+window.grip.focus:                  gradient diagonal raised bevel1
+window.grip.focus.color:            #4aa4ff
+window.grip.focus.colorTo:          #0078f1
+
+window.button.focus:                gradient diagonal raised bevel1
+window.button.focus.color:          grey22
+window.button.focus.colorTo:        grey11
+window.button.focus.picColor:       black
+
+window.button.pressed:              gradient diagonal sunken bevel1
+window.button.pressed.color:        grey23
+window.button.pressed.colorTo:      grey11
+window.button.pressed.picColor:     black
+
+window.title.unfocus:               gradient diagonal flat
+window.title.unfocus.color:         grey22
+window.title.unfocus.colorTo:       grey11
+
+window.label.unfocus:               parentrelative
+window.label.unfocus.textColor:     grey50
+
+window.handle.unfocus:              solid flat
+window.handle.unfocus.color:        black
+
+window.grip.unfocus:                gradient diagonal raised bevel1
+window.grip.unfocus.color:          grey22
+window.grip.unfocus.colorTo:        grey11
+
+window.button.unfocus:              gradient diagonal raised bevel1
+window.button.unfocus.color:        black
+window.button.unfocus.colorTo:      grey11
+window.button.unfocus.picColor:     black
+
+window.frame.focusColor:            black
+window.frame.unfocusColor:          black
+
+window.font:                        anorexia
+window.fontHeight:                  12
+window.fontWeight:                  normal
+window.justify:                     left
+
+! -- misc. --
+bordercolor:                        black
+borderwidth:                        1
+bevelwidth:                         1
+framewidth:                         2
+handlewidth:                        5

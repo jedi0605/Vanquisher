@@ -1,0 +1,8 @@
+glue.x: 0
+glue.y: 0
+glue.alwaysontop: false
+glue.snapwindow: true
+glue.transparency.alpha: 255
+glue.dockedtoslit: true
+glue.hidewindow: false
+glue.learningmode: false
