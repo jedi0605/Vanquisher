@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using VanquisherAPI;
 using NLog;
+using Newtonsoft.Json;
 
 namespace HyperVLayout
 {
@@ -275,6 +276,7 @@ namespace HyperVLayout
             try
             {
                 iscsiInfo = ISCSiAPI.GetVolumeInfo();
+                logger.Debug(JsonConvert.SerializeObject(iscsiInfo));
             }
             catch (Exception ex)
             {

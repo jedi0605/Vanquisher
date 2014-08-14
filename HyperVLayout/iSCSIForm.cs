@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using VanquisherAPI;
+using NLog;
+using Newtonsoft.Json;
 
 namespace HyperVLayout
 {
     public partial class iSCSIForm : Form
     {
+        static Logger logger = LogManager.GetCurrentClassLogger();
         private List<ISCSiInfo> iSCSiInfo = new List<ISCSiInfo>();
         public iSCSIForm(List<ISCSiInfo> iSCSiInfo)
         {
@@ -39,7 +42,7 @@ namespace HyperVLayout
             //this.ISCSiCheckedListBox.ItemsAdd(new ListItem());
         }
 
-       
+
 
         private void RefleshVolumeInfo(bool reflesh)
         {
@@ -48,18 +51,29 @@ namespace HyperVLayout
                 this.iSCSiInfo = ISCSiAPI.GetVolumeInfo();
             }
             string textInfo = ISCSiCheckedListBox.SelectedItem.ToString();
+
+            logger.Debug("RefleshVolumeInfo:" + textInfo);
             // MessageBox.Show(ISCSiCheckedListBox.SelectedItem.ToString());
-            ISCSiInfo info = this.iSCSiInfo.Find(x => textInfo.Contains(x.FriendlyName) && textInfo.Contains(x.Number.ToString()));
+            ISCSiInfo info = GetSelectVolum(textInfo);
+            logger.Debug("RefleshVolumeInfo info :" + JsonConvert.SerializeObject(info));
             ISCSiStatusText.Text = info.IsOffline == true ? Constants.offline : Constants.online;
             PartitionSizeText.Text = info.PartitionSizeInGb + "GB.";
         }
 
+        private ISCSiInfo GetSelectVolum(string checkedListBoxList)
+        {
+            int getVolumID;
+            bool parseResult = int.TryParse(checkedListBoxList.Split('.')[0], out getVolumID);
+            return this.iSCSiInfo.Find(x => checkedListBoxList.Contains(x.FriendlyName) && x.Number == getVolumID);
+        }
+
         private void InitDiskBtn_Click(object sender, EventArgs e)
         {
+
             CheckedListBox.CheckedItemCollection selecets = ISCSiCheckedListBox.CheckedItems;
             foreach (string item in selecets)
             {
-                ISCSiInfo info = this.iSCSiInfo.Find(x => item.Contains(x.FriendlyName) && item.Contains(x.Number.ToString()));
+                ISCSiInfo info = GetSelectVolum(item);
                 bool result = ISCSiAPI.InitializeDisk(info.Number);
                 if (!result)
                 {
@@ -77,8 +91,8 @@ namespace HyperVLayout
             CheckedListBox.CheckedItemCollection selecets = ISCSiCheckedListBox.CheckedItems;
             foreach (string item in selecets)
             {
-                ISCSiInfo info = this.iSCSiInfo.Find(x => item.Contains(x.FriendlyName) && item.Contains(x.Number.ToString()));
-                bool result = ISCSiAPI.SetDiskStatus(info.Number,true);
+                ISCSiInfo info = GetSelectVolum(item);
+                bool result = ISCSiAPI.SetDiskStatus(info.Number, true);
                 if (!result)
                 {
                     MessageBox.Show("Set Online fail.");
@@ -100,8 +114,8 @@ namespace HyperVLayout
             CheckedListBox.CheckedItemCollection selecets = ISCSiCheckedListBox.CheckedItems;
             foreach (string item in selecets)
             {
-                ISCSiInfo info = this.iSCSiInfo.Find(x => item.Contains(x.FriendlyName) && item.Contains(x.Number.ToString()));
-                bool result = ISCSiAPI.SetDiskStatus(info.Number,false);
+                ISCSiInfo info = GetSelectVolum(item);
+                bool result = ISCSiAPI.SetDiskStatus(info.Number, false);
                 if (!result)
                 {
                     MessageBox.Show("Set offline fail.");

@@ -14,7 +14,7 @@ namespace VanquisherAPI
         public static string CheckWinRMIsListening = "Get-ChildItem WSMan:\\localhost\\Listener";
         public static string IsIscsiConnected = "Get-IscsiConnection";
         public static string GetIscsiSession = "Get-IscsiSession";
-        public static string GetIscsiInfo = "Get-Disk | Where-Object BusType -eq “iSCSI”";
+        public static string GetIscsiInfo = "Get-Disk | Where-Object BusType -eq \"iSCSI\"";
         public static string InitializeDisk(int diskNumber)
         {
             return "Initialize-Disk –Number " + diskNumber + " –PartitionStyle GPT –PassThru | New-Partition –AssignDriveLetter –UseMaximumSize | Format-Volume";
