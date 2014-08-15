@@ -6,6 +6,7 @@ using System.Management.Automation.Runspaces;
 using System.Management.Automation;
 using System.Collections.ObjectModel;
 using System.Security;
+using NLog;
 
 /// <summary>
 /// psInvoker 的摘要描述
@@ -14,6 +15,7 @@ namespace VanquisherAPI
 {
     public class PSInvoker
     {
+        static Logger logger = LogManager.GetCurrentClassLogger();
         private Runspace runspace;
         private PSCredential psCredential = null;
         public PSInvoker()
@@ -57,7 +59,7 @@ namespace VanquisherAPI
         /// <returns></returns>
         public Collection<PSObject> ExecuteCommand(string script)
         {
-            
+            logger.Debug("ExecuteCommand script :" + script);
             Pipeline p = runspace.CreatePipeline();
             p.Commands.AddScript(script);
             try
@@ -109,7 +111,7 @@ namespace VanquisherAPI
 
                 if (p.Error.Count > 0)
                 {
-                    ICollection<ErrorRecord> erCollection= new ErrorRecord[p.Error.Count];
+                    ICollection<ErrorRecord> erCollection = new ErrorRecord[p.Error.Count];
                     ICollection<object> temp = p.Error.ReadToEnd();
                     erCollection.Concat(temp);
                     throw new psInvokerException(erCollection);
@@ -145,13 +147,14 @@ namespace VanquisherAPI
     {
         public ICollection<ErrorRecord> errorRecords { get; private set; }
 
-        public psInvokerException(ICollection<ErrorRecord> errorRecords,string exMessage)
+        public psInvokerException(ICollection<ErrorRecord> errorRecords, string exMessage)
             : base(exMessage)
         {
             this.errorRecords = errorRecords;
         }
 
-        public psInvokerException(ICollection<ErrorRecord> message) : base() 
+        public psInvokerException(ICollection<ErrorRecord> message)
+            : base()
         {
             this.errorRecords = errorRecords;
         }

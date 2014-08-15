@@ -65,6 +65,7 @@ namespace VanquisherAPI
             try
             {
                 Collection<PSObject> result = invoker.ExecuteCommand(VanScript.InitializeDisk(diskNumber));
+                logger.Debug("result count :" + result.Count);
                 return result.Count == 1 ? true : false;
             }
             catch (psInvokerException ex)
