@@ -1,6 +1,6 @@
 ﻿using IPAddressControlLib;
 
-namespace HyperVLayout
+namespace Vanquisher
 {
     partial class InitializeHost
     {

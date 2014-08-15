@@ -10,7 +10,7 @@ using VanquisherAPI;
 using NLog;
 using Newtonsoft.Json;
 
-namespace HyperVLayout
+namespace Vanquisher
 {
     public partial class iSCSIForm : Form
     {

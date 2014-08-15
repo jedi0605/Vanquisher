@@ -8,7 +8,7 @@
     <ProjectGuid>{70FBE7E9-965D-423B-BCAA-9512E2EFC5C6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HyperVLayout</RootNamespace>
+    <RootNamespace>Vanquisher</RootNamespace>
     <AssemblyName>Vanquisher</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>

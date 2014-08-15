@@ -19,12 +19,12 @@ using Microsoft.Win32;
 using NLog;
 
 
-namespace HyperVLayout
+namespace Vanquisher
 {
     public partial class MainForm : Form
     {
         public static Dictionary<CheckModule, bool> initNMoudleStatus = new Dictionary<CheckModule, bool>();
-        
+
         static Logger logger = LogManager.GetCurrentClassLogger();
         public static InitializeHost initForm;
         public static string CorefigPath = string.Empty;
@@ -34,7 +34,7 @@ namespace HyperVLayout
         public MainForm()
         {
             InitializeComponent();
-            string LoadConfig = File.ReadAllText(@".\ModuleStatus.txt");
+            string LoadConfig = File.ReadAllText(Application.StartupPath + "\\ModuleStatus.txt");
             initNMoudleStatus = (Dictionary<CheckModule, bool>)JsonConvert.DeserializeObject(LoadConfig,
                                                                                     typeof(Dictionary<CheckModule, bool>));
 
@@ -92,7 +92,7 @@ namespace HyperVLayout
             initNMoudleStatus.Add(CheckModule.JoinNodeToCluster, false);
             initNMoudleStatus.Add(CheckModule.EnablePSRemoting, false);
             string configToJson = JsonConvert.SerializeObject(initNMoudleStatus);
-            File.AppendAllText(@".\ModuleStatus.txt", configToJson);
+            File.AppendAllText(Application.StartupPath + "\\ModuleStatus.txt", configToJson);
         }
 
         private void corefigToolStripMenuItem_Click(object sender, EventArgs e)

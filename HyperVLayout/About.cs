@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Diagnostics;
 
-namespace HyperVLayout
+namespace Vanquisher
 {
     public partial class About : Form
     {

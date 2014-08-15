@@ -7,6 +7,7 @@
   !include 'LogicLib.nsh'
   !include "WordFunc.nsh"
   !include 'Registry.nsh'
+  !include "FileFunc.nsh"
 
 ;--------------------------------
 ;General
@@ -68,10 +69,18 @@ Section "Full" Sec1
  ; check whether .Net framework 4.0 is installed
    ${registry::KeyExists} "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" $0
 
+ ; check install
+   
     ${if} $0 == "-1"
          MessageBox MB_OK ".Net Framework 4.0 is not installed, please install .NET Framework 4.0 before installation, please press $\"OK$\" to Abort the installation"
          ABORT
    ${EndIf}
+
+   ;${DirState} "$INSTDIR" $R0
+   ;${if} $R0 = "1"
+   ;      MessageBox MB_OK " path not exist $INSTDIR."
+   ;      RMDir /r $INSTDIR
+   ;${EndIf}
 
 ;Copy Files
 
@@ -93,6 +102,18 @@ Section "Full" Sec1
 
    Exec $INSTDIR\Vanquisher.exe
 
+    ; check vanquisher install
+   ${registry::KeyExists} "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Vanquisher" $0
+	
+   ${if} $0 == "-1"
+         ExecWait "reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ /f /v Vanquisher"
+         ExecWait "reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ /f /v Vanquisher /d $INSTDIR\Vanquisher.exe "
+   ${EndIf}
+   
+   ${if} $0 == "0"
+        ExecWait "reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\ /f /v Vanquisher /d $INSTDIR\Vanquisher.exe "
+   ${EndIf}
+   
 SectionEnd
 
 AutoCloseWindow true

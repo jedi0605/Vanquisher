@@ -1,4 +1,4 @@
-﻿namespace HyperVLayout
+﻿namespace Vanquisher
 {
     partial class About
     {
