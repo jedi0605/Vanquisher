@@ -17,21 +17,21 @@ namespace VanquisherAPI
         public static string GetIscsiInfo = "Get-Disk | Where-Object BusType -eq \"iSCSI\"";
         public static string InitializeDisk(int diskNumber)
         {
-            return "Initialize-Disk –Number " + diskNumber + " –PartitionStyle GPT –PassThru | New-Partition –AssignDriveLetter –UseMaximumSize | Format-Volume";
+            return "Initialize-Disk -Number " + diskNumber + " -PartitionStyle GPT -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -force -Confirm:$false";
         }
         public static string SetDiskOnline(int diskNumber)
         {
-            return "Set-Disk " + diskNumber + " –IsOffline $False";
+            return "Set-Disk " + diskNumber + " -IsOffline $False";
         }
         public static string SetDiskOffline(int diskNumber)
         {
-            return "Set-Disk " + diskNumber + " –IsOffline $True";
+            return "Set-Disk " + diskNumber + " -IsOffline $True";
         }
         public static string GetPartition = "Get-Partition";
         public static string GetDomain = "(gwmi WIN32_ComputerSystem).Domain";
 
         public static string CMD = "Start-Process cmd";
-        
+        public static string pshvm30 = "\\MyEventViewer.exe";
         public static string FiveNineInstall = "\\59Manager.exe";
         public static string ExplorePlus = "\\Explorer++";
         public static string Corefig = "\\Corefig.ps1";

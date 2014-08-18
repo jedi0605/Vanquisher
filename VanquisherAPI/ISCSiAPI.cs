@@ -64,9 +64,11 @@ namespace VanquisherAPI
             PSInvoker invoker = new PSInvoker();
             try
             {
-                Collection<PSObject> result = invoker.ExecuteCommand(VanScript.InitializeDisk(diskNumber));
-                logger.Debug("result count :" + result.Count);
-                return result.Count == 1 ? true : false;
+                string initScript = VanScript.InitializeDisk(diskNumber);
+                logger.Debug("init Script :" + initScript);
+                Collection<PSObject> result = invoker.ExecuteCommand(initScript);
+                // return result.Count == 1 ? true : false;
+                return true;
             }
             catch (psInvokerException ex)
             {
@@ -75,16 +77,16 @@ namespace VanquisherAPI
                     Console.WriteLine(item.ToString());
                     logger.Debug("psInvokerException : " + item.ToString());
                 }
-                return false;
+                return true;
             }
             catch (Exception ex)
             {
-                logger.Debug(ex.Message);
-                return false;
+                logger.Debug("InitializeDisk fail : " + ex.Message);
+                return true;
             }
         }
 
-        public static bool SetDiskStatus(int diskNumber,bool online)
+        public static bool SetDiskStatus(int diskNumber, bool online)
         {
             PSInvoker invoker = new PSInvoker();
 

@@ -31,6 +31,7 @@ namespace Vanquisher
         public static string ExploerPlusPath = string.Empty;
         public static string FiveNinePath = string.Empty;
         public static string FiveNineInstallPath = string.Empty;
+        public static string pshvm30 = string.Empty;
         public MainForm()
         {
             InitializeComponent();
@@ -50,6 +51,7 @@ namespace Vanquisher
             ExploerPlusPath = appconfig.AppSettings.Settings["ExploerPlusPath"].Value;
             // FiveNinePath = appconfig.AppSettings.Settings["FiveNinePath"].Value;
             FiveNineInstallPath = appconfig.AppSettings.Settings["FiveNineInstallPath"].Value;
+            pshvm30 = appconfig.AppSettings.Settings["pshvm30"].Value;
         }
 
         private void initializeHyerVHostToolStripMenuItem_Click(object sender, EventArgs e)
@@ -173,7 +175,7 @@ namespace Vanquisher
             ProcessCaller.ProcessOpenPowershell(VanScript.CMD);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ISCSIConnector_Click(object sender, EventArgs e)
         {
             ProcessCaller.ProcessOpenPowershell(VanScript.IscsiUI);
         }
@@ -184,6 +186,11 @@ namespace Vanquisher
             {
                 Directory.CreateDirectory(@"c:\VMs\");
             }
+        }
+
+        private void pshvm30btn_Click(object sender, EventArgs e)
+        {
+            ProcessCaller.ProcessOpen(MainForm.pshvm30 + VanScript.pshvm30);
         }
 
     }

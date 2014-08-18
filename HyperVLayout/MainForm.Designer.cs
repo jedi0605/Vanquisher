@@ -52,6 +52,7 @@
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.ISCSIConnector = new System.Windows.Forms.Button();
+            this.pshvm30btn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +113,7 @@
             // 
             this.OpenExpolerbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenExpolerbtn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.OpenExpolerbtn.Location = new System.Drawing.Point(20, 292);
+            this.OpenExpolerbtn.Location = new System.Drawing.Point(20, 332);
             this.OpenExpolerbtn.Name = "OpenExpolerbtn";
             this.OpenExpolerbtn.Size = new System.Drawing.Size(187, 38);
             this.OpenExpolerbtn.TabIndex = 1;
@@ -124,7 +125,7 @@
             // 
             this.Open59btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Open59btn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Open59btn.Location = new System.Drawing.Point(257, 292);
+            this.Open59btn.Location = new System.Drawing.Point(257, 332);
             this.Open59btn.Name = "Open59btn";
             this.Open59btn.Size = new System.Drawing.Size(187, 38);
             this.Open59btn.TabIndex = 1;
@@ -156,7 +157,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.Location = new System.Drawing.Point(20, 199);
+            this.textBox2.Location = new System.Drawing.Point(20, 239);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -170,7 +171,7 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox3.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox3.Location = new System.Drawing.Point(257, 199);
+            this.textBox3.Location = new System.Drawing.Point(257, 239);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
@@ -185,7 +186,7 @@
             this.TaskManagerbtn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.TaskManagerbtn.Image = ((System.Drawing.Image)(resources.GetObject("TaskManagerbtn.Image")));
             this.TaskManagerbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TaskManagerbtn.Location = new System.Drawing.Point(20, 39);
+            this.TaskManagerbtn.Location = new System.Drawing.Point(20, 75);
             this.TaskManagerbtn.Name = "TaskManagerbtn";
             this.TaskManagerbtn.Size = new System.Drawing.Size(187, 34);
             this.TaskManagerbtn.TabIndex = 4;
@@ -200,7 +201,7 @@
             this.PowershellBtn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.PowershellBtn.Image = ((System.Drawing.Image)(resources.GetObject("PowershellBtn.Image")));
             this.PowershellBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PowershellBtn.Location = new System.Drawing.Point(20, 79);
+            this.PowershellBtn.Location = new System.Drawing.Point(20, 119);
             this.PowershellBtn.Name = "PowershellBtn";
             this.PowershellBtn.Size = new System.Drawing.Size(187, 34);
             this.PowershellBtn.TabIndex = 4;
@@ -214,7 +215,7 @@
             this.Reboot.FlatAppearance.BorderSize = 0;
             this.Reboot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reboot.Image = ((System.Drawing.Image)(resources.GetObject("Reboot.Image")));
-            this.Reboot.Location = new System.Drawing.Point(363, 352);
+            this.Reboot.Location = new System.Drawing.Point(356, 390);
             this.Reboot.Name = "Reboot";
             this.Reboot.Size = new System.Drawing.Size(41, 41);
             this.Reboot.TabIndex = 5;
@@ -228,7 +229,7 @@
             this.ShutdownComputer.FlatAppearance.BorderSize = 0;
             this.ShutdownComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ShutdownComputer.Image = ((System.Drawing.Image)(resources.GetObject("ShutdownComputer.Image")));
-            this.ShutdownComputer.Location = new System.Drawing.Point(410, 352);
+            this.ShutdownComputer.Location = new System.Drawing.Point(403, 390);
             this.ShutdownComputer.Name = "ShutdownComputer";
             this.ShutdownComputer.Size = new System.Drawing.Size(41, 41);
             this.ShutdownComputer.TabIndex = 5;
@@ -242,7 +243,7 @@
             this.CommandPrompt.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.CommandPrompt.Image = ((System.Drawing.Image)(resources.GetObject("CommandPrompt.Image")));
             this.CommandPrompt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CommandPrompt.Location = new System.Drawing.Point(20, 119);
+            this.CommandPrompt.Location = new System.Drawing.Point(20, 159);
             this.CommandPrompt.Name = "CommandPrompt";
             this.CommandPrompt.Size = new System.Drawing.Size(187, 34);
             this.CommandPrompt.TabIndex = 4;
@@ -257,17 +258,17 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(465, 397);
+            this.shapeContainer1.Size = new System.Drawing.Size(465, 437);
             this.shapeContainer1.TabIndex = 6;
             this.shapeContainer1.TabStop = false;
             // 
             // lineShape1
             // 
             this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 3;
-            this.lineShape1.X2 = 459;
-            this.lineShape1.Y1 = 344;
-            this.lineShape1.Y2 = 344;
+            this.lineShape1.X1 = 1;
+            this.lineShape1.X2 = 457;
+            this.lineShape1.Y1 = 382;
+            this.lineShape1.Y2 = 382;
             // 
             // ISCSIConnector
             // 
@@ -275,21 +276,36 @@
             this.ISCSIConnector.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.ISCSIConnector.Image = ((System.Drawing.Image)(resources.GetObject("ISCSIConnector.Image")));
             this.ISCSIConnector.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ISCSIConnector.Location = new System.Drawing.Point(20, 159);
+            this.ISCSIConnector.Location = new System.Drawing.Point(20, 199);
             this.ISCSIConnector.Name = "ISCSIConnector";
             this.ISCSIConnector.Size = new System.Drawing.Size(187, 34);
             this.ISCSIConnector.TabIndex = 4;
             this.ISCSIConnector.Text = "ISCSI Connector";
             this.ISCSIConnector.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ISCSIConnector.UseVisualStyleBackColor = true;
-            this.ISCSIConnector.Click += new System.EventHandler(this.button1_Click);
+            this.ISCSIConnector.Click += new System.EventHandler(this.ISCSIConnector_Click);
+            // 
+            // pshvm30btn
+            // 
+            this.pshvm30btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pshvm30btn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.pshvm30btn.Image = ((System.Drawing.Image)(resources.GetObject("pshvm30btn.Image")));
+            this.pshvm30btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pshvm30btn.Location = new System.Drawing.Point(20, 35);
+            this.pshvm30btn.Name = "pshvm30btn";
+            this.pshvm30btn.Size = new System.Drawing.Size(187, 34);
+            this.pshvm30btn.TabIndex = 1;
+            this.pshvm30btn.Text = "   Event Viewer";
+            this.pshvm30btn.UseVisualStyleBackColor = true;
+            this.pshvm30btn.Click += new System.EventHandler(this.pshvm30btn_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(465, 397);
+            this.ClientSize = new System.Drawing.Size(465, 437);
+            this.Controls.Add(this.pshvm30btn);
             this.Controls.Add(this.ISCSIConnector);
             this.Controls.Add(this.ShutdownComputer);
             this.Controls.Add(this.Reboot);
@@ -339,6 +355,7 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button ISCSIConnector;
+        private System.Windows.Forms.Button pshvm30btn;
     }
 }
 
