@@ -27,6 +27,7 @@ namespace Vanquisher
 
         static Logger logger = LogManager.GetCurrentClassLogger();
         public static InitializeHost initForm;
+        public static CreateClusterForm clusterForm;
         public static string CorefigPath = string.Empty;
         public static string ExploerPlusPath = string.Empty;
         public static string FiveNinePath = string.Empty;
@@ -35,11 +36,17 @@ namespace Vanquisher
         public MainForm()
         {
             InitializeComponent();
+            bool fileTest = File.Exists(Application.StartupPath + "\\ModuleStatus.txt");
+            if (!fileTest)
+            {
+                CreateModulStatusfile();
+            }
             string LoadConfig = File.ReadAllText(Application.StartupPath + "\\ModuleStatus.txt");
             initNMoudleStatus = (Dictionary<CheckModule, bool>)JsonConvert.DeserializeObject(LoadConfig,
                                                                                     typeof(Dictionary<CheckModule, bool>));
 
             initForm = new InitializeHost(ref initNMoudleStatus);
+            clusterForm = new CreateClusterForm();
             GetThreadPartyPath();
             CreateVMFolder();
         }
@@ -146,7 +153,7 @@ namespace Vanquisher
 
             if (o == null)
             {
-                if (MessageBox.Show("Installed 59manager?", "Init f9manager", MessageBoxButtons.YesNo, MessageBoxIcon.Information,
+                if (MessageBox.Show("Install 59manager?", "Install 59manager?", MessageBoxButtons.YesNo, MessageBoxIcon.Information,
                                     MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     ProcessCaller.ProcessOpen(MainForm.FiveNineInstallPath + VanScript.FiveNineInstall);
@@ -191,6 +198,11 @@ namespace Vanquisher
         private void pshvm30btn_Click(object sender, EventArgs e)
         {
             ProcessCaller.ProcessOpen(MainForm.pshvm30 + VanScript.pshvm30);
+        }
+
+        private void createClusterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clusterForm.Show();
         }
 
     }

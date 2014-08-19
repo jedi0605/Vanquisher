@@ -27,6 +27,12 @@ namespace VanquisherAPI
         {
             return "Set-Disk " + diskNumber + " -IsOffline $True";
         }
+
+        public static string CreateClusterNoIgnore(string clusterName, string clusterComputer, string clusterIP)
+        {
+            return "New-Cluster -Name " + clusterName + " -Node " + clusterComputer + " -StaticAddress " + clusterIP;
+        }
+
         public static string GetPartition = "Get-Partition";
         public static string GetDomain = "(gwmi WIN32_ComputerSystem).Domain";
 

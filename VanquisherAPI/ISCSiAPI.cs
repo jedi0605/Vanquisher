@@ -72,11 +72,11 @@ namespace VanquisherAPI
             }
             catch (psInvokerException ex)
             {
-                foreach (ErrorRecord item in ex.errorRecords)
-                {
-                    Console.WriteLine(item.ToString());
-                    logger.Debug("psInvokerException : " + item.ToString());
-                }
+                //foreach (ErrorRecord item in ex.errorRecords)
+                //{
+                //    Console.WriteLine(item.ToString());
+                //    logger.Debug("psInvokerException : " + item.ToString());
+                //}
                 return true;
             }
             catch (Exception ex)

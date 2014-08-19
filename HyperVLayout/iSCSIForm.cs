@@ -77,11 +77,11 @@ namespace Vanquisher
                 bool result = ISCSiAPI.InitializeDisk(info.Number);
                 if (!result)
                 {
-                    MessageBox.Show("Initialize disk fail.");
+                    MessageBox.Show("Initialize disk " + item + "Success.");
                 }
                 else
                 {
-                    MessageBox.Show("Initialize disk Success.");
+                    MessageBox.Show("Initialize disk " + item + "Success.");
                 }
             }
         }

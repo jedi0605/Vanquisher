@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -63,6 +64,7 @@
   <ItemGroup>
     <Compile Include="CheckDomainTest.cs" />
     <Compile Include="CheckServiceEnableTest.cs" />
+    <Compile Include="ClusterTest.cs" />
     <Compile Include="ISCSiAPITest.cs" />
     <Compile Include="ModuleCheckerTest.cs" />
     <Compile Include="NetworkChekerTest.cs" />

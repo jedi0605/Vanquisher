@@ -53,6 +53,7 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.ISCSIConnector = new System.Windows.Forms.Button();
             this.pshvm30btn = new System.Windows.Forms.Button();
+            this.createClusterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,8 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initializeHyerVHostToolStripMenuItem});
+            this.initializeHyerVHostToolStripMenuItem,
+            this.createClusterToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(43, 20);
             this.toolStripMenuItem1.Text = "Tools";
@@ -299,6 +301,13 @@
             this.pshvm30btn.UseVisualStyleBackColor = true;
             this.pshvm30btn.Click += new System.EventHandler(this.pshvm30btn_Click);
             // 
+            // createClusterToolStripMenuItem
+            // 
+            this.createClusterToolStripMenuItem.Name = "createClusterToolStripMenuItem";
+            this.createClusterToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.createClusterToolStripMenuItem.Text = "Create Cluster";
+            this.createClusterToolStripMenuItem.Click += new System.EventHandler(this.createClusterToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -356,6 +365,7 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button ISCSIConnector;
         private System.Windows.Forms.Button pshvm30btn;
+        private System.Windows.Forms.ToolStripMenuItem createClusterToolStripMenuItem;
     }
 }
 

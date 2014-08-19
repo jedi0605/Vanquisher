@@ -127,7 +127,7 @@
   <data name="TaskManagerbtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAYCAYAAADtaU2/AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAItElEQVRIS32W
+        vAAADrwBlbxySQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAItElEQVRIS32W
         eVDT6RnHYZ3WxD86ne6ucoQEQgIBEiAcgWAQ5RKPVRDxwlXCkQRQBFEsolmigBwJhJALEjnkVA4VARU8
         d23WqmzVccdd67izdTp2Ov2j05lOO93ZfPskLFtZd/rMfOd9c/0+7/N9nvd94+FJ0dLSuMxmtzLOnetm
         WCxGpplksRqZ7tc09vbamUND5xidXSamtdPM7CQNDPYxurpo3mVh9g/0MoZHBhhdNrP7N719Z5lnu23M
@@ -259,7 +259,7 @@
   <data name="CommandPrompt.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6
-        JQAAgIMAAPn/AACA6AAAdTAAAOpgAAA6lwAAF2+XqZnUAAAACXBIWXMAAA69AAAOvQFH+5CtAAAAGnRF
+        JQAAgIMAAPn/AACA6AAAdTAAAOpgAAA6lwAAF2+XqZnUAAAACXBIWXMAAA68AAAOvAGVvHJJAAAAGnRF
         WHRTb2Z0d2FyZQBQYWludC5ORVQgdjMuNS4xMDD0cqEAAAHGSURBVEhL3dVNKKVRHMfxSxNlZzfeymJS
         U0MpOxuWbKSYGpTZWKixspAVYc0sLNgoMkJpms1IiQlFycJYeH8pIi9lGoa8+/7qPqfj4WFOPSv/+sQ9
         57m///Pcc869kVdTMYgNmTJNFWAKcw50/Rhm8Sv6ejo6Ng5lmirHKe4c1CIVG8hFA/rxDkNQpqlirGDH
@@ -283,7 +283,7 @@
   <data name="ISCSIConnector.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0QAADdEBwivf4wAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAElklEQVRIS6WW
+        0AAADdABEGw9BwAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAElklEQVRIS6WW
         WYgdRRSGhSz3jmAiGAgE9EnHwERcurrv3Dtzh1xnEEMWAxo1GXVQVDQucdcnUQTNg+bFp2hESFSEaCDu
         +jIvEZ9iMAsSEwIJiIhoguKYxUz8/upTTfWdvi748HNOV53z/1WnTlf3eWNjS+cY5hpmB39wsDEvy9LF
         zrkx55LHsK9jP02SZBdWkP8a448rJk3T/larOd/yA2fMPysI1kHNbH1oqDWf5CFIXoDwa3AS/xz2HCIe
@@ -309,7 +309,7 @@
   <data name="pshvm30btn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
-        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsRAAALEQF/ZF+RAAAAHHRFWHRTb2Z0d2FyZQBBZG9i
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsQAAALEAGtI711AAAAHHRFWHRTb2Z0d2FyZQBBZG9i
         ZSBGaXJld29ya3MgQ1M0BrLToAAABgRJREFUWEfFln1MVXUcxo/vNnP9Ubm2NI1ljnLL0mWslqWW8qK0
         GOtFe7W2XM3KNUYOAkQRUHH4AtwB4oQa6ZY6QOaFcbkD5kCnMjCVlIkMGLB7LkPi3vB2n57v4ZzbATk3
         21z9tmcX7v2d3+d5vr/HKwqA/1UTvvlf6u8fxq9w+5KZsbWNSkQ17odmxNZeVqKqXpSj/9lApCNsSrTj
