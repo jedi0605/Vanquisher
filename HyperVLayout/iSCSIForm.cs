@@ -73,16 +73,25 @@ namespace Vanquisher
             CheckedListBox.CheckedItemCollection selecets = ISCSiCheckedListBox.CheckedItems;
             foreach (string item in selecets)
             {
-                ISCSiInfo info = GetSelectVolum(item);
-                bool result = ISCSiAPI.InitializeDisk(info.Number);
-                if (!result)
+                try
                 {
-                    MessageBox.Show("Initialize disk " + item + "Success.");
+                    ISCSiInfo info = GetSelectVolum(item);
+                    bool result = ISCSiAPI.InitializeDisk(info.Number);
+                    if (!result)
+                    {
+                        MessageBox.Show("Initialize disk " + item + "Success.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Initialize disk " + item + "Success.");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Initialize disk " + item + "Success.");
+                    logger.Error(ex.ToString());
+                    MessageBox.Show("InitDisk error: " + ex.Message);
                 }
+
             }
         }
 

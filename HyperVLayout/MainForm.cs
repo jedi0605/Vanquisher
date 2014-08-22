@@ -23,7 +23,7 @@ namespace Vanquisher
 {
     public partial class MainForm : Form
     {
-        public static Dictionary<CheckModule, bool> initNMoudleStatus = new Dictionary<CheckModule, bool>();
+        public static Dictionary<CheckModule, bool> initMoudleStatus = new Dictionary<CheckModule, bool>();
 
         static Logger logger = LogManager.GetCurrentClassLogger();
         public static InitializeHost initForm;
@@ -36,19 +36,28 @@ namespace Vanquisher
         public MainForm()
         {
             InitializeComponent();
-            bool fileTest = File.Exists(Application.StartupPath + "\\ModuleStatus.txt");
-            if (!fileTest)
-            {
-                CreateModulStatusfile();
-            }
-            string LoadConfig = File.ReadAllText(Application.StartupPath + "\\ModuleStatus.txt");
-            initNMoudleStatus = (Dictionary<CheckModule, bool>)JsonConvert.DeserializeObject(LoadConfig,
-                                                                                    typeof(Dictionary<CheckModule, bool>));
+            InitStatus();
 
-            initForm = new InitializeHost(ref initNMoudleStatus);
+            initForm = new InitializeHost(ref initMoudleStatus);
             clusterForm = new CreateClusterForm();
             GetThreadPartyPath();
             CreateVMFolder();
+
+            RunspaceInvoke invoker = new RunspaceInvoke();
+            invoker.Invoke("Set-ExecutionPolicy Unrestricted");
+        }
+
+        private void InitStatus()
+        {
+            initMoudleStatus.Add(CheckModule.ClusterFeature, false);
+            initMoudleStatus.Add(CheckModule.EnableRDP, false);
+            initMoudleStatus.Add(CheckModule.EnableWinRM, false);
+            initMoudleStatus.Add(CheckModule.HyperVFeature, false);
+            initMoudleStatus.Add(CheckModule.IPconfig, false);
+            initMoudleStatus.Add(CheckModule.ISCSiConnection, false);
+            initMoudleStatus.Add(CheckModule.JoinDomain, false);
+            initMoudleStatus.Add(CheckModule.EnablePSRemoting, false);
+            // initMoudleStatus.Add(CheckModule.CheckGPUFeature, false);
         }
 
         private void GetThreadPartyPath()
@@ -56,7 +65,6 @@ namespace Vanquisher
             Configuration appconfig = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             CorefigPath = appconfig.AppSettings.Settings["CorefigPath"].Value;
             ExploerPlusPath = appconfig.AppSettings.Settings["ExploerPlusPath"].Value;
-            // FiveNinePath = appconfig.AppSettings.Settings["FiveNinePath"].Value;
             FiveNineInstallPath = appconfig.AppSettings.Settings["FiveNineInstallPath"].Value;
             pshvm30 = appconfig.AppSettings.Settings["pshvm30"].Value;
         }
@@ -67,56 +75,20 @@ namespace Vanquisher
             initForm.Show(this);
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoadModulStatus()
-        {
-
-        }
-
-        private void CreateModulStatusfile()
-        {
-            initNMoudleStatus.Add(CheckModule.CheckCluster, false);
-            initNMoudleStatus.Add(CheckModule.ClusterFeature, false);
-            initNMoudleStatus.Add(CheckModule.CreateCluster, false);
-            initNMoudleStatus.Add(CheckModule.EnableRDP, false);
-            initNMoudleStatus.Add(CheckModule.EnableWinRM, false);
-            initNMoudleStatus.Add(CheckModule.HyperVFeature, false);
-            initNMoudleStatus.Add(CheckModule.IPconfig, false);
-            initNMoudleStatus.Add(CheckModule.ISCSiConnection, false);
-            initNMoudleStatus.Add(CheckModule.JoinDomain, false);
-            initNMoudleStatus.Add(CheckModule.JoinNodeToCluster, false);
-            initNMoudleStatus.Add(CheckModule.EnablePSRemoting, false);
-            string configToJson = JsonConvert.SerializeObject(initNMoudleStatus);
-            File.AppendAllText(Application.StartupPath + "\\ModuleStatus.txt", configToJson);
-        }
-
         private void corefigToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.Corefig);
+            ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.Corefig);
         }
 
         private void OpenCorefigbtn_Click(object sender, EventArgs e)
         {
-            ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.Corefig);
+            logger.Debug("open corefig path:" + MainForm.CorefigPath + VanScript.Corefig);
+            ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.Corefig);
         }
 
         private void OpenExpolerbtn_Click(object sender, EventArgs e)
         {
-            ProcessCaller.ProcessOpenPowershell(MainForm.ExploerPlusPath + VanScript.ExplorePlus);
+            ProcessCaller.ProcessOpenByPowershell(MainForm.ExploerPlusPath + VanScript.ExplorePlus);
         }
 
         private void TaskManagerbtn_Click(object sender, EventArgs e)
@@ -126,7 +98,7 @@ namespace Vanquisher
 
         private void PowershellBtn_Click(object sender, EventArgs e)
         {
-            ProcessCaller.ProcessOpenPowershell(VanScript.Powershell);
+            ProcessCaller.ProcessOpenByPowershell(VanScript.Powershell);
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -166,8 +138,6 @@ namespace Vanquisher
             }
         }
 
-
-
         private void ShutdownComputer_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("This will shotdown computer. Confirm?", "Shotdown computer", MessageBoxButtons.YesNo,
@@ -179,12 +149,12 @@ namespace Vanquisher
 
         private void CommandPrompt_Click(object sender, EventArgs e)
         {
-            ProcessCaller.ProcessOpenPowershell(VanScript.CMD);
+            ProcessCaller.ProcessOpenByPowershell(VanScript.CMD);
         }
 
         private void ISCSIConnector_Click(object sender, EventArgs e)
         {
-            ProcessCaller.ProcessOpenPowershell(VanScript.IscsiUI);
+            ProcessCaller.ProcessOpenByPowershell(VanScript.IscsiUI);
         }
 
         private void CreateVMFolder()
@@ -202,7 +172,7 @@ namespace Vanquisher
 
         private void createClusterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clusterForm.Show();
+            clusterForm.Show(this);
         }
 
     }

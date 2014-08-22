@@ -29,6 +29,8 @@ namespace Vanquisher
                     return "Host in Domain.";
                 case CheckModule.EnablePSRemoting:
                     return "Host can use PS-Remoting.";
+                case CheckModule.CheckGPUFeature:
+                    return "Host can use virtualization GPU";
                 case CheckModule.CreateCluster:
                 case CheckModule.CheckCluster:
                 case CheckModule.JoinNodeToCluster:
@@ -51,7 +53,8 @@ namespace Vanquisher
         CheckCluster,
         CreateCluster,
         EnablePSRemoting,
-        JoinNodeToCluster
+        JoinNodeToCluster,
+        CheckGPUFeature
     }
 
     public enum FiveNine

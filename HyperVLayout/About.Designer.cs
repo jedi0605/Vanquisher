@@ -42,9 +42,9 @@
             this.Version.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Version.Location = new System.Drawing.Point(34, 7);
             this.Version.Name = "Version";
-            this.Version.Size = new System.Drawing.Size(299, 21);
+            this.Version.Size = new System.Drawing.Size(333, 21);
             this.Version.TabIndex = 0;
-            this.Version.Text = "Vanquisher Version  0.9.0 Beta (64bit)";
+            this.Version.Text = "Vanquisher Version  1.0.822.0 Beta (64bit)";
             // 
             // BuildDate
             // 

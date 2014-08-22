@@ -33,6 +33,11 @@ namespace VanquisherAPI
             return "New-Cluster -Name " + clusterName + " -Node " + clusterComputer + " -StaticAddress " + clusterIP;
         }
 
+        public static string CreateCluster(string clusterName, string clusterComputer, string clusterIP, string ignoreIP)
+        {
+            return "New-Cluster -Name " + clusterName + " -Node " + clusterComputer + " -StaticAddress " + clusterIP + " -IgnoreNetwork " + ignoreIP;
+        }
+
         public static string GetPartition = "Get-Partition";
         public static string GetDomain = "(gwmi WIN32_ComputerSystem).Domain";
 

@@ -59,20 +59,25 @@ namespace VanquisherAPI
         /// <returns></returns>
         public Collection<PSObject> ExecuteCommand(string script)
         {
+
             logger.Debug("ExecuteCommand script :" + script);
             Pipeline p = runspace.CreatePipeline();
+            
             p.Commands.AddScript(script);
             try
             {
                 Collection<PSObject> o = p.Invoke();
-                Console.WriteLine(p.Error.ToString());
+                //Console.WriteLine(p.Error.ToString());
 
+                logger.Debug("Error count : " + p.Error.Count);
                 if (p.Error.Count > 0)
                 {
-                    ICollection<ErrorRecord> erCollection = new ErrorRecord[p.Error.Count];
-                    ICollection<object> temp = p.Error.ReadToEnd();
-                    erCollection.Concat(temp);
-                    throw new psInvokerException(erCollection);
+                    //ICollection<ErrorRecord> erCollection = new ErrorRecord[p.Error.Count];
+                    //ICollection<object> temp = p.Error.ReadToEnd();
+                    ICollection<PSObject> temp = p.Error.ReadToEnd().Select(t => (PSObject)t).ToList();
+                    logger.Debug("Error temp count : " + temp.Count);
+                    //erCollection.Concat(temp);
+                    throw new psInvokerException(temp);
                 }
                 return o;
             }
@@ -107,14 +112,14 @@ namespace VanquisherAPI
             try
             {
                 Collection<PSObject> o = p.Invoke();
-                Console.WriteLine(p.Error.ToString());
+                string SuperUltraMmessageExAlpha =p.Error.ToString();
 
                 if (p.Error.Count > 0)
                 {
-                    ICollection<ErrorRecord> erCollection = new ErrorRecord[p.Error.Count];
+                    ICollection<PSObject> erCollection = new PSObject[p.Error.Count];
                     ICollection<object> temp = p.Error.ReadToEnd();
                     erCollection.Concat(temp);
-                    throw new psInvokerException(erCollection);
+                    throw new psInvokerException(erCollection, SuperUltraMmessageExAlpha);
                 }
                 return o;
             }
@@ -145,15 +150,15 @@ namespace VanquisherAPI
     }
     public class psInvokerException : Exception
     {
-        public ICollection<ErrorRecord> errorRecords { get; private set; }
+        public ICollection<PSObject> errorRecords { get; private set; }
 
-        public psInvokerException(ICollection<ErrorRecord> errorRecords, string exMessage)
+        public psInvokerException(ICollection<PSObject> errorRecords, string exMessage)
             : base(exMessage)
         {
             this.errorRecords = errorRecords;
         }
 
-        public psInvokerException(ICollection<ErrorRecord> message)
+        public psInvokerException(ICollection<PSObject> errorRecords)
             : base()
         {
             this.errorRecords = errorRecords;

@@ -11,7 +11,7 @@ namespace VanquisherAPI
 {
     public class ProcessCaller
     {
-        public static void ProcessOpenPowershell(string powershellPath)
+        public static void ProcessOpenByPowershell(string powershellPath)
         {
             Process p = new Process();
             p.StartInfo.UseShellExecute = false;

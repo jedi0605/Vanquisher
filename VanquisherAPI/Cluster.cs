@@ -16,41 +16,50 @@ namespace VanquisherAPI
 
         public static List<string> GetADComputerList()
         {
-            string domain = string.Empty;
-            SelectQuery query = new SelectQuery("Win32_ComputerSystem");
-            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
+            try
             {
-                foreach (ManagementObject mo in searcher.Get())
+                string domain = string.Empty;
+                SelectQuery query = new SelectQuery("Win32_ComputerSystem");
+                using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
                 {
-                    if ((bool)mo["partofdomain"])
+                    foreach (ManagementObject mo in searcher.Get())
                     {
-                        domain = mo["domain"].ToString();
-                        break;
+                        if ((bool)mo["partofdomain"])
+                        {
+                            domain = mo["domain"].ToString();
+                            break;
+                        }
                     }
                 }
+
+                List<string> ComputerNames = new List<string>();
+
+                DirectoryEntry entry = new DirectoryEntry("LDAP://" + domain + "");
+                DirectorySearcher mySearcher = new DirectorySearcher(entry);
+                mySearcher.Filter = ("(objectClass=computer)");
+                mySearcher.SizeLimit = int.MaxValue;
+                mySearcher.PageSize = int.MaxValue;
+
+                foreach (SearchResult resEnt in mySearcher.FindAll())
+                {
+                    //"CN=SGSVG007DC"
+                    string ComputerName = resEnt.GetDirectoryEntry().Name;
+                    if (ComputerName.StartsWith("CN="))
+                        ComputerName = ComputerName.Remove(0, "CN=".Length);
+                    ComputerNames.Add(ComputerName);
+                }
+
+                mySearcher.Dispose();
+                entry.Dispose();
+
+                return ComputerNames;
             }
-
-            List<string> ComputerNames = new List<string>();
-
-            DirectoryEntry entry = new DirectoryEntry("LDAP://" + domain + "");
-            DirectorySearcher mySearcher = new DirectorySearcher(entry);
-            mySearcher.Filter = ("(objectClass=computer)");
-            mySearcher.SizeLimit = int.MaxValue;
-            mySearcher.PageSize = int.MaxValue;
-
-            foreach (SearchResult resEnt in mySearcher.FindAll())
+            catch (Exception ex)
             {
-                //"CN=SGSVG007DC"
-                string ComputerName = resEnt.GetDirectoryEntry().Name;
-                if (ComputerName.StartsWith("CN="))
-                    ComputerName = ComputerName.Remove(0, "CN=".Length);
-                ComputerNames.Add(ComputerName);
+                logger.Debug(ex.ToString());
+                return new List<string>();
             }
-
-            mySearcher.Dispose();
-            entry.Dispose();
-
-            return ComputerNames;
+            
         }
 
         public static bool CreateCluster(string clusterName, string clusterComputer, string clusterIP, string ignoreIP = "")
@@ -62,31 +71,29 @@ namespace VanquisherAPI
             {
                 createCluster = VanScript.CreateClusterNoIgnore(clusterName, clusterComputer, clusterIP);
             }
+            else
+            {
+                createCluster = VanScript.CreateCluster(clusterName, clusterComputer, clusterIP, ignoreIP);
+            }
 
             try
             {
+               //  ProcessCaller.ProcessOpenByPowershell(createCluster);
                 Collection<PSObject> result = invoker.ExecuteCommand(createCluster);
             }
             catch (psInvokerException ex)
             {
                 // logger.Debug("ex string : " + ex.);
-                //logger.Debug("ex Message " + ex.Message);
-                // logger.Debug("ex errorRecords " + (ex.errorRecords == null ? "false" : ex.errorRecords));
-                logger.Debug("ex Data count: " + ex.Data.Count ?? "false");
-                foreach (KeyValuePair<object, object> item in ex.Data)
+                // logger.Debug("ex Message " + ex.Message);
+                // logger.Debug("ex errorRecords : " + (ex.errorRecords == null ? "false" : ex.errorRecords.Count.ToString()));
+                // logger.Debug("ex Data count : " + ex.Data.Count ?? "false");
+                foreach (PSObject item in ex.errorRecords)
                 {
-                    logger.Debug("ex data key: " + item.Key.ToString() + " ex.value " + item.Value.ToString());
+                    throw new Exception(item.ToString());
+                    // logger.Debug("ex item value: " + item.ToString());
                 }
-
-
-                //foreach (ErrorRecord item in ex.errorRecords)
-                //{
-                //    // Console.WriteLine(item.ToString());
-                //    logger.Debug("psInvokerException : " + item.ToString());
-                //}
-                return false;
+                // return false;
             }
-
             return false;
         }
     }

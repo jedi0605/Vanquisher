@@ -31,30 +31,30 @@ namespace Vanquisher
         void ModuleListView_DoubleClick(object sender, EventArgs e)
         {
             UseWaitCursor = true;
-            ModuleCheckerRunner((CheckModule)Enum.Parse(typeof(CheckModule), ModuleListView.SelectedItems[0].Name.ToString()));
+            SetupModule((CheckModule)Enum.Parse(typeof(CheckModule), ModuleListView.SelectedItems[0].Name.ToString()));
             UseWaitCursor = false;
         }
 
-        void ModuleCheckerRunner(CheckModule moduleName)
+        void SetupModule(CheckModule moduleName)
         {
             switch (moduleName)
             {
                 case CheckModule.EnableRDP:
-                    ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.RemoteDesktop);
+                    ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.RemoteDesktop);
                     break;
                 case CheckModule.EnableWinRM:
-                    ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.WINRM);
+                    ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.WINRM);
                     break;
                 case CheckModule.IPconfig:
-                    ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.IpSettings);
+                    ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.IpSettings);
                     break;
                 case CheckModule.HyperVFeature:
                     MessageBox.Show("After install Hyper-V feature. You need reboot.");
-                    ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.Roles);
+                    ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.Roles);
                     break;
                 case CheckModule.ClusterFeature:
                     MessageBox.Show("After install Cluster feature. You need reboot.");
-                    ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.Roles);
+                    ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.Roles);
                     break;
                 case CheckModule.ISCSiConnection:
                     List<ISCSiInfo> info = GetISCSiInfo();
@@ -69,7 +69,7 @@ namespace Vanquisher
                     }
                     break;
                 case CheckModule.JoinDomain:
-                    ProcessCaller.ProcessOpenPowershell(MainForm.CorefigPath + VanScript.JoinDomainandRename);
+                    ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.JoinDomainandRename);
                     break;
                 case CheckModule.EnablePSRemoting:
                     bool result = Utilite.EnablePsRemoting();
@@ -104,54 +104,6 @@ namespace Vanquisher
                 newItem.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
                 ModuleListView.Items.Add(newItem);
             }
-        }
-
-        void listView1_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
-        {
-            //foreach (ListViewItem item in ModuleListView.Items)
-            //{
-            //    item.BackColor = Color.FromArgb(255, 255, 128);
-            //}
-            e.Item.BackColor = Color.LightBlue;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void CheckAllConfig_Click(object sender, EventArgs e)
@@ -219,7 +171,8 @@ namespace Vanquisher
         private void CheckFeatureAreInstall()
         {
             Dictionary<WindownsFeature, bool> moduleStatus = ModuleChecker.CheckModuleInstall(
-                                                    new WindownsFeature[3] { WindownsFeature.ClusterFeature, WindownsFeature.HyperV, WindownsFeature.iSCSI });
+                                                    new WindownsFeature[3] { WindownsFeature.ClusterFeature, WindownsFeature.HyperV,
+                                                                            WindownsFeature.iSCSI });
 
             foreach (var item in moduleStatus)
             {
@@ -250,24 +203,32 @@ namespace Vanquisher
 
         private void ISCSiStatus()
         {
-            bool isPer = ISCSiAPI.IsPersistentConnetionType();
-            bool isConnected = ISCSiAPI.IsIscsiConneted();
-            bool isDiskAlready = ISCSiAPI.DisksAlready();
-            if (!isPer)
+            try
             {
-                MessageBox.Show("ISCSi not persistent.");
-            }
+                bool isPer = ISCSiAPI.IsPersistentConnetionType();
+                bool isConnected = ISCSiAPI.IsIscsiConneted();
+                bool isDiskAlready = ISCSiAPI.DisksAlready();
+                if (!isPer)
+                {
+                    MessageBox.Show("ISCSi not persistent.");
+                }
 
-            if (!isConnected)
-            {
-                MessageBox.Show("ISCSi not connected.");
-            }
+                if (!isConnected)
+                {
+                    MessageBox.Show("ISCSi not connected.");
+                }
 
-            if (!isDiskAlready)
-            {
-                MessageBox.Show("ISCSi not online.");
+                if (!isDiskAlready)
+                {
+                    MessageBox.Show("ISCSi not online.");
+                }
+                ChangeStatus(CheckModule.ISCSiConnection, isPer && isConnected && isDiskAlready);
             }
-            ChangeStatus(CheckModule.ISCSiConnection, isPer && isConnected && isDiskAlready);
+            catch (Exception ex)
+            {
+                logger.Debug(ex.ToString());
+                MessageBox.Show("Iscsi Error:" + ex.Message);
+            }
         }
 
         private List<ISCSiInfo> GetISCSiInfo()

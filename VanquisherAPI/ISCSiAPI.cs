@@ -72,16 +72,18 @@ namespace VanquisherAPI
             }
             catch (psInvokerException ex)
             {
-                //foreach (ErrorRecord item in ex.errorRecords)
-                //{
-                //    Console.WriteLine(item.ToString());
-                //    logger.Debug("psInvokerException : " + item.ToString());
-                //}
-                return true;
+                string exceptionString = string.Empty;
+                foreach (PSObject item in ex.errorRecords)
+                {
+                    exceptionString = item.ToString();
+                    logger.Error("InitializeDisk psInvokerException : " + item.ToString());
+                    break;
+                }
+                throw new Exception(exceptionString);
             }
             catch (Exception ex)
             {
-                logger.Debug("InitializeDisk fail : " + ex.Message);
+                logger.Error("InitializeDisk fail : " + ex.ToString());
                 return true;
             }
         }
@@ -109,19 +111,25 @@ namespace VanquisherAPI
             }
         }
 
+        /// <summary>
+        /// over 2 disck online return true
+        /// </summary>
+        /// <returns></returns>
         public static bool DisksAlready()
         {
             try
             {
+                int online = 0;
                 List<ISCSiInfo> info = GetVolumeInfo();
                 foreach (ISCSiInfo item in info)
                 {
-                    if (item.IsOffline)
+                    if (!item.IsOffline)
                     {
-                        return false;
+                        online++;
                     }
                 }
-                return true;
+
+                return online >= 2 ? true : false;
             }
             catch (Exception)
             {

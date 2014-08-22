@@ -8,11 +8,15 @@ using System.Text;
 using System.Windows.Forms;
 using VanquisherAPI;
 using System.Net;
+using NLog;
 
 namespace Vanquisher
 {
+
     public partial class CreateClusterForm : Form
     {
+        static Logger logger = LogManager.GetCurrentClassLogger();
+
         private List<string> computerNames;
         public CreateClusterForm()
         {
@@ -36,7 +40,9 @@ namespace Vanquisher
 
         private void Createbtn_Click(object sender, EventArgs e)
         {
-            bool result = ClusterInfoInvalid();
+            Cursor.Current = Cursors.WaitCursor;
+
+            bool invalidResult = ClusterInfoInvalid();
             CheckedListBox.CheckedItemCollection selecets = ComputerListBox.CheckedItems;
             List<string> selectedPC = new List<string>();
             foreach (string item in selecets)
@@ -47,22 +53,52 @@ namespace Vanquisher
 
             try
             {
-                Cluster.CreateCluster(this.ClusterNameTB.Text, paresCPName, ClusterIpTB.Text);
+                if (invalidResult)
+                {
+                    Cluster.CreateCluster(this.ClusterNameTB.Text, paresCPName, ClusterIpTB.Text, IgnoreIPTB.Text);
+                    MessageBox.Show("Create Cluster " + ClusterNameTB.Text + " success.");
+                }
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                MessageBox.Show(ex.Message);
+
+                //string[] ipMessage = ex.Message.Split(' ');
+                //string ip = string.Empty;
+                //int t = 0;
+                //foreach (string item in ipMessage)
+                //{
+                //    if (int.TryParse(item[0].ToString(), out t))
+                //    {
+                //        ip = item;
+                //        break;
+                //    }
+                //}
+                //logger.Debug("ip:" + ip);
+
+                //string[] getIP = ip.Split('/');
+                //string ipOne = getIP.Count() > 0 ? getIP[0] : string.Empty;
+                //string ipTwo = string.Empty;
+                //foreach (char item in getIP[1])
+                //{
+                //    if (int.TryParse(item.ToString(), out t))
+                //    {
+                //        ipTwo += item.ToString();
+                //    }
+                //}
+
+                //string outIP = ipOne + "/" + ipTwo;
+                //if (string.IsNullOrEmpty(IgnoreIPTB.Text))
+                //{
+                //    IgnoreIPTB.Text += outIP;
+                //}
+                //else
+                //{
+                //    IgnoreIPTB.Text = IgnoreIPTB.Text + "," + outIP;
+                //}
             }
-
-            // string computerName = this.computerNames.tos
-            //if (result)
-            //{
-            //    if (string.IsNullOrEmpty(IgnoreIPTB.Text))
-            //    {
-
-            //    }
-            //}
+            Cursor.Current = Cursors.Default;
         }
 
         private bool ClusterInfoInvalid()
@@ -88,6 +124,11 @@ namespace Vanquisher
                 return false;
             }
             return result;
+        }
+
+        private void ClusterNameLB_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
