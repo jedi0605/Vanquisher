@@ -14,7 +14,7 @@
 
   ;Name and file
   Name "Vanquisher"
-  OutFile "Vanquisher.exe"
+  OutFile "VanquisherInstaller.exe"
 
   ;Default installation folder
   InstallDir "c:\Vanquisher\"
