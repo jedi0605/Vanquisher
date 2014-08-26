@@ -4,11 +4,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Management.Automation;
+using NLog;
 
 namespace VanquisherAPI
 {
     public class CheckServiceEnable
     {
+        static Logger logger = LogManager.GetCurrentClassLogger();
         public static bool CheckRDPServiceIsEnable()
         {
             PSInvoker invoker = new PSInvoker();
@@ -19,6 +21,7 @@ namespace VanquisherAPI
 
             if (string.Equals("0", rdpfDeny) && string.Equals("0", rdpAuthentication))
             {
+                logger.Debug("RDP in success.");
                 return true;
             }
             else
@@ -49,7 +52,22 @@ namespace VanquisherAPI
             }
         }
 
-        public static bool CheckRemotePowershellEnable()
+        // less firewall check
+        public static bool CheckRemoteControleEnable()
+        {
+            return NetworkInPrivate();
+        }
+
+        public static bool NetworkInPrivate()
+        {
+            PSInvoker invoker = new PSInvoker();
+            Collection<PSObject> serviceResult = invoker.ExecuteCommand(VanScript.GetNetworkType);
+            int publicNetwork = serviceResult.Where(s => int.Parse(s.ToString()) == 0).Count();
+            logger.Debug("Network In public count : " + publicNetwork);
+            return publicNetwork > 0 ? false : true;
+        }
+
+        private static bool CheckPsRemote()
         {
             PSInvoker invoker = new PSInvoker();
             try
@@ -60,7 +78,6 @@ namespace VanquisherAPI
             catch (Exception)
             {
                 return false;
-
             }
         }
     }

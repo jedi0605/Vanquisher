@@ -59,9 +59,9 @@ namespace Vanquisher
             this.CheckAllConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CheckAllConfig.Location = new System.Drawing.Point(8, 12);
             this.CheckAllConfig.Name = "CheckAllConfig";
-            this.CheckAllConfig.Size = new System.Drawing.Size(135, 38);
+            this.CheckAllConfig.Size = new System.Drawing.Size(148, 38);
             this.CheckAllConfig.TabIndex = 6;
-            this.CheckAllConfig.Text = "Check Config";
+            this.CheckAllConfig.Text = "  Check Config";
             this.CheckAllConfig.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.CheckAllConfig.UseVisualStyleBackColor = true;
             this.CheckAllConfig.Click += new System.EventHandler(this.CheckAllConfig_Click);
@@ -79,7 +79,7 @@ namespace Vanquisher
             this.ModuleListView.Location = new System.Drawing.Point(8, 65);
             this.ModuleListView.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.ModuleListView.Name = "ModuleListView";
-            this.ModuleListView.Size = new System.Drawing.Size(418, 285);
+            this.ModuleListView.Size = new System.Drawing.Size(418, 320);
             this.ModuleListView.TabIndex = 17;
             this.ModuleListView.UseCompatibleStateImageBehavior = false;
             this.ModuleListView.View = System.Windows.Forms.View.Details;
@@ -96,7 +96,7 @@ namespace Vanquisher
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(432, 375);
+            this.shapeContainer1.Size = new System.Drawing.Size(432, 409);
             this.shapeContainer1.TabIndex = 19;
             this.shapeContainer1.TabStop = false;
             // 
@@ -114,7 +114,7 @@ namespace Vanquisher
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox1.Location = new System.Drawing.Point(162, 12);
+            this.textBox1.Location = new System.Drawing.Point(164, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -129,7 +129,7 @@ namespace Vanquisher
             this.CheckConfigBar,
             this.ProgressLabel});
             this.InitToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.InitToolStrip.Location = new System.Drawing.Point(0, 356);
+            this.InitToolStrip.Location = new System.Drawing.Point(0, 390);
             this.InitToolStrip.Name = "InitToolStrip";
             this.InitToolStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.InitToolStrip.Size = new System.Drawing.Size(432, 19);
@@ -154,7 +154,7 @@ namespace Vanquisher
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(432, 375);
+            this.ClientSize = new System.Drawing.Size(432, 409);
             this.Controls.Add(this.InitToolStrip);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ModuleListView);
@@ -165,7 +165,6 @@ namespace Vanquisher
             this.Name = "InitializeHost";
             this.ShowInTaskbar = false;
             this.Text = "Initialize Hype-V Host";
-            this.Load += new System.EventHandler(this.InitializeHost_Load);
             this.InitToolStrip.ResumeLayout(false);
             this.InitToolStrip.PerformLayout();
             this.ResumeLayout(false);

@@ -9,30 +9,59 @@ using System.Windows.Forms;
 using VanquisherAPI;
 using NLog;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace Vanquisher
 {
     public partial class InitializeHost : Form
     {
         static Logger logger = LogManager.GetCurrentClassLogger();
-        private Dictionary<CheckModule, bool> moudleStatus = new Dictionary<CheckModule, bool>();
+        private Dictionary<CheckModule, bool> initMoudleStatus = new Dictionary<CheckModule, bool>();
         public static iSCSIForm iscsiForm;
-        public InitializeHost(ref Dictionary<CheckModule, bool> initMoudleStatus)
+        // public static Dictionary<CheckModule, bool> initMoudleStatus = new Dictionary<CheckModule, bool>();
+
+        public InitializeHost()
         {
             InitializeComponent();
+            InitStatus();
             AddModuleListItem(initMoudleStatus);
-            this.moudleStatus = initMoudleStatus;
+            // this.moudleStatus = initMoudleStatus;
             this.ModuleListView.DoubleClick += new EventHandler(ModuleListView_DoubleClick);
+        }
 
-            // ModuleListView.Items.
-            // ModuleListView.ItemMouseHover += new ListViewItemMouseHoverEventHandler(listView1_ItemMouseHover);
+        private void InitStatus()
+        {
+            initMoudleStatus.Add(CheckModule.ClusterFeature, false);
+            initMoudleStatus.Add(CheckModule.EnableRDP, false);
+            initMoudleStatus.Add(CheckModule.EnableWinRM, false);
+            initMoudleStatus.Add(CheckModule.HyperVFeature, false);
+            initMoudleStatus.Add(CheckModule.IPconfig, false);
+            initMoudleStatus.Add(CheckModule.ISCSiConnection, false);
+            initMoudleStatus.Add(CheckModule.JoinDomain, false);
+            initMoudleStatus.Add(CheckModule.EnableRemoteControle, false);
+            initMoudleStatus.Add(CheckModule.GPUFeature, false);
+        }
+
+        void AddModuleListItem(Dictionary<CheckModule, bool> initNMoudleStatus)
+        {
+            foreach (var item in initNMoudleStatus)
+            {
+                var newItem = new ListViewItem();
+                newItem.Name = item.Key.ToString();
+                newItem.Text = item.Key.GetCheckModuleDes();
+                newItem.BackColor = Color.FromArgb(255, 255, 128);
+                newItem.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+                ModuleListView.Items.Add(newItem);
+            }
         }
 
         void ModuleListView_DoubleClick(object sender, EventArgs e)
         {
-            UseWaitCursor = true;
+            Cursor.Current = Cursors.WaitCursor;
+
             SetupModule((CheckModule)Enum.Parse(typeof(CheckModule), ModuleListView.SelectedItems[0].Name.ToString()));
-            UseWaitCursor = false;
+
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         void SetupModule(CheckModule moduleName)
@@ -48,12 +77,12 @@ namespace Vanquisher
                 case CheckModule.IPconfig:
                     ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.IpSettings);
                     break;
-                case CheckModule.HyperVFeature:
-                    MessageBox.Show("After install Hyper-V feature. You need reboot.");
-                    ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.Roles);
+                case CheckModule.GPUFeature:
+                    this.InstallGpuFeature();
                     break;
+                case CheckModule.HyperVFeature:
                 case CheckModule.ClusterFeature:
-                    MessageBox.Show("After install Cluster feature. You need reboot.");
+                    MessageBox.Show("After install those feature. You need reboot.");
                     ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.Roles);
                     break;
                 case CheckModule.ISCSiConnection:
@@ -71,81 +100,92 @@ namespace Vanquisher
                 case CheckModule.JoinDomain:
                     ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.JoinDomainandRename);
                     break;
-                case CheckModule.EnablePSRemoting:
-                    bool result = Utilite.EnablePsRemoting();
-                    if (!result)
+                case CheckModule.EnableRemoteControle:
+                    try
                     {
-                        MessageBox.Show("Enable PSRemoting fail");
+                        bool result = Utilite.EnablePsRemoting();
+                        bool remoteControle = Utilite.EnableRemoteControle();
+                        if (result && remoteControle)
+                        {
+                            MessageBox.Show("Enable Remote Controle success");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Enable Remote Controle fail");
+                        }
+                        ChangeStatus(CheckModule.EnableRemoteControle, result);
+                        PaintingModuleListView();
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Enable PSRemoting success");
+                        MessageBox.Show("Enable Remote Controle fail : {0}", ex.Message);
                     }
-                    ChangeStatus(CheckModule.EnablePSRemoting, result);
-                    PaintingModuleListView();
+
                     break;
-                //case CheckModule.CheckCluster:
-                //case CheckModule.CreateCluster:
-                //case CheckModule.JoinNodeToCluster:
                 default:
                     MessageBox.Show("Not ready");
                     break;
             }
         }
 
-        void AddModuleListItem(Dictionary<CheckModule, bool> initNMoudleStatus)
-        {
-            foreach (var item in initNMoudleStatus)
-            {
-                var newItem = new ListViewItem();
-                newItem.Name = item.Key.ToString();
-                newItem.Text = item.Key.GetCheckModuleDes();
-                newItem.BackColor = Color.FromArgb(255, 255, 128);
-                newItem.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-                ModuleListView.Items.Add(newItem);
-            }
-        }
-
         private void CheckAllConfig_Click(object sender, EventArgs e)
         {
-            UseWaitCursor = true;
+            Cursor.Current = Cursors.WaitCursor;
+
             CheckConfigBar.Value = 0;
             NetworkChecker();
             CheckConfigBar.Value = 10;
+
             RDPChecker();
             CheckConfigBar.Value = 20;
+
             WinRMChecker();
             CheckConfigBar.Value = 30;
+
             IsJoinDomain();
             CheckConfigBar.Value = 50;
+
             CheckFeatureAreInstall();
             CheckConfigBar.Value = 60;
-            RemotePsChecker();
+
+            RemoteControleChecker();
             CheckConfigBar.Value = 80;
+
             ISCSiStatus();
             CheckConfigBar.Value = 90;
+
             PaintingModuleListView();
             CheckConfigBar.Value = 100;
             UseWaitCursor = false;
+
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         private void PaintingModuleListView()
         {
-            foreach (var item in this.moudleStatus)
+            try
             {
-                Color c;
-                if (item.Value == false)
-                    c = ColorTranslator.FromHtml("#FF6666");
-                else
-                    c = ColorTranslator.FromHtml("#00FF66");
+                foreach (var item in this.initMoudleStatus)
+                {
+                    Color c;
+                    if (item.Value == false)
+                        c = ColorTranslator.FromHtml("#FF6666");
+                    else
+                        c = ColorTranslator.FromHtml("#00FF66");
 
-                ModuleListView.Items.Find(item.Key.ToString(), false)[0].BackColor = c;
+                    ModuleListView.Items.Find(item.Key.ToString(), false)[0].BackColor = c;
+                }
             }
+            catch (Exception ex)
+            {
+                logger.Debug(ex.ToString());
+            }
+
         }
 
-        private void RemotePsChecker()
+        private void RemoteControleChecker()
         {
-            ChangeStatus(CheckModule.EnablePSRemoting, CheckServiceEnable.CheckRemotePowershellEnable());
+            ChangeStatus(CheckModule.EnableRemoteControle, CheckServiceEnable.CheckRemoteControleEnable());
         }
 
         private void NetworkChecker()
@@ -171,33 +211,23 @@ namespace Vanquisher
         private void CheckFeatureAreInstall()
         {
             Dictionary<WindownsFeature, bool> moduleStatus = ModuleChecker.CheckModuleInstall(
-                                                    new WindownsFeature[3] { WindownsFeature.ClusterFeature, WindownsFeature.HyperV,
-                                                                            WindownsFeature.iSCSI });
-
-            foreach (var item in moduleStatus)
+                                                    new WindownsFeature[5] { WindownsFeature.ClusterFeature, WindownsFeature.HyperV,
+                                                                            WindownsFeature.iSCSI ,WindownsFeature.RemoteDesktopServices,
+                                                                            WindownsFeature.RemoteDesktopVirtualizationHost});
+            if (moduleStatus[WindownsFeature.ClusterFeature])
             {
-                CheckModule m = new CheckModule();
-                if (item.Key.ToString().ToUpper().Contains("CLUSTERFEATURE"))
-                {
-                    m = CheckModule.ClusterFeature;
-                }
-                else if (item.Key.ToString().ToUpper().Contains("HYPERV"))
-                {
-                    m = CheckModule.HyperVFeature;
-                }
-                else if (item.Key.ToString().ToUpper().Contains("ISCSI"))
-                {
-                    // not finish
-                    m = CheckModule.ISCSiConnection;
-                    if (item.Value)
-                    {
-                        bool iscsiConnected = ISCSiAPI.IsIscsiConneted();
-                        bool isPersistent = ISCSiAPI.IsPersistentConnetionType();
+                ChangeStatus(CheckModule.ClusterFeature, true);
+            }
 
-                        // bool  = ISCSiAPI.DiskAlready();
-                    }
-                }
-                ChangeStatus(m, item.Value);
+            if (moduleStatus[WindownsFeature.HyperV])
+            {
+                ChangeStatus(CheckModule.HyperVFeature, true);
+            }
+
+            if (moduleStatus[WindownsFeature.RemoteDesktopServices] &&
+                moduleStatus[WindownsFeature.RemoteDesktopVirtualizationHost])
+            {
+                ChangeStatus(CheckModule.GPUFeature, true);
             }
         }
 
@@ -251,10 +281,13 @@ namespace Vanquisher
 
         private void ChangeStatus(CheckModule moduleName, bool status)
         {
-            if (status)
-                this.moudleStatus[moduleName] = true;
-            else
-                this.moudleStatus[moduleName] = false;
+            if (this.initMoudleStatus.ContainsKey(moduleName))
+            {
+                if (status)
+                    this.initMoudleStatus[moduleName] = true;
+                else
+                    this.initMoudleStatus[moduleName] = false;
+            }
         }
 
         private void RunIscsiUI_Click(object sender, EventArgs e)
@@ -262,11 +295,37 @@ namespace Vanquisher
             ProcessCaller.ProcessOpen(VanScript.IscsiUI);
         }
 
-        private void InitializeHost_Load(object sender, EventArgs e)
+        private void InstallGpuFeature()
         {
+            try
+            {
+                if (MessageBox.Show("Want install Remote-Desktop-Services and RDS-Virtualization feature?", "Install GPU feature", MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    List<InstallResult> installResult = Utilite.InstallGPUFeature();
 
+                    int showFlag = 0;
+
+                    if (installResult.Where(s => s.RestartNeeded == true).Count() > 0)
+                    {
+                        if (MessageBox.Show("You need to restart your computer to finish installing.", "Reboot computer", MessageBoxButtons.YesNo,
+                                   MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                showFlag++;
+                                Utilite.Reboot();
+                            }
+                    }
+                    
+                    if (showFlag == 0 && (installResult.Where(s => s.Success == true).Count() == 2))
+                    {
+                        MessageBox.Show("Install Success.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Install fail : " + ex.ToString());
+            }
         }
-
-
     }
 }

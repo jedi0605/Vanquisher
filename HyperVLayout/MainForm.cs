@@ -23,7 +23,7 @@ namespace Vanquisher
 {
     public partial class MainForm : Form
     {
-        public static Dictionary<CheckModule, bool> initMoudleStatus = new Dictionary<CheckModule, bool>();
+
 
         static Logger logger = LogManager.GetCurrentClassLogger();
         public static InitializeHost initForm;
@@ -36,9 +36,7 @@ namespace Vanquisher
         public MainForm()
         {
             InitializeComponent();
-            InitStatus();
-
-            initForm = new InitializeHost(ref initMoudleStatus);
+            initForm = new InitializeHost();
             clusterForm = new CreateClusterForm();
             GetThreadPartyPath();
             CreateVMFolder();
@@ -47,18 +45,7 @@ namespace Vanquisher
             invoker.Invoke("Set-ExecutionPolicy Unrestricted");
         }
 
-        private void InitStatus()
-        {
-            initMoudleStatus.Add(CheckModule.ClusterFeature, false);
-            initMoudleStatus.Add(CheckModule.EnableRDP, false);
-            initMoudleStatus.Add(CheckModule.EnableWinRM, false);
-            initMoudleStatus.Add(CheckModule.HyperVFeature, false);
-            initMoudleStatus.Add(CheckModule.IPconfig, false);
-            initMoudleStatus.Add(CheckModule.ISCSiConnection, false);
-            initMoudleStatus.Add(CheckModule.JoinDomain, false);
-            initMoudleStatus.Add(CheckModule.EnablePSRemoting, false);
-            // initMoudleStatus.Add(CheckModule.CheckGPUFeature, false);
-        }
+
 
         private void GetThreadPartyPath()
         {

@@ -60,5 +60,20 @@ namespace VanquisherAPI
         public static string Shutdown = "shutdown -s -t 1";
         public static string CheckPsRemote = "ls";
         public static string EnablePsRemoting = " Enable-PSRemoting -force";
+
+        // firewall
+        public static string FirewallRemoteDisk = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-34501\" new enable=yes";
+        public static string FirewallRemoteManagement = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-30002\" new enable=yes";
+
+        // GPU
+        public static string InstallRDSFeature = "Install-WindowsFeature RDS-Virtualization";
+        public static string InstallRemoteDesktopServices = "Install-WindowsFeature Remote-Desktop-Services";
+
+        // Network Type
+        public static string ChangeNetworkToPrivate = "[Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]\"{DCB00C01-570F-4A9B-8D69-199FDBA5723B}\"))"
+                                                    +".GetNetworkConnections()|%{$_.GetNetwork().SetCategory(1)}";
+        public static string GetNetworkType = "[Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]\"{DCB00C01-570F-4A9B-8D69-199FDBA5723B}\"))"
+                                                    + ".GetNetworkConnections()|%{$_.GetNetwork().GetCategory()}";
+
     }
 }

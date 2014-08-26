@@ -11,7 +11,8 @@ namespace VanquisherAPI
         HyperV = 20,
         WindowsPowerShell = 412,
         ClusterFeature = 33,
-
+        RemoteDesktopServices = 18,
+        RemoteDesktopVirtualizationHost = 322,
         ASPNET = 148,
         Error = 9999
     }

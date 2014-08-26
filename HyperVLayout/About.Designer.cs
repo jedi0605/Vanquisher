@@ -75,7 +75,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(371, 156);
+            this.shapeContainer1.Size = new System.Drawing.Size(395, 156);
             this.shapeContainer1.TabIndex = 3;
             this.shapeContainer1.TabStop = false;
             // 
@@ -103,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 156);
+            this.ClientSize = new System.Drawing.Size(395, 156);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Website);
             this.Controls.Add(this.BuildDate);

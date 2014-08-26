@@ -97,7 +97,20 @@ namespace Vanquisher_Test
         {
             bool expected = false; // TODO: 初始化為適當值
             bool actual;
-            actual = CheckServiceEnable.CheckRemotePowershellEnable();
+            actual = CheckServiceEnable.CheckRemoteControleEnable();
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        ///NetworkInPrivate 的測試
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("VanquisherAPI.dll")]
+        public void NetworkInPrivateTest()
+        {
+            bool expected = true; // TODO: 初始化為適當值
+            bool actual;
+            actual = CheckServiceEnable.NetworkInPrivate();
             Assert.AreEqual(expected, actual);
         }
     }

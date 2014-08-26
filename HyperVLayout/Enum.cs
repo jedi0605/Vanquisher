@@ -13,10 +13,8 @@ namespace Vanquisher
             {
                 case CheckModule.EnableRDP:
                     return "Remote Destop service is open.";
-                   
                 case CheckModule.EnableWinRM:
                     return "WinRM service is open.";
-                   
                 case CheckModule.IPconfig:
                     return "Gateway of each NIC is pingable.";
                 case CheckModule.HyperVFeature:
@@ -27,9 +25,9 @@ namespace Vanquisher
                     return "ISCSi storages are reachable and set online.";
                 case CheckModule.JoinDomain:
                     return "Host in Domain.";
-                case CheckModule.EnablePSRemoting:
-                    return "Host can use PS-Remoting.";
-                case CheckModule.CheckGPUFeature:
+                case CheckModule.EnableRemoteControle:
+                    return "Host allow remote controle.";
+                case CheckModule.GPUFeature:
                     return "Host can use virtualization GPU";
                 case CheckModule.CreateCluster:
                 case CheckModule.CheckCluster:
@@ -52,9 +50,9 @@ namespace Vanquisher
         JoinDomain,
         CheckCluster,
         CreateCluster,
-        EnablePSRemoting,
+        EnableRemoteControle,
         JoinNodeToCluster,
-        CheckGPUFeature
+        GPUFeature
     }
 
     public enum FiveNine
