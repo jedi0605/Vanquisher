@@ -98,33 +98,37 @@ namespace Vanquisher
                     }
                     break;
                 case CheckModule.JoinDomain:
-                    ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.JoinDomainandRename);
+                    ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.JoinDomainAndRename);
                     break;
                 case CheckModule.EnableRemoteControle:
-                    try
-                    {
-                        bool result = Utilite.EnablePsRemoting();
-                        bool remoteControle = Utilite.EnableRemoteControle();
-                        if (result && remoteControle)
-                        {
-                            MessageBox.Show("Enable Remote Controle success");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Enable Remote Controle fail");
-                        }
-                        ChangeStatus(CheckModule.EnableRemoteControle, result);
-                        PaintingModuleListView();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Enable Remote Controle fail : {0}", ex.Message);
-                    }
-
+                    EnableRemoteControl();
                     break;
                 default:
                     MessageBox.Show("Not ready");
                     break;
+            }
+        }
+
+        private void EnableRemoteControl()
+        {
+            try
+            {
+                bool result = Utilite.EnablePsRemoting();
+                bool remoteControle = Utilite.EnableRemoteControle();
+                if (result && remoteControle)
+                {
+                    MessageBox.Show("Enable Remote Controle success");
+                }
+                else
+                {
+                    MessageBox.Show("Enable Remote Controle fail");
+                }
+                ChangeStatus(CheckModule.EnableRemoteControle, result);
+                PaintingModuleListView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Enable Remote Controle fail : {0}", ex.Message);
             }
         }
 

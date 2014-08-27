@@ -52,7 +52,7 @@ namespace VanquisherAPI
         public static string WINRM = "\\WINRM.ps1";
         public static string IpSettings = "\\IpSettings.ps1";
         public static string Roles = "\\Roles.ps1";
-        public static string JoinDomainandRename = "\\JoinDomainandRename.ps1";
+        public static string JoinDomainAndRename = "\\JoinDomainandRename.ps1";
         public static string IscsiUI = "iSCSIcpl.exe";
         public static string TaskManager = "taskmgr.exe";
         public static string Powershell = "Start-Process powershell";
