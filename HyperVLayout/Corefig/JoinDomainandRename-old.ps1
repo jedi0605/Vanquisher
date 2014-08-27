@@ -271,56 +271,82 @@ function OK
   $CRenameDomainform.Cursor = [System.Windows.Forms.Cursors]::WaitCursor
   $Temp = gwmi Win32_ComputerSystem
   ##Rename Computer
-  ### Computer Name has change
-  $credential = $host.ui.PromptForCredential($TextStrings.CredentialsNeeded, $TextStrings.CredentialsPrompt, "$env:userdomain\$env:username", "")
 	if (($Temp.Name.ToLower()) -ne ($TxtComputerName.Text.ToLower()))
   {
-     # change computer name and join domain
-     #Radio Btn in Domain
-     if ($RadioDomain.Checked -eq $True)
-     {
-      if($Temp.Domain -eq $TxtDomainName.Text)
+    if ($Temp.PartofDomain -eq $True)
+    {
+      $credential = $host.ui.PromptForCredential($TextStrings.CredentialsNeeded, $TextStrings.CredentialsPrompt, "$env:userdomain\$env:username", "") 
+      $RetVal = $Temp.Rename($TxtComputerName.Text, $credential.GetNetworkCredential().Password, $credential.UserName)
+    }
+    else
+    {
+      $RetVal = $Temp.Rename($TxtComputerName.Text, $Null, $Null)
+    }
+    switch($RetVal.ReturnValue)
+    {
+      "0"
       {
-         Rename-Computer -NewName $TxtComputerName.Text
-         Write-Host "Just Rename computer "
-      }
-      else
+				$RebootNeeded = $True
+				#Output to Logfile
+				$TextStrings.LogRenamedComputer -f (Get-Date -F G), $TxtComputerName, $CoreUser, $credential.UserName | Out-File -FilePath $Logfile -append
+		} 
+      default
       {
-         Add-Computer -DomainName $TxtDomainName.Text -ComputerName $Temp.Name -newname $TxtComputerName.Text -Credential $credential
-         Write-Host "Rename computer and join domain"
+        ErrorForm $RetVal.ReturnValue "7"
       }
-     }
-     # Just change computer name
-     # #Radio Btn not in Domain
-     else
-     {
-      if($Temp.Domain -eq $TxtWorkGroup.Text)
-      {
-         Rename-Computer -NewName $TxtComputerName.Text
-         Write-Host "Just Rename computer "
-      }
-      else
-      {
-         Add-Computer -WorkgroupName "WORKGROUP" -ComputerName $Temp.Name -newname $TxtComputerName.Text -force
-         Write-Host "Rename computer and join WORKGROUP"
-      }
-     }
-    
+    }
   }
-  else  ### Computer Name no change
+  #Join Domain
+	if ($RadioDomain.Checked -eq $True)
   {
-      if ($RadioDomain.Checked -eq $True)
-     {
-      Add-Computer -DomainName $TxtDomainName.Text -Credential $credential
-      Write-Host "Just join DOMAIN"
-     }
-     else
-     {
-       Add-Computer -WorkgroupName "WORKGROUP" -force
-       Write-Host "Just join WORKGROUP"
-     }
+		if ($TxtDomainName.Text -eq "")
+    {
+      ErrorForm $TextStrings.NoDomainEntered "7"    
+    }
+    elseif ($TxtDomainName.Text -ne "")
+    {
+      if (($credential.UserName -eq $Null)-or($credential.UserName -eq ""))
+      {
+        $credential = $host.ui.PromptForCredential($TextStrings.CredentialsNeeded, $TextStrings.CredentialsPrompt, "$env:userdomain\$env:username", "")
+      }
+      $Retval = Add-Computer -domainname $TxtDomainName.Text -cred $credential -ErrorAction SilentlyContinue -ErrorVariable errorVar
+      if ($errorVar)
+      {
+        ErrorForm $errorVar "7"
+      }
+      else
+      {
+				$RebootNeeded = $True
+				#Output to Logfile
+				$TextStrings.LogDomainJoined -f (Get-Date -F G), $TxtDomainName, $CoreUser, $credential.UserName | Out-File -FilePath $Logfile -append
+      }
+    }
   }
-  $RebootNeeded = $True
+	else
+  {
+    if ($TxtWorkGroup.Text -eq "")
+    {
+      ErrorForm $TextStrings.NoWorkgroupEntered "7"    
+    }
+    elseif ($TxtWorkGroup.Text -ne "")
+    {
+      if (($credential.UserName -eq $Null) -or ($credential.UserName -eq ""))
+      {
+        $credential = $host.ui.PromptForCredential($TextStrings.CredentialsNeeded, $TextStrings.CredentialsPrompt, "$env:userdomain\$env:username", "")
+      }
+      $Retval = Add-Computer -WorkGroupName $TxtWorkGroup.Text -cred $credential -ErrorAction SilentlyContinue -ErrorVariable errorVar
+      if ($errorVar)
+      {
+        ErrorForm $errorVar "7"
+      }
+      else
+      {
+				$RebootNeeded = $True
+				#Output to Logfile
+				$TextStrings.LogWorkgroupJoined -f (Get-Date -F G), $TxtWorkGroupName, $CoreUser, $credential.UserName | Out-File -FilePath $Logfile -append
+      }
+    }
+  }
   if ($RebootNeeded -eq $True)
   {
     $panelMenu.enabled = $False
@@ -402,7 +428,7 @@ function ErrorForm([string]$Messagetxt, [int32]$Font)
 }
 
 if(!(Test-Path variable:\ScriptDirectory))
-{ $ScriptDirectory = Split-Path $MyInvocation.MyCommand.Path }
+{ ScriptDirectory = Split-Path $MyInvocation.MyCommand.Path }
 
 Main
 
