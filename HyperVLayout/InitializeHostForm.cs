@@ -16,7 +16,7 @@ namespace Vanquisher
     public partial class InitializeHost : Form
     {
         static Logger logger = LogManager.GetCurrentClassLogger();
-        private Dictionary<CheckModule, bool> initMoudleStatus = new Dictionary<CheckModule, bool>();
+        private Dictionary<CheckModule, bool> initModuleStatus = new Dictionary<CheckModule, bool>();
         public static iSCSIForm iscsiForm;
         // public static Dictionary<CheckModule, bool> initMoudleStatus = new Dictionary<CheckModule, bool>();
 
@@ -24,22 +24,22 @@ namespace Vanquisher
         {
             InitializeComponent();
             InitStatus();
-            AddModuleListItem(initMoudleStatus);
+            AddModuleListItem(initModuleStatus);
             // this.moudleStatus = initMoudleStatus;
             this.ModuleListView.DoubleClick += new EventHandler(ModuleListView_DoubleClick);
         }
 
         private void InitStatus()
         {
-            initMoudleStatus.Add(CheckModule.ClusterFeature, false);
-            initMoudleStatus.Add(CheckModule.EnableRDP, false);
-            initMoudleStatus.Add(CheckModule.EnableWinRM, false);
-            initMoudleStatus.Add(CheckModule.HyperVFeature, false);
-            initMoudleStatus.Add(CheckModule.IPconfig, false);
-            initMoudleStatus.Add(CheckModule.ISCSiConnection, false);
-            initMoudleStatus.Add(CheckModule.JoinDomain, false);
-            initMoudleStatus.Add(CheckModule.EnableRemoteControle, false);
-            initMoudleStatus.Add(CheckModule.GPUFeature, false);
+            initModuleStatus.Add(CheckModule.ClusterFeature, false);
+            initModuleStatus.Add(CheckModule.EnableRDP, false);
+            initModuleStatus.Add(CheckModule.EnableWinRM, false);
+            initModuleStatus.Add(CheckModule.HyperVFeature, false);
+            initModuleStatus.Add(CheckModule.IPconfig, false);
+            initModuleStatus.Add(CheckModule.ISCSiConnection, false);
+            initModuleStatus.Add(CheckModule.EnableRemoteControle, false);
+            initModuleStatus.Add(CheckModule.GPUFeature, false);
+            initModuleStatus.Add(CheckModule.JoinDomain, false);
         }
 
         void AddModuleListItem(Dictionary<CheckModule, bool> initNMoudleStatus)
@@ -169,7 +169,7 @@ namespace Vanquisher
         {
             try
             {
-                foreach (var item in this.initMoudleStatus)
+                foreach (var item in this.initModuleStatus)
                 {
                     Color c;
                     if (item.Value == false)
@@ -285,12 +285,12 @@ namespace Vanquisher
 
         private void ChangeStatus(CheckModule moduleName, bool status)
         {
-            if (this.initMoudleStatus.ContainsKey(moduleName))
+            if (this.initModuleStatus.ContainsKey(moduleName))
             {
                 if (status)
-                    this.initMoudleStatus[moduleName] = true;
+                    this.initModuleStatus[moduleName] = true;
                 else
-                    this.initMoudleStatus[moduleName] = false;
+                    this.initModuleStatus[moduleName] = false;
             }
         }
 
