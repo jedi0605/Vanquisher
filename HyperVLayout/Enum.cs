@@ -12,24 +12,27 @@ namespace Vanquisher
             switch (moduleDes)
             {
                 case CheckModule.EnableRDP:
-                    return "Remote Destop service is open.";
+                    return "Enable Remote Destop service.";
                 case CheckModule.EnableWinRM:
-                    return "WinRM service is open.";
+                    return "Enable WinRM service.";
                 case CheckModule.IPconfig:
                     return "Gateway of each NIC is pingable.";
                 case CheckModule.HyperVFeature:
-                    return "All Hyper-V features are install.";
+                    return "Hyper-V features are install.";
                 case CheckModule.ClusterFeature:
-                    return "All Cluster features are install.";
+                    return "Cluster features are install.";
                 case CheckModule.ISCSiConnection:
-                    return "ISCSi storages are reachable and set online.";
+                    return "ISCSi storages are connection.";
                 case CheckModule.JoinDomain:
                     return "Host in Domain.";
                 case CheckModule.EnableRemoteControle:
-                    return "Host allow remote controle.";
+                    return "Host allow remote control.";
                 case CheckModule.GPUFeature:
-                    return "Host can use virtualization GPU";
+                    return "GPU feature are install.";
+                case CheckModule.CreateVM:
+                    return "Create VM.";
                 case CheckModule.CreateCluster:
+                    return "Create Cluster.";
                 case CheckModule.CheckCluster:
                 case CheckModule.JoinNodeToCluster:
                 default:
@@ -52,7 +55,8 @@ namespace Vanquisher
         CreateCluster,
         EnableRemoteControle,
         JoinNodeToCluster,
-        GPUFeature
+        GPUFeature,
+        CreateVM
     }
 
     public enum FiveNine

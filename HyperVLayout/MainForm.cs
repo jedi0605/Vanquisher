@@ -17,6 +17,7 @@ using System.Reflection;
 using System.Diagnostics;
 using Microsoft.Win32;
 using NLog;
+using System.Threading;
 
 
 namespace Vanquisher
@@ -33,6 +34,9 @@ namespace Vanquisher
         public static string FiveNinePath = string.Empty;
         public static string FiveNineInstallPath = string.Empty;
         public static string pshvm30 = string.Empty;
+        private int FirstCount = 0;
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -59,7 +63,15 @@ namespace Vanquisher
         private void initializeHyerVHostToolStripMenuItem_Click(object sender, EventArgs e)
         {
             initForm.SetDesktopLocation(this.Location.X + 10, this.Location.Y + 10);
+
             initForm.Show(this);
+            
+            if (FirstCount == 0)
+            {
+                Thread.Sleep(1000 * 2);
+                initForm.StartCheckModule();
+                this.FirstCount++;
+            }
         }
 
         private void corefigToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,6 +118,11 @@ namespace Vanquisher
         }
 
         private void Open59btn_Click(object sender, EventArgs e)
+        {
+            Open59Manager();
+        }
+
+        public static void Open59Manager()
         {
             RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
             object o = key.GetValue("5nine Manager for Hyper-V");

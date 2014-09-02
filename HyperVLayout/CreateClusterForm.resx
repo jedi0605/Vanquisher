@@ -121,7 +121,7 @@
   <data name="Createbtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRy
+        YQUAAAAJcEhZcwAACxAAAAsQAa0jvXUAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRy
         oQAABExJREFUWEfVV8tLVFEYH2fuvfMUs7RxNB17raLQghwnqdAiENtELqNd73YtokUEGUX0B6RpRQQF
         QhDUMsKoLCNrE0G0KNtlK3sg2Ov3O35n5tw7d8abuxY/7zm/73m/7zvnOqEdO7bbAkvgCFxcMplYGw6H
         71VVVc0Cf7BW4FoD+1ngfjweX2PaCvxiRHQCUSAGxOXJfYFbtaq1Bo7f66AB8G716pU1tBUfLn8GZzMB
@@ -143,9 +143,6 @@
         zuDn8DugjzbYvxdOY1R8ndKc2M0kk4nWv03yT6QAwjzRAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>50, 25</value>
-  </metadata>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>50, 25</value>
   </metadata>

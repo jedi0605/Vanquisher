@@ -100,7 +100,7 @@ namespace Vanquisher_Test
             actual = CheckServiceEnable.CheckRemoteControleEnable();
             Assert.AreEqual(expected, actual);
         }
-
+         
         /// <summary>
         ///NetworkInPrivate 的測試
         ///</summary>

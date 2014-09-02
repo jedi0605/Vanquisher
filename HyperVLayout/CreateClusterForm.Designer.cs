@@ -55,7 +55,7 @@
             this.ComputerListBox.Location = new System.Drawing.Point(230, 34);
             this.ComputerListBox.Name = "ComputerListBox";
             this.ComputerListBox.Size = new System.Drawing.Size(176, 140);
-            this.ComputerListBox.TabIndex = 1;
+            this.ComputerListBox.TabIndex = 4;
             // 
             // Createbtn
             // 
@@ -66,7 +66,7 @@
             this.Createbtn.Location = new System.Drawing.Point(230, 180);
             this.Createbtn.Name = "Createbtn";
             this.Createbtn.Size = new System.Drawing.Size(176, 64);
-            this.Createbtn.TabIndex = 2;
+            this.Createbtn.TabIndex = 5;
             this.Createbtn.Text = "Create Cluster";
             this.Createbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Createbtn.UseVisualStyleBackColor = true;

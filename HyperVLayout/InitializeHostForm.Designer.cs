@@ -37,6 +37,7 @@ namespace Vanquisher
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitializeHost));
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.CheckAllConfig = new System.Windows.Forms.Button();
@@ -44,10 +45,11 @@ namespace Vanquisher
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.InitToolStrip = new System.Windows.Forms.ToolStrip();
             this.CheckConfigBar = new System.Windows.Forms.ToolStripProgressBar();
             this.ProgressLabel = new System.Windows.Forms.ToolStripLabel();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.UpdateToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.InitToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,12 +59,13 @@ namespace Vanquisher
             this.CheckAllConfig.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.CheckAllConfig.Image = ((System.Drawing.Image)(resources.GetObject("CheckAllConfig.Image")));
             this.CheckAllConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CheckAllConfig.Location = new System.Drawing.Point(8, 12);
+            this.CheckAllConfig.Location = new System.Drawing.Point(12, 12);
             this.CheckAllConfig.Name = "CheckAllConfig";
-            this.CheckAllConfig.Size = new System.Drawing.Size(148, 38);
+            this.CheckAllConfig.Size = new System.Drawing.Size(145, 38);
             this.CheckAllConfig.TabIndex = 6;
             this.CheckAllConfig.Text = "  Check Config";
             this.CheckAllConfig.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpdateToolTip.SetToolTip(this.CheckAllConfig, "Check Host Conifg");
             this.CheckAllConfig.UseVisualStyleBackColor = true;
             this.CheckAllConfig.Click += new System.EventHandler(this.CheckAllConfig_Click);
             // 
@@ -76,10 +79,10 @@ namespace Vanquisher
             this.ModuleListView.FullRowSelect = true;
             this.ModuleListView.GridLines = true;
             this.ModuleListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.ModuleListView.Location = new System.Drawing.Point(8, 65);
+            this.ModuleListView.Location = new System.Drawing.Point(8, 64);
             this.ModuleListView.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.ModuleListView.Name = "ModuleListView";
-            this.ModuleListView.Size = new System.Drawing.Size(418, 320);
+            this.ModuleListView.Size = new System.Drawing.Size(418, 390);
             this.ModuleListView.TabIndex = 17;
             this.ModuleListView.UseCompatibleStateImageBehavior = false;
             this.ModuleListView.View = System.Windows.Forms.View.Details;
@@ -96,7 +99,7 @@ namespace Vanquisher
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(432, 409);
+            this.shapeContainer1.Size = new System.Drawing.Size(432, 479);
             this.shapeContainer1.TabIndex = 19;
             this.shapeContainer1.TabStop = false;
             // 
@@ -108,20 +111,6 @@ namespace Vanquisher
             this.lineShape1.Y1 = 58;
             this.lineShape1.Y2 = 58;
             // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox1.Location = new System.Drawing.Point(164, 12);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(268, 38);
-            this.textBox1.TabIndex = 21;
-            this.textBox1.Text = "Run \"Check Config\" to check \r\nhost already prepared  for Hyper-V";
-            // 
             // InitToolStrip
             // 
             this.InitToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -129,7 +118,7 @@ namespace Vanquisher
             this.CheckConfigBar,
             this.ProgressLabel});
             this.InitToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.InitToolStrip.Location = new System.Drawing.Point(0, 390);
+            this.InitToolStrip.Location = new System.Drawing.Point(0, 460);
             this.InitToolStrip.Name = "InitToolStrip";
             this.InitToolStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.InitToolStrip.Size = new System.Drawing.Size(432, 19);
@@ -149,14 +138,35 @@ namespace Vanquisher
             this.ProgressLabel.Size = new System.Drawing.Size(61, 16);
             this.ProgressLabel.Text = "Progress";
             // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.UpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateBtn.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.UpdateBtn.Image = ((System.Drawing.Image)(resources.GetObject("UpdateBtn.Image")));
+            this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdateBtn.Location = new System.Drawing.Point(163, 12);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(157, 38);
+            this.UpdateBtn.TabIndex = 24;
+            this.UpdateBtn.Text = "Windows Update";
+            this.UpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UpdateToolTip.SetToolTip(this.UpdateBtn, "Windows Update");
+            this.UpdateBtn.UseVisualStyleBackColor = false;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
+            // UpdateToolTip
+            // 
+            this.UpdateToolTip.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
             // InitializeHost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(432, 409);
+            this.ClientSize = new System.Drawing.Size(432, 479);
+            this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.InitToolStrip);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ModuleListView);
             this.Controls.Add(this.CheckAllConfig);
             this.Controls.Add(this.shapeContainer1);
@@ -180,10 +190,11 @@ namespace Vanquisher
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStrip InitToolStrip;
         private System.Windows.Forms.ToolStripProgressBar CheckConfigBar;
         private System.Windows.Forms.ToolStripLabel ProgressLabel;
+        private System.Windows.Forms.Button UpdateBtn;
+        private System.Windows.Forms.ToolTip UpdateToolTip;
 
 
     }

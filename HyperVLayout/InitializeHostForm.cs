@@ -18,28 +18,27 @@ namespace Vanquisher
         static Logger logger = LogManager.GetCurrentClassLogger();
         private Dictionary<CheckModule, bool> initModuleStatus = new Dictionary<CheckModule, bool>();
         public static iSCSIForm iscsiForm;
-        // public static Dictionary<CheckModule, bool> initMoudleStatus = new Dictionary<CheckModule, bool>();
-
         public InitializeHost()
         {
             InitializeComponent();
             InitStatus();
             AddModuleListItem(initModuleStatus);
-            // this.moudleStatus = initMoudleStatus;
             this.ModuleListView.DoubleClick += new EventHandler(ModuleListView_DoubleClick);
         }
 
         private void InitStatus()
         {
-            initModuleStatus.Add(CheckModule.ClusterFeature, false);
             initModuleStatus.Add(CheckModule.EnableRDP, false);
             initModuleStatus.Add(CheckModule.EnableWinRM, false);
             initModuleStatus.Add(CheckModule.HyperVFeature, false);
             initModuleStatus.Add(CheckModule.IPconfig, false);
-            initModuleStatus.Add(CheckModule.ISCSiConnection, false);
             initModuleStatus.Add(CheckModule.EnableRemoteControle, false);
             initModuleStatus.Add(CheckModule.GPUFeature, false);
+            initModuleStatus.Add(CheckModule.ClusterFeature, false);
+            initModuleStatus.Add(CheckModule.ISCSiConnection, false);
+            initModuleStatus.Add(CheckModule.CreateVM, false);
             initModuleStatus.Add(CheckModule.JoinDomain, false);
+            initModuleStatus.Add(CheckModule.CreateCluster, false);
         }
 
         void AddModuleListItem(Dictionary<CheckModule, bool> initNMoudleStatus)
@@ -58,9 +57,7 @@ namespace Vanquisher
         void ModuleListView_DoubleClick(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-
             SetupModule((CheckModule)Enum.Parse(typeof(CheckModule), ModuleListView.SelectedItems[0].Name.ToString()));
-
             Cursor.Current = Cursors.WaitCursor;
         }
 
@@ -103,6 +100,12 @@ namespace Vanquisher
                 case CheckModule.EnableRemoteControle:
                     EnableRemoteControl();
                     break;
+                case CheckModule.CreateCluster:
+                    MainForm.clusterForm.Show(this);
+                    break;
+                case CheckModule.CreateVM:
+                    MainForm.Open59Manager();
+                    break;
                 default:
                     MessageBox.Show("Not ready");
                     break;
@@ -134,6 +137,11 @@ namespace Vanquisher
 
         private void CheckAllConfig_Click(object sender, EventArgs e)
         {
+            StartCheckModule();
+        }
+
+        public void StartCheckModule()
+        {
             Cursor.Current = Cursors.WaitCursor;
 
             CheckConfigBar.Value = 0;
@@ -155,6 +163,9 @@ namespace Vanquisher
             RemoteControleChecker();
             CheckConfigBar.Value = 80;
 
+            ComputerInClusterChecker();
+            CheckConfigBar.Value = 85;
+
             ISCSiStatus();
             CheckConfigBar.Value = 90;
 
@@ -171,13 +182,16 @@ namespace Vanquisher
             {
                 foreach (var item in this.initModuleStatus)
                 {
-                    Color c;
-                    if (item.Value == false)
-                        c = ColorTranslator.FromHtml("#FF6666");
-                    else
-                        c = ColorTranslator.FromHtml("#00FF66");
+                    if (item.Key != CheckModule.CreateVM)
+                    {
+                        Color c;
+                        if (item.Value == false)
+                            c = ColorTranslator.FromHtml("#FF6666");
+                        else
+                            c = ColorTranslator.FromHtml("#00FF66");
 
-                    ModuleListView.Items.Find(item.Key.ToString(), false)[0].BackColor = c;
+                        ModuleListView.Items.Find(item.Key.ToString(), false)[0].BackColor = c;
+                    }
                 }
             }
             catch (Exception ex)
@@ -210,6 +224,11 @@ namespace Vanquisher
         private void IsJoinDomain()
         {
             ChangeStatus(CheckModule.JoinDomain, CheckDomain.IsJoinDomain());
+        }
+
+        private void ComputerInClusterChecker()
+        {
+            ChangeStatus(CheckModule.CreateCluster, Cluster.ComputerInCluster());
         }
 
         private void CheckFeatureAreInstall()
@@ -314,12 +333,12 @@ namespace Vanquisher
                     {
                         if (MessageBox.Show("You need to restart your computer to finish installing.", "Reboot computer", MessageBoxButtons.YesNo,
                                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                            {
-                                showFlag++;
-                                Utilite.Reboot();
-                            }
+                        {
+                            showFlag++;
+                            Utilite.Reboot();
+                        }
                     }
-                    
+
                     if (showFlag == 0 && (installResult.Where(s => s.Success == true).Count() == 2))
                     {
                         MessageBox.Show("Install Success.");
@@ -330,6 +349,16 @@ namespace Vanquisher
             {
                 MessageBox.Show("Install fail : " + ex.ToString());
             }
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            ProcessCaller.ProcessOpenByPowershell(MainForm.CorefigPath + VanScript.WindowsUpdate);
         }
     }
 }

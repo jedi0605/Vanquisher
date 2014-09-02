@@ -59,7 +59,7 @@ namespace VanquisherAPI
                 logger.Debug(ex.ToString());
                 return new List<string>();
             }
-            
+
         }
 
         public static bool CreateCluster(string clusterName, string clusterComputer, string clusterIP, string ignoreIP = "")
@@ -78,7 +78,7 @@ namespace VanquisherAPI
 
             try
             {
-               //  ProcessCaller.ProcessOpenByPowershell(createCluster);
+                //  ProcessCaller.ProcessOpenByPowershell(createCluster);
                 Collection<PSObject> result = invoker.ExecuteCommand(createCluster);
             }
             catch (psInvokerException ex)
@@ -95,6 +95,23 @@ namespace VanquisherAPI
                 // return false;
             }
             return false;
+        }
+
+        public static bool ComputerInCluster()
+        {
+            PSInvoker invoker = new PSInvoker();
+
+            try
+            {
+                //  ProcessCaller.ProcessOpenByPowershell(createCluster);
+                invoker.ExecuteCommand(VanScript.GetClusterNode);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                logger.Debug("ComputerInCluster exception: " + ex.ToString());
+                return false;
+            }
         }
     }
 }

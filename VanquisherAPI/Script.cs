@@ -59,8 +59,9 @@ namespace VanquisherAPI
         public static string Reboot = "shutdown -r -t 1";
         public static string Shutdown = "shutdown -s -t 1";
         public static string CheckPsRemote = "ls";
-        public static string EnablePsRemoting = " Enable-PSRemoting -force";
-
+        public static string EnablePsRemoting = "Enable-PSRemoting -force";
+        public static string GetClusterNode = "Get-ClusterNode";
+        public static string WindowsUpdate = "\\Updates.ps1";
         // firewall
         public static string FirewallRemoteDisk = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-34501\" new enable=yes";
         public static string FirewallRemoteManagement = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-30002\" new enable=yes";

@@ -33,6 +33,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.initializeHyerVHostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createClusterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenCorefigbtn = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.ISCSIConnector = new System.Windows.Forms.Button();
             this.pshvm30btn = new System.Windows.Forms.Button();
-            this.createClusterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +83,13 @@
             this.initializeHyerVHostToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.initializeHyerVHostToolStripMenuItem.Text = "Initialize HyerV host";
             this.initializeHyerVHostToolStripMenuItem.Click += new System.EventHandler(this.initializeHyerVHostToolStripMenuItem_Click);
+            // 
+            // createClusterToolStripMenuItem
+            // 
+            this.createClusterToolStripMenuItem.Name = "createClusterToolStripMenuItem";
+            this.createClusterToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.createClusterToolStripMenuItem.Text = "Create Cluster";
+            this.createClusterToolStripMenuItem.Click += new System.EventHandler(this.createClusterToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -300,13 +307,6 @@
             this.pshvm30btn.Text = "   Event Viewer";
             this.pshvm30btn.UseVisualStyleBackColor = true;
             this.pshvm30btn.Click += new System.EventHandler(this.pshvm30btn_Click);
-            // 
-            // createClusterToolStripMenuItem
-            // 
-            this.createClusterToolStripMenuItem.Name = "createClusterToolStripMenuItem";
-            this.createClusterToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.createClusterToolStripMenuItem.Text = "Create Cluster";
-            this.createClusterToolStripMenuItem.Click += new System.EventHandler(this.createClusterToolStripMenuItem_Click);
             // 
             // MainForm
             // 

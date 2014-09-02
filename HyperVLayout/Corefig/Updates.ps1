@@ -1021,7 +1021,7 @@ function LblCheckupdatesClick( $object )
 }
 
 if(!(Test-Path variable:\ScriptDirectory))
-{ ScriptDirectory = Split-Path $MyInvocation.MyCommand.Path }
+{ $ScriptDirectory = Split-Path $MyInvocation.MyCommand.Path }
 
 Main
 
