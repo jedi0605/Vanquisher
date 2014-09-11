@@ -113,5 +113,18 @@ namespace Vanquisher_Test
             actual = CheckServiceEnable.NetworkInPrivate();
             Assert.AreEqual(expected, actual);
         }
+
+        /// <summary>
+        ///GetPsRemotingFirewallStatus 的測試
+        ///</summary>
+        [TestMethod()]
+        public void GetPsRemotingFirewallStatusTest()
+        {
+            bool expected = true; // TODO: 初始化為適當值
+            bool actual;
+            actual = CheckServiceEnable.GetPsRemotingFirewallStatus();
+            Assert.AreEqual(expected, actual);
+            
+        }
     }
 }

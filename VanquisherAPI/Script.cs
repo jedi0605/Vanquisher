@@ -67,7 +67,8 @@ namespace VanquisherAPI
         public static string FirewallRemoteManagement = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-30002\" new enable=yes";
         public static string FirewallPing = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-28502\" new enable=yes";
         public static string FirewallPsRemoting = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-30252\" new enable=yes";
-
+        public static string FirewallPsRemotingStatus = "(New-object –comObject HNetCfg.FwPolicy2).rules|Where-Object{$_.Grouping -eq \"@FirewallAPI.dll,-30252\"}";
+        
         // GPU
         public static string InstallRDSFeature = "Install-WindowsFeature RDS-Virtualization";
         public static string InstallRemoteDesktopServices = "Install-WindowsFeature Remote-Desktop-Services";

@@ -55,8 +55,7 @@ namespace VanquisherAPI
         // less firewall check
         public static bool CheckRemoteControleEnable()
         {
-
-            return NetworkInPrivate() && CheckPsRemote();
+            return NetworkInPrivate() && CheckPsRemote() && GetPsRemotingFirewallStatus();
         }
 
         public static bool NetworkInPrivate()
@@ -80,6 +79,21 @@ namespace VanquisherAPI
             {
                 return false;
             }
+        }
+
+        public static bool GetPsRemotingFirewallStatus()
+        {
+            PSInvoker invoker = new PSInvoker();
+            Collection<PSObject> serviceResults = invoker.ExecuteCommand(VanScript.FirewallPsRemotingStatus);
+            foreach (PSObject item in serviceResults)
+            {
+                if (!bool.Parse(item.Properties["Enabled"].Value.ToString()))
+                {
+                    return false;
+                }
+
+            }
+            return true;
         }
     }
 }
