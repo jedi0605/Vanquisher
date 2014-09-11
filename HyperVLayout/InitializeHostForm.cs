@@ -32,12 +32,12 @@ namespace Vanquisher
             initModuleStatus.Add(CheckModule.EnableWinRM, false);
             initModuleStatus.Add(CheckModule.HyperVFeature, false);
             initModuleStatus.Add(CheckModule.IPconfig, false);
-            initModuleStatus.Add(CheckModule.EnableRemoteControle, false);
             initModuleStatus.Add(CheckModule.GPUFeature, false);
             initModuleStatus.Add(CheckModule.ClusterFeature, false);
             initModuleStatus.Add(CheckModule.ISCSiConnection, false);
             initModuleStatus.Add(CheckModule.CreateVM, false);
             initModuleStatus.Add(CheckModule.JoinDomain, false);
+            initModuleStatus.Add(CheckModule.EnableRemoteControle, false);
             initModuleStatus.Add(CheckModule.CreateCluster, false);
         }
 

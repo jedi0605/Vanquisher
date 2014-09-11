@@ -65,6 +65,8 @@ namespace VanquisherAPI
         // firewall
         public static string FirewallRemoteDisk = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-34501\" new enable=yes";
         public static string FirewallRemoteManagement = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-30002\" new enable=yes";
+        public static string FirewallPing = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-28502\" new enable=yes";
+        public static string FirewallPsRemoting = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-30252\" new enable=yes";
 
         // GPU
         public static string InstallRDSFeature = "Install-WindowsFeature RDS-Virtualization";

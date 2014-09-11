@@ -147,7 +147,7 @@ namespace Vanquisher
             this.UpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpdateBtn.Location = new System.Drawing.Point(163, 12);
             this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(157, 38);
+            this.UpdateBtn.Size = new System.Drawing.Size(172, 38);
             this.UpdateBtn.TabIndex = 24;
             this.UpdateBtn.Text = "Windows Update";
             this.UpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

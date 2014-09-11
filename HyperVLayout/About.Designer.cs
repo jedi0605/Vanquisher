@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.Version = new System.Windows.Forms.Label();
-            this.BuildDate = new System.Windows.Forms.Label();
             this.Website = new System.Windows.Forms.LinkLabel();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
@@ -40,21 +39,11 @@
             // 
             this.Version.AutoSize = true;
             this.Version.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Version.Location = new System.Drawing.Point(34, 7);
+            this.Version.Location = new System.Drawing.Point(13, 28);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(333, 21);
             this.Version.TabIndex = 0;
             this.Version.Text = "Vanquisher Version  1.0.822.0 Beta (64bit)";
-            // 
-            // BuildDate
-            // 
-            this.BuildDate.AutoSize = true;
-            this.BuildDate.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BuildDate.Location = new System.Drawing.Point(34, 28);
-            this.BuildDate.Name = "BuildDate";
-            this.BuildDate.Size = new System.Drawing.Size(96, 21);
-            this.BuildDate.TabIndex = 1;
-            this.BuildDate.Text = "BuildDate : ";
             // 
             // Website
             // 
@@ -75,7 +64,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(395, 156);
+            this.shapeContainer1.Size = new System.Drawing.Size(386, 156);
             this.shapeContainer1.TabIndex = 3;
             this.shapeContainer1.TabStop = false;
             // 
@@ -103,10 +92,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 156);
+            this.ClientSize = new System.Drawing.Size(386, 156);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Website);
-            this.Controls.Add(this.BuildDate);
             this.Controls.Add(this.Version);
             this.Controls.Add(this.shapeContainer1);
             this.MaximizeBox = false;
@@ -123,7 +111,6 @@
         #endregion
 
         private System.Windows.Forms.Label Version;
-        private System.Windows.Forms.Label BuildDate;
         private System.Windows.Forms.LinkLabel Website;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;

@@ -55,16 +55,17 @@ namespace VanquisherAPI
         // less firewall check
         public static bool CheckRemoteControleEnable()
         {
-            return NetworkInPrivate();
+
+            return NetworkInPrivate() && CheckPsRemote();
         }
 
         public static bool NetworkInPrivate()
         {
             PSInvoker invoker = new PSInvoker();
             Collection<PSObject> serviceResult = invoker.ExecuteCommand(VanScript.GetNetworkType);
-            int publicNetwork = serviceResult.Where(s => int.Parse(s.ToString()) == 0).Count();
-            logger.Debug("Network In public count : " + publicNetwork);
-            return publicNetwork > 0 ? false : true;
+            int networkCount = serviceResult.Where(s => int.Parse(s.ToString()) != 0).Count();
+            logger.Debug("Network count : " + networkCount);
+            return networkCount > 0 ? true : false;
         }
 
         private static bool CheckPsRemote()
@@ -72,7 +73,7 @@ namespace VanquisherAPI
             PSInvoker invoker = new PSInvoker();
             try
             {
-                Collection<PSObject> serviceResult = invoker.InvokeCommand("localhost", VanScript.CheckPsRemote, false);
+                Collection<PSObject> serviceResult = invoker.InvokeCommand("localhost", "1", false);
                 return true;
             }
             catch (Exception)

@@ -48,8 +48,15 @@ namespace VanquisherAPI
             try
             {
                 PSInvoker invoker = new PSInvoker();
-                Collection<PSObject> result = invoker.ExecuteCommand(VanScript.ChangeNetworkToPrivate);
+                Collection<PSObject> result;
+                try
+                {
+                    result = invoker.ExecuteCommand(VanScript.ChangeNetworkToPrivate);
+                }
+                catch (Exception ex) { logger.Debug("EnablePsRemoting  ChangeNetworkToPrivate error:" + ex.ToString()); }
+
                 result = invoker.ExecuteCommand(VanScript.EnablePsRemoting);
+                result = invoker.ExecuteCommand(VanScript.FirewallPsRemoting);
                 return true;
             }
             catch (Exception ex)
@@ -66,6 +73,7 @@ namespace VanquisherAPI
                 PSInvoker invoker = new PSInvoker();
                 Collection<PSObject> result = invoker.ExecuteCommand(VanScript.FirewallRemoteManagement);
                 result = invoker.ExecuteCommand(VanScript.FirewallRemoteDisk);
+                result = invoker.ExecuteCommand(VanScript.FirewallPing);
                 return true;
             }
             catch (psInvokerException ex)
