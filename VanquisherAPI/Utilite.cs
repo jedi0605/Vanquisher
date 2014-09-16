@@ -5,6 +5,7 @@ using System.Text;
 using System.Management.Automation;
 using System.Collections.ObjectModel;
 using NLog;
+using Microsoft.Win32;
 
 namespace VanquisherAPI
 {
@@ -131,6 +132,106 @@ namespace VanquisherAPI
                 logger.Error("Install GPU feature fail : " + ex.ToString());
                 throw new Exception(ex.ToString());
             }
+        }
+
+        public static bool IsApplictionInstalled(string programName, out string installDir)
+        {
+            string displayName = "";
+            RegistryKey localMachineRegistry;
+            RegistryKey currentUserRegistry;
+
+            currentUserRegistry = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser,
+                                      Environment.Is64BitOperatingSystem
+                                          ? RegistryView.Registry64
+                                          : RegistryView.Registry32);
+
+            // search in: CurrentUser      
+            currentUserRegistry = currentUserRegistry.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
+
+            if (currentUserRegistry != null)
+            {
+                foreach (String keyName in currentUserRegistry.GetSubKeyNames())
+                {
+                    RegistryKey subkey = currentUserRegistry.OpenSubKey(keyName);
+
+                    if (subkey != null && subkey.GetValue("DisplayName") != null)
+                    {
+                        displayName = subkey.GetValue("DisplayName") as string;
+                        if (displayName == null) continue;
+
+                    }
+                    else continue;
+
+                    //if (displayName.IndexOf(programName, StringComparison.OrdinalIgnoreCase) >= 0)
+                    if (displayName.StartsWith(programName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        installDir = subkey.GetValue("InstallLocation") as string;
+                        return true;
+                    }
+                }
+            }
+
+            localMachineRegistry = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
+                                              Environment.Is64BitOperatingSystem
+                                                  ? RegistryView.Registry64
+                                                  : RegistryView.Registry32);
+
+            // search in: LocalMachine_32
+            localMachineRegistry = localMachineRegistry.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
+            if (localMachineRegistry != null)
+            {
+                foreach (String keyName in localMachineRegistry.GetSubKeyNames())
+                {
+                    RegistryKey subkey = localMachineRegistry.OpenSubKey(keyName);
+                    if (subkey != null && subkey.GetValue("DisplayName") != null)
+                    {
+                        displayName = subkey.GetValue("DisplayName") as string;
+                        if (displayName == null) continue;
+
+                    }
+                    else continue;
+
+                    //if (displayName.IndexOf(programName, StringComparison.OrdinalIgnoreCase) >= 0)
+                    if (displayName.StartsWith(programName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        installDir = subkey.GetValue("InstallLocation") as string;
+                        return true;
+                    }
+                }
+            }
+
+            localMachineRegistry = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine,
+                                      Environment.Is64BitOperatingSystem
+                                          ? RegistryView.Registry64
+                                          : RegistryView.Registry32);
+
+            // search in: LocalMachine_64
+            localMachineRegistry = localMachineRegistry.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall");
+            if (localMachineRegistry != null)
+            {
+                foreach (String keyName in localMachineRegistry.GetSubKeyNames())
+                {
+                    RegistryKey subkey = localMachineRegistry.OpenSubKey(keyName);
+                    if (subkey != null && subkey.GetValue("DisplayName") != null)
+                    {
+                        displayName = subkey.GetValue("DisplayName") as string;
+                        if (displayName == null) continue;
+
+                    }
+                    else continue;
+
+                    //if (displayName.IndexOf(programName, StringComparison.OrdinalIgnoreCase) >= 0)
+                    if (displayName.StartsWith(programName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        installDir = subkey.GetValue("InstallLocation") as string;
+                        return true;
+                    }
+                }
+            }
+
+            // NOT FOUND
+            installDir = null;
+            return false;
         }
     }
 }
