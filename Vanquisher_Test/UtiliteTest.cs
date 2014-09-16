@@ -64,5 +64,16 @@ namespace Vanquisher_Test
         #endregion
 
 
+
+        /// <summary>
+        ///AddPathToRegistry 的測試
+        ///</summary>
+        [TestMethod()]
+        public void AddPathToRegistryTest()
+        {
+            string programName = "5nine Manager for Hyper-V";
+            string path = "c:\\";
+            Utilite.AddPathToRegistry(programName, path);
+        }
     }
 }

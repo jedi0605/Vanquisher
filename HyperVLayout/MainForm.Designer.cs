@@ -1,4 +1,6 @@
-﻿namespace Vanquisher
+﻿using Microsoft.Win32;
+using VanquisherAPI;
+namespace Vanquisher
 {
     partial class MainForm
     {
@@ -13,11 +15,26 @@
         /// <param name="disposing">如果應該處置 Managed 資源則為 true，否則為 false。</param>
         protected override void Dispose(bool disposing)
         {
+            TrySave5NinePathRemoveRun();
             if (disposing && (components != null))
             {
                 components.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private void TrySave5NinePathRemoveRun()
+        {
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            // RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Wow6432Node", true);
+            object o = key.GetValue(Constants.Five9RegName);
+            // save run to regedeit
+            if (o != null)
+            {
+                Utilite.AddPathToRegistry(Constants.Five9RegName, o.ToString());
+                key.DeleteValue(Constants.Five9RegName, true);
+                key.Close();
+            }
         }
 
         #region Windows Form 設計工具產生的程式碼

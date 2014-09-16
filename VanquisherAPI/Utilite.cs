@@ -134,6 +134,20 @@ namespace VanquisherAPI
             }
         }
 
+        public static void AddPathToRegistry(string programName, string path)
+        {
+            RegistryKey localMachineRegistry;
+            localMachineRegistry = Registry.LocalMachine.CreateSubKey("Software\\");
+            localMachineRegistry.SetValue(programName, path);
+            localMachineRegistry.Close();
+        }
+
+        public static void RemoveRegistry(string programName, string path)
+        {
+            // RegistryKey key = Registry.LocalMachine.OpenSubKey(keyName, true)
+            
+        }
+
         public static bool IsApplictionInstalled(string programName, out string installDir)
         {
             string displayName = "";

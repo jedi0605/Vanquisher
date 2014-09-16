@@ -24,8 +24,6 @@ namespace Vanquisher
 {
     public partial class MainForm : Form
     {
-
-
         static Logger logger = LogManager.GetCurrentClassLogger();
         public static InitializeHost initForm;
         public static CreateClusterForm clusterForm;
@@ -34,6 +32,8 @@ namespace Vanquisher
         public static string FiveNinePath = string.Empty;
         public static string FiveNineInstallPath = string.Empty;
         public static string pshvm30 = string.Empty;
+        public static string Five9StartPath = string.Empty;
+
         private int FirstCount = 0;
 
 
@@ -49,7 +49,36 @@ namespace Vanquisher
             invoker.Invoke("Set-ExecutionPolicy Unrestricted");
         }
 
+        private static string TryGet5NineStartPath()
+        {
+            string RunPath = string.Empty;
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            // RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Wow6432Node", true);
+            object o = key.GetValue(Constants.Five9RegName);
+            if (o != null)
+            {
+                logger.Debug(o.ToString());
+                RunPath = o.ToString();
+            }
 
+            string RunPath2 = string.Empty;
+            key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE");
+            o = key.GetValue(Constants.Five9RegName);
+            if (o != null)
+            {
+                logger.Debug(o.ToString());
+                RunPath2 = o.ToString();
+            }
+
+            if (RunPath != string.Empty)
+            {
+                return RunPath;
+            }
+            else
+            {
+                return RunPath2;
+            }
+        }
 
         private void GetThreadPartyPath()
         {
@@ -65,7 +94,7 @@ namespace Vanquisher
             initForm.SetDesktopLocation(this.Location.X + 10, this.Location.Y + 10);
 
             initForm.Show(this);
-            
+
             if (FirstCount == 0)
             {
                 Thread.Sleep(1000 * 2);
@@ -124,10 +153,11 @@ namespace Vanquisher
 
         public static void Open59Manager()
         {
-            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
-            object o = key.GetValue("5nine Manager for Hyper-V");
-
-            if (o == null)
+            //RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+            //object o = key.GetValue("5nine Manager for Hyper-V");
+            string installPath = string.Empty;
+            bool installed = Utilite.IsApplictionInstalled(Constants.Five9RegName, out installPath);
+            if (!installed)
             {
                 if (MessageBox.Show("Install 59manager?", "Install 59manager?", MessageBoxButtons.YesNo, MessageBoxIcon.Information,
                                     MessageBoxDefaultButton.Button1) == DialogResult.Yes)
@@ -137,8 +167,8 @@ namespace Vanquisher
             }
             else
             {
-                logger.Debug(o.ToString());
-                ProcessCaller.ProcessOpen(o.ToString());
+                logger.Debug(TryGet5NineStartPath());
+                ProcessCaller.ProcessOpen(TryGet5NineStartPath());
             }
         }
 
