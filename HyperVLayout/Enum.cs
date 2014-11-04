@@ -33,6 +33,8 @@ namespace Vanquisher
                     return "Create VM.";
                 case CheckModule.CreateCluster:
                     return "Create Cluster.";
+                case CheckModule.CreateVirtualSwitch:
+                    return "Virtual switch setting is correct.";
                 case CheckModule.CheckCluster:
                 case CheckModule.JoinNodeToCluster:
                 default:
@@ -46,6 +48,7 @@ namespace Vanquisher
     {
         EnableRDP,
         EnableWinRM,
+        CreateVirtualSwitch,
         IPconfig,
         HyperVFeature,
         ClusterFeature,

@@ -31,6 +31,7 @@ namespace Vanquisher
             initModuleStatus.Add(CheckModule.EnableRDP, false);
             initModuleStatus.Add(CheckModule.EnableWinRM, false);
             initModuleStatus.Add(CheckModule.HyperVFeature, false);
+            initModuleStatus.Add(CheckModule.CreateVirtualSwitch, false);
             initModuleStatus.Add(CheckModule.IPconfig, false);
             initModuleStatus.Add(CheckModule.GPUFeature, false);
             initModuleStatus.Add(CheckModule.ClusterFeature, false);
