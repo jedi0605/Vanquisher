@@ -41,7 +41,7 @@ namespace VanquisherAPI
                 return false;
             }
 
-            string status = serviceResult[0].Properties["status"].Value.ToString();
+            string status = serviceResult[0].Properties["status"]. Value.ToString();
             if (string.Equals(status, "Running"))
             {
                 return true;

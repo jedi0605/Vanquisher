@@ -1,11 +1,14 @@
 ﻿using VanquisherAPI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Management.Automation;
+using System.Collections.ObjectModel;
+using System.Management.Automation.Runspaces;
 
 namespace Vanquisher_Test
 {
-    
-    
+
+
     /// <summary>
     ///這是 UtiliteTest 的測試類別，應該包含
     ///所有 UtiliteTest 單元測試
@@ -74,6 +77,50 @@ namespace Vanquisher_Test
             string programName = "5nine Manager for Hyper-V";
             string path = "c:\\";
             Utilite.AddPathToRegistry(programName, path);
+        }
+
+
+        [TestMethod()]
+        public void GetVirtualSwitchTest()
+        {
+
+            RunspaceInvoke invoker = new RunspaceInvoke();
+            invoker.Invoke("Set-ExecutionPolicy Unrestricted");
+            string mainScript = VanScript.CreateVirtualSwitch("乙太網路");
+            string password = "Passw0rd";
+            string VMIP = "172.16.93.51";
+            invoker.Invoke("Set-Item WSMan:\\localhost\\Client\\TrustedHosts " + VMIP + " -Concatenate -force");
+            string injectScript = @"$username = ""User""
+                                            $account = ""administrator""
+                                            $password = ConvertTO-SecureString """ + password + @""" -asplaintext -Force
+                                            $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $account, $password
+                                            Invoke-Command -ComputerName " + VMIP + @" -Authentication default" +
+                            @" -credential $cred " +
+                            @" -ScriptBlock {" + mainScript + "}";
+
+
+            string output = "";
+            Runspace runspace = RunspaceFactory.CreateRunspace();
+            runspace.Open();
+            Pipeline pipeline = runspace.CreatePipeline();
+            pipeline.Commands.AddScript(injectScript);
+            pipeline.Commands.Add("Out-String");
+            try
+            {
+                Collection<PSObject> result = pipeline.Invoke();
+                string test = result.ToString();
+                foreach (PSObject item in result)
+                {
+                    Console.WriteLine(item.Properties["Name"]);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            runspace.Close();
         }
     }
 }

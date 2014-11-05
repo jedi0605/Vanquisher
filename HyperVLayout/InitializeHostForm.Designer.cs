@@ -82,7 +82,7 @@ namespace Vanquisher
             this.ModuleListView.Location = new System.Drawing.Point(8, 64);
             this.ModuleListView.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
             this.ModuleListView.Name = "ModuleListView";
-            this.ModuleListView.Size = new System.Drawing.Size(418, 390);
+            this.ModuleListView.Size = new System.Drawing.Size(418, 423);
             this.ModuleListView.TabIndex = 17;
             this.ModuleListView.UseCompatibleStateImageBehavior = false;
             this.ModuleListView.View = System.Windows.Forms.View.Details;
@@ -99,7 +99,7 @@ namespace Vanquisher
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(432, 479);
+            this.shapeContainer1.Size = new System.Drawing.Size(432, 511);
             this.shapeContainer1.TabIndex = 19;
             this.shapeContainer1.TabStop = false;
             // 
@@ -118,7 +118,7 @@ namespace Vanquisher
             this.CheckConfigBar,
             this.ProgressLabel});
             this.InitToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.InitToolStrip.Location = new System.Drawing.Point(0, 460);
+            this.InitToolStrip.Location = new System.Drawing.Point(0, 492);
             this.InitToolStrip.Name = "InitToolStrip";
             this.InitToolStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.InitToolStrip.Size = new System.Drawing.Size(432, 19);
@@ -164,7 +164,7 @@ namespace Vanquisher
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(432, 479);
+            this.ClientSize = new System.Drawing.Size(432, 511);
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.InitToolStrip);
             this.Controls.Add(this.ModuleListView);

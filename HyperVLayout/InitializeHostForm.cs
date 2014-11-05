@@ -18,6 +18,7 @@ namespace Vanquisher
         static Logger logger = LogManager.GetCurrentClassLogger();
         private Dictionary<CheckModule, bool> initModuleStatus = new Dictionary<CheckModule, bool>();
         public static iSCSIForm iscsiForm;
+        public static CreateVirtualSwitchForm vSwitchForm;
         public InitializeHost()
         {
             InitializeComponent();
@@ -107,6 +108,10 @@ namespace Vanquisher
                 case CheckModule.CreateVM:
                     MainForm.Open59Manager();
                     break;
+                case CheckModule.CreateVirtualSwitch:
+                    vSwitchForm = new CreateVirtualSwitchForm();
+                    vSwitchForm.Show(this);
+                    break;
                 default:
                     MessageBox.Show("Not ready");
                     break;
@@ -155,6 +160,9 @@ namespace Vanquisher
             WinRMChecker();
             CheckConfigBar.Value = 30;
 
+            VirtualSwitchChecker();
+            CheckConfigBar.Value = 40;
+
             IsJoinDomain();
             CheckConfigBar.Value = 50;
 
@@ -175,6 +183,19 @@ namespace Vanquisher
             UseWaitCursor = false;
 
             Cursor.Current = Cursors.WaitCursor;
+        }
+
+        private void VirtualSwitchChecker()
+        {
+            try
+            {
+                ChangeStatus(CheckModule.CreateVirtualSwitch, VirtualSwitch.VirtualSwitchExist());
+            }
+            catch (Exception ex)
+            {
+                logger.Debug(ex.ToString());
+                MessageBox.Show("Virtual Switch Error:" + ex.Message);
+            }
         }
 
         private void PaintingModuleListView()

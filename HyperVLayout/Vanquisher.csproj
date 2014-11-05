@@ -106,6 +106,12 @@
     <Compile Include="CreateClusterForm.Designer.cs">
       <DependentUpon>CreateClusterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateVirtualSwitchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateVirtualSwitchForm.Designer.cs">
+      <DependentUpon>CreateVirtualSwitchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enum.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateClusterForm.resx">
       <DependentUpon>CreateClusterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateVirtualSwitchForm.resx">
+      <DependentUpon>CreateVirtualSwitchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

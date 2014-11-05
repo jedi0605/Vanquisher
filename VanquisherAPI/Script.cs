@@ -68,16 +68,22 @@ namespace VanquisherAPI
         public static string FirewallPing = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-28502\" new enable=yes";
         public static string FirewallPsRemoting = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-30252\" new enable=yes";
         public static string FirewallPsRemotingStatus = "(New-object –comObject HNetCfg.FwPolicy2).rules|Where-Object{$_.Grouping -eq \"@FirewallAPI.dll,-30252\"}";
-        
+
         // GPU
         public static string InstallRDSFeature = "Install-WindowsFeature RDS-Virtualization";
         public static string InstallRemoteDesktopServices = "Install-WindowsFeature Remote-Desktop-Services";
 
         // Network Type
         public static string ChangeNetworkToPrivate = "[Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]\"{DCB00C01-570F-4A9B-8D69-199FDBA5723B}\"))"
-                                                    +".GetNetworkConnections()|%{$_.GetNetwork().SetCategory(1)}";
+                                                    + ".GetNetworkConnections()|%{$_.GetNetwork().SetCategory(1)}";
         public static string GetNetworkType = "[Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]\"{DCB00C01-570F-4A9B-8D69-199FDBA5723B}\"))"
                                                     + ".GetNetworkConnections()|%{$_.GetNetwork().GetCategory()}";
-
+        // Virtual switch
+        public static string GetVirtualSwitchInfo = "Get-VMSwitch | select name";
+        public const string VirtaulSwitchName = "vaccess";
+        public static string CreateVirtualSwitch(string adapterName)
+        {
+            return "New-VMSwitch -Name vAccess -NetAdapterName \"" + adapterName + "\" -AllowManagementOS $true";
+        }
     }
 }

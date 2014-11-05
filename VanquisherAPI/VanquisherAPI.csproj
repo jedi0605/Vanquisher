@@ -65,6 +65,7 @@
     <Compile Include="PSInvoker.cs" />
     <Compile Include="Utilite.cs" />
     <Compile Include="Cluster.cs" />
+    <Compile Include="VirtualSwitch.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">
