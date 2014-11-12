@@ -121,7 +121,7 @@
   <data name="CreateSwitch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRy
+        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRy
         oQAABeBJREFUWEfVWF9I1FkUzplRJ8c/Y7WWKwqR6Aot5PrQS0sYRthWmD3ELu3DolKLUpQG0kOQEhZI
         4i4Va9HDPlT6svliimnkopaCaYEibq5Sgma2oZah2dnvu95fzjjXHC0W9sCHzvzuPef73XvOud+dVf9r
         27lzZwBgAxxAMBABrAUigdVAIGAHOE7P+oxGpwAJOIG4kpKSzLt3757v7e2tfPr0aePQ0FDrs2fPmp48
@@ -150,4 +150,7 @@
         WNBPVmKrVv0La44r4zb3nr0AAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

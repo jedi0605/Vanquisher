@@ -25,11 +25,11 @@ namespace VanquisherAPI
             return switchInfo.ToLower().Contains(VanScript.VirtaulSwitchName) ? true : false;
         }
 
-        public static bool CreateVSwitch(string adapterName)
+        public static bool CreateVSwitch(string adapterName, string switchName)
         {
             PSInvoker invoker = new PSInvoker();
-            logger.Debug("init Script :" + VanScript.CreateVirtualSwitch(adapterName));
-            Collection<PSObject> serviceResult = invoker.ExecuteCommand(VanScript.CreateVirtualSwitch(adapterName));
+            logger.Debug("init Script :" + VanScript.CreateVirtualSwitch(adapterName, switchName));
+            Collection<PSObject> serviceResult = invoker.ExecuteCommand(VanScript.CreateVirtualSwitch(adapterName, switchName));
             return true;
         }
     }

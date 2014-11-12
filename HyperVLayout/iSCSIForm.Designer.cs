@@ -36,6 +36,7 @@
             this.ISCSiStatusText = new System.Windows.Forms.Label();
             this.PartitionSizeText = new System.Windows.Forms.Label();
             this.SetDiskOffbtn = new System.Windows.Forms.Button();
+            this.CreatePartition = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ISCSiCheckedListBox
@@ -44,7 +45,7 @@
             this.ISCSiCheckedListBox.HorizontalScrollbar = true;
             this.ISCSiCheckedListBox.Location = new System.Drawing.Point(12, 12);
             this.ISCSiCheckedListBox.Name = "ISCSiCheckedListBox";
-            this.ISCSiCheckedListBox.Size = new System.Drawing.Size(189, 174);
+            this.ISCSiCheckedListBox.Size = new System.Drawing.Size(189, 208);
             this.ISCSiCheckedListBox.TabIndex = 0;
             // 
             // InitDiskBtn
@@ -63,7 +64,7 @@
             // 
             this.SetDiskOnlineBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetDiskOnlineBtn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.SetDiskOnlineBtn.Location = new System.Drawing.Point(215, 112);
+            this.SetDiskOnlineBtn.Location = new System.Drawing.Point(216, 152);
             this.SetDiskOnlineBtn.Name = "SetDiskOnlineBtn";
             this.SetDiskOnlineBtn.Size = new System.Drawing.Size(257, 34);
             this.SetDiskOnlineBtn.TabIndex = 1;
@@ -115,7 +116,7 @@
             // 
             this.SetDiskOffbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetDiskOffbtn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.SetDiskOffbtn.Location = new System.Drawing.Point(215, 152);
+            this.SetDiskOffbtn.Location = new System.Drawing.Point(216, 192);
             this.SetDiskOffbtn.Name = "SetDiskOffbtn";
             this.SetDiskOffbtn.Size = new System.Drawing.Size(257, 34);
             this.SetDiskOffbtn.TabIndex = 1;
@@ -123,11 +124,24 @@
             this.SetDiskOffbtn.UseVisualStyleBackColor = true;
             this.SetDiskOffbtn.Click += new System.EventHandler(this.SetDiskOffbtn_Click);
             // 
+            // CreatePartition
+            // 
+            this.CreatePartition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreatePartition.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.CreatePartition.Location = new System.Drawing.Point(216, 112);
+            this.CreatePartition.Name = "CreatePartition";
+            this.CreatePartition.Size = new System.Drawing.Size(257, 34);
+            this.CreatePartition.TabIndex = 6;
+            this.CreatePartition.Text = "Partition And Format";
+            this.CreatePartition.UseVisualStyleBackColor = true;
+            this.CreatePartition.Click += new System.EventHandler(this.CreatePartitionAndFormat_Click);
+            // 
             // iSCSIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 202);
+            this.ClientSize = new System.Drawing.Size(481, 243);
+            this.Controls.Add(this.CreatePartition);
             this.Controls.Add(this.PartitionSizeText);
             this.Controls.Add(this.ISCSiStatusText);
             this.Controls.Add(this.PartitionSizeLable);
@@ -156,5 +170,6 @@
         private System.Windows.Forms.Label ISCSiStatusText;
         private System.Windows.Forms.Label PartitionSizeText;
         private System.Windows.Forms.Button SetDiskOffbtn;
+        private System.Windows.Forms.Button CreatePartition;
     }
 }

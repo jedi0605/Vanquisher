@@ -86,7 +86,50 @@ namespace Vanquisher_Test
 
             RunspaceInvoke invoker = new RunspaceInvoke();
             invoker.Invoke("Set-ExecutionPolicy Unrestricted");
-            string mainScript = VanScript.CreateVirtualSwitch("乙太網路");
+            string mainScript = VanScript.CreateVirtualSwitch("乙太網路","vAccess");
+            string password = "Passw0rd";
+            string VMIP = "172.16.93.51";
+            invoker.Invoke("Set-Item WSMan:\\localhost\\Client\\TrustedHosts " + VMIP + " -Concatenate -force");
+            string injectScript = @"$username = ""User""
+                                            $account = ""administrator""
+                                            $password = ConvertTO-SecureString """ + password + @""" -asplaintext -Force
+                                            $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $account, $password
+                                            Invoke-Command -ComputerName " + VMIP + @" -Authentication default" +
+                            @" -credential $cred " +
+                            @" -ScriptBlock {" + mainScript + "}";
+
+
+            string output = "";
+            Runspace runspace = RunspaceFactory.CreateRunspace();
+            runspace.Open();
+            Pipeline pipeline = runspace.CreatePipeline();
+            pipeline.Commands.AddScript(injectScript);
+            pipeline.Commands.Add("Out-String");
+            try
+            {
+                Collection<PSObject> result = pipeline.Invoke();
+                string test = result.ToString();
+                foreach (PSObject item in result)
+                {
+                    Console.WriteLine(item.Properties["Name"]);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            runspace.Close();
+        }
+
+        [TestMethod()]
+        public void ISCSITest()
+        {
+
+            RunspaceInvoke invoker = new RunspaceInvoke();
+            invoker.Invoke("Set-ExecutionPolicy Unrestricted");
+            string mainScript = VanScript.GetIscsiInfo;
             string password = "Passw0rd";
             string VMIP = "172.16.93.51";
             invoker.Invoke("Set-Item WSMan:\\localhost\\Client\\TrustedHosts " + VMIP + " -Concatenate -force");

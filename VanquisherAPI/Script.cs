@@ -17,8 +17,19 @@ namespace VanquisherAPI
         public static string GetIscsiInfo = "Get-Disk | Where-Object BusType -eq \"iSCSI\"";
         public static string InitializeDisk(int diskNumber)
         {
-            return "Initialize-Disk -Number " + diskNumber + " -PartitionStyle GPT -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -force -Confirm:$false";
+            return "Initialize-Disk -Number " + diskNumber + " -PartitionStyle GPT -PassThru";
         }
+
+        public static string CreateNewPartitionAndFormat(int diskNumber)
+        {
+            return "New-Partition -DiskNumber " + diskNumber + " -AssignDriveLetter -UseMaximumSize | Format-Volume -force -Confirm:$false";
+        }
+
+        public static string RemovePartition(int diskNumber)
+        {
+            return " Get-Partition " + diskNumber + "|Remove-Partition -Confirm:$false";
+        }
+
         public static string SetDiskOnline(int diskNumber)
         {
             return "Set-Disk " + diskNumber + " -IsOffline $False";
@@ -64,7 +75,7 @@ namespace VanquisherAPI
         public static string WindowsUpdate = "\\Updates.ps1";
         // firewall
         public static string FirewallRemoteDisk = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-34501\" new enable=yes";
-        public static string FirewallRemoteManagement = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-30002\" new enable=yes";
+        public static string FirewallRemoteManagement = "netsh advfirewall firewall set rule group=\"@firewallAPI. dll,-30002\" new enable=yes";
         public static string FirewallPing = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-28502\" new enable=yes";
         public static string FirewallPsRemoting = "netsh advfirewall firewall set rule group=\"@firewallAPI.dll,-30252\" new enable=yes";
         public static string FirewallPsRemotingStatus = "(New-object –comObject HNetCfg.FwPolicy2).rules|Where-Object{$_.Grouping -eq \"@FirewallAPI.dll,-30252\"}";
@@ -81,9 +92,9 @@ namespace VanquisherAPI
         // Virtual switch
         public static string GetVirtualSwitchInfo = "Get-VMSwitch | select name";
         public const string VirtaulSwitchName = "vaccess";
-        public static string CreateVirtualSwitch(string adapterName)
+        public static string CreateVirtualSwitch(string adapterName, string switchName)
         {
-            return "New-VMSwitch -Name vAccess -NetAdapterName \"" + adapterName + "\" -AllowManagementOS $true";
+            return "New-VMSwitch -Name " + switchName + " -NetAdapterName \"" + adapterName + "\" -AllowManagementOS $true";
         }
     }
 }

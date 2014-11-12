@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using VanquisherAPI;
 using NLog;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
+using System.Management.Automation;
 
 namespace Vanquisher
 {
@@ -138,6 +140,54 @@ namespace Vanquisher
             if (selecets.Count > 0)
             {
                 RefleshVolumeInfo(true);
+            }
+        }
+
+        private void CreatePartitionAndFormat_Click(object sender, EventArgs e)
+        {
+            CheckedListBox.CheckedItemCollection selecets = ISCSiCheckedListBox.CheckedItems;
+            foreach (string item in selecets)
+            {
+                ISCSiInfo info = GetSelectVolum(item);
+                try
+                {
+                    bool result = ISCSiAPI.CreatePartitionAndFormat(info.Number);
+                    if (result)
+                    {
+                        MessageBox.Show("Create partition and format disk " + item + " Success.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Create partition and format disk " + item + " fail.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex.ToString());
+                    if (ex.Message.Contains("available capacity"))
+                    {
+                        this.ReFormatPartition(info.Number);
+                    }
+                }
+            }
+        }
+
+        private void ReFormatPartition(int diskNumber)
+        {
+            if (MessageBox.Show("Partition " + diskNumber + " is already format. Are you sure re-format partision?", "Format partision", MessageBoxButtons.YesNo,
+            MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                logger.Debug("In ReFormatPartition");
+                bool removeResult = ISCSiAPI.RemovePartitionByDiskNumber(diskNumber);
+                bool createResult = ISCSiAPI.CreatePartitionAndFormat(diskNumber);
+                if (removeResult && createResult)
+                {
+                    MessageBox.Show("CreatePartition And Format Success");
+                }
+                else
+                {
+                    MessageBox.Show("Some error. Please see the log.");
+                }
             }
         }
     }

@@ -88,6 +88,64 @@ namespace VanquisherAPI
             }
         }
 
+        public static bool CreatePartitionAndFormat(int diskNumber)
+        {
+            PSInvoker invoker = new PSInvoker();
+            try
+            {
+                string initScript = VanScript.CreateNewPartitionAndFormat(diskNumber);
+                logger.Debug("init Script :" + initScript);
+                Collection<PSObject> result = invoker.ExecuteCommand(initScript);
+                // return result.Count == 1 ? true : false;
+                return true;
+            }
+            catch (psInvokerException ex)
+            {
+                string exceptionString = string.Empty;
+                foreach (PSObject item in ex.errorRecords)
+                {
+                    exceptionString = item.ToString();
+                    logger.Error("Create Partition And Format psInvokerException : " + item.ToString());
+                    break;
+                }
+                throw new Exception(exceptionString);
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Create Partition And Format fail : " + ex.ToString());
+                return true;
+            }
+        }
+
+        public static bool RemovePartitionByDiskNumber(int diskNumber)
+        {
+            PSInvoker invoker = new PSInvoker();
+            try
+            {
+                string executeScript = VanScript.RemovePartition(diskNumber);
+                logger.Debug("executeScript Script :" + executeScript);
+                Collection<PSObject> result = invoker.ExecuteCommand(executeScript);
+                // return result.Count == 1 ? true : false;
+                return true;
+            }
+            catch (psInvokerException ex)
+            {
+                string exceptionString = string.Empty;
+                foreach (PSObject item in ex.errorRecords)
+                {
+                    exceptionString = item.ToString();
+                    logger.Error("Remove Partition psInvokerException : " + item.ToString());
+                    break;
+                }
+                throw new Exception(exceptionString);
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Remove Partition Exception : " + ex.ToString());
+                return true;
+            }
+        }
+
         public static bool SetDiskStatus(int diskNumber, bool online)
         {
             PSInvoker invoker = new PSInvoker();

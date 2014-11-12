@@ -43,11 +43,16 @@ namespace Vanquisher
             CheckedListBox.CheckedItemCollection selecets = this.NetAdapterCheckedListBox.CheckedItems;
             foreach (string item in selecets)
             {
+                if (string.IsNullOrEmpty(switchTextBox.Text))
+                {
+                    MessageBox.Show("Please enter swich name");
+                    break;
+                }
                 string parseAdapterName = item.Substring(0, item.IndexOf(":"));
                 logger.Debug("adpater nam:" + parseAdapterName + ".");
                 try
                 {
-                    bool result = VirtualSwitch.CreateVSwitch(parseAdapterName);
+                    bool result = VirtualSwitch.CreateVSwitch(parseAdapterName, switchTextBox.Text);
                 }
                 catch (Exception ex)
                 {
